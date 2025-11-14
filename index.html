@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trilha do Aprendiz - Sua jornada começa aqui!</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Fontes: Uma padrão (Inter) e uma de Pixel Art (Press Start 2P) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            /* Cores do seu Manual de Identidade Visual */
+            --amarelo: #FFB80F;
+            --azul: #0F46B9;
+            --preto: #191919;
+        }
+        .font-pixel {
+            font-family: 'Press Start 2P', cursive;
+        }
+        .pixel-button {
+            background-color: var(--amarelo);
+            color: var(--preto);
+            border: 4px solid var(--preto);
+            box-shadow: 4px 4px 0px 0px var(--preto);
+            transition: all 0.1s ease-in;
+        }
+        .pixel-button:hover {
+            transform: translate(2px, 2px);
+            box-shadow: 2px 2px 0px 0px var(--preto);
+        }
+    </style>
+</head>
+<body class="bg-stone-100 text-stone-900">
+
+    <!-- Header e Navegação -->
+    <nav class="bg-white border-b-4 border-preto sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="font-pixel text-xl md:text-2xl text-blue-800" style="color: var(--azul);">
+                TRILHA DO APRENDIZ
+            </div>
+            <div class="hidden md:flex space-x-6">
+                <a href="#como-funciona" class="font-semibold text-stone-600 hover:text-blue-800 transition">Como Funciona</a>
+                <a href="#para-empresas" class="font-semibold text-stone-600 hover:text-blue-800 transition">Para Empresas</a>
+            </div>
+            <a href="#jogo" class="hidden md:block pixel-button py-2 px-4 text-sm">
+                JOGAR!
+            </a>
+        </div>
+    </nav>
+
+    <!-- Secção Hero -->
+    <header class="text-white py-20 px-6" style="background-color: var(--azul);">
+        <div class="container mx-auto text-center max-w-3xl">
+            <!-- Inspirado no seu panfleto -->
+            <h1 class="font-pixel text-3xl md:text-5xl mb-6" style="color: var(--amarelo);">PROCURA-SE!</h1>
+            <p class="text-xl md:text-2xl text-white mb-8">
+                Jovens de 14 a 24 anos que buscam a primeira oportunidade de emprego e estão prontos para vencer na vida!
+            </p>
+            <a href="#jogo" class="pixel-button py-4 px-8 text-lg">
+                INICIAR MINHA JORNADA
+            </a>
+        </div>
+    </header>
+
+    <!-- Secção "Como Funciona" -->
+    <section id="como-funciona" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center text-stone-900 mb-12">Sua Carreira em forma de Jogo</h2>
+            
+            <div class="grid md:grid-cols-3 gap-8 text-center">
+                <!-- Card 1: Crie seu Avatar -->
+                <div class="bg-stone-50 rounded-lg shadow-lg p-8 border-b-4 border-stone-300">
+                    <div class="font-pixel text-5xl mb-4">👾</div>
+                    <h3 class="text-2xl font-bold text-stone-900 mb-4">1. Crie seu Avatar</h3>
+                    <p class="text-stone-700 leading-relaxed">O seu avatar é o seu currículo. Ao invés de preencher formulários chatos, você constrói um personagem com suas habilidades e talentos.</p>
+                </div>
+
+                <!-- Card 2: Complete Missões -->
+                <div class="bg-stone-50 rounded-lg shadow-lg p-8 border-b-4 border-stone-300">
+                    <div class="font-pixel text-5xl mb-4">🎯</div>
+                    <h3 class="text-2xl font-bold text-stone-900 mb-4">2. Complete Missões</h3>
+                    <p class="text-stone-700 leading-relaxed">Participe de simulações de atividades profissionais no nosso mapa interativo. Cada "quest" completa vira experiência no seu perfil.</p>
+                </div>
+
+                <!-- Card 3: Conecte-se -->
+                <div class="bg-stone-50 rounded-lg shadow-lg p-8 border-b-4 border-stone-300">
+                    <div class="font-pixel text-5xl mb-4">💼</div>
+                    <h3 class="text-2xl font-bold text-stone-900 mb-4">3. Conecte-se</h3>
+                    <p class="text-stone-700 leading-relaxed">Recrutadores de grandes empresas usam sua experiência no jogo como uma avaliação gamificada para encontrar novos talentos.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Secção "O Jogo" -->
+    <section id="jogo" class="py-20" style="background-color: var(--amarelo);">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="font-pixel text-3xl text-preto mb-8">Entre no Mapa</h2>
+            <p class="text-lg text-preto max-w-2xl mx-auto mb-8">
+                Explore um mundo em pixel art que simula um ambiente profissional, com escritórios, centros de logística e indústrias.
+            </p>
+            <div class="bg-white border-4 border-preto rounded-lg p-4 shadow-lg">
+                <img src="https://placehold.co/800x450/0F46B9/FFB80F?text=Mapa+Interativo+(Pixel+Art)&font=pressstart2p" 
+                     alt="Simulação do Mapa Interativo" 
+                     class="w-full rounded-md object-cover"
+                     onerror="this.src='https://placehold.co/800x450?text=Mapa+Interativo'">
+            </div>
+        </div>
+    </section>
+
+    <!-- Secção "Para Empresas" -->
+    <section id="para-empresas" class="py-20 bg-white">
+        <div class="container mx-auto px-6 flex flex-col md:flex-row items-center gap-8">
+            <div class="w-full md:w-1/2">
+                <h2 class="text-3xl font-bold text-stone-900 mb-6">Para Recrutadores e Empresas</h2>
+                <p class="text-lg text-stone-700 leading-relaxed mb-4">
+                    Cansado de currículos iguais? Na Trilha do Aprendiz, você não lê apenas o que o jovem diz que sabe fazer. Você vê o que ele JÁ FEZ.
+                </p>
+                <ul class="list-disc list-inside text-lg text-stone-700 space-y-2">
+                    <li>Avaliação gamificada de talentos.</li>
+                    <li>Métricas de desempenho em simulações.</li>
+                    <li>Acesso a jovens engajados e proativos.</li>
+                    <li>Filtre por habilidades (hard e soft skills) demonstradas no jogo.</li>
+                </ul>
+            </div>
+            <div class="w-full md:w-1/2">
+                <img src="https://placehold.co/600x400/e0e7ff/0F46B9?text=Painel+de+Recrutador&font=inter" 
+                     alt="Painel para Empresas" 
+                     class="rounded-lg shadow-md w-full"
+                     onerror="this.src='https://placehold.co/600x400?text=Painel+Recrutador'">
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="text-white text-center py-10" style="background-color: var(--preto);">
+        <p>&copy; 2025 Trilha do Aprendiz. Todos os direitos reservados.</p>
+        <p class="text-sm mt-2 opacity-70">Feito com 💙 em Manaus, Amazonas.</p>
+        <p class="text-sm mt-1 opacity-70">contato@trilhadoaprendiz.com</p>
+    </footer>
+
+</body>
+</html>
