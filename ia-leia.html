@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IA LEIA - Trilha do Aprendiz</title>
+    
+    <!-- Scripts e Estilos partilhados -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+</head>
+<body class="bg-stone-100 text-stone-900">
+
+    <!-- Header (O mesmo do index.html) -->
+    <nav class="bg-white border-b-4 border-preto sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="font-pixel text-xl md:text-2xl text-blue-800" style="color: var(--azul);">
+                TRILHA DO APRENDIZ
+            </a>
+            <div class="hidden md:flex space-x-6">
+                <!-- Link "Como Funciona" agora aponta de volta para o index -->
+                <a href="index.html#como-funciona" class="font-semibold text-stone-600 hover:text-blue-800 transition">Como Funciona</a>
+                <a href="index.html#para-empresas" class="font-semibold text-stone-600 hover:text-blue-800 transition">Para Empresas</a>
+            </div>
+            <a href="index.html#jogo" class="hidden md:block pixel-button py-2 px-4 text-sm">
+                JOGAR!
+            </a>
+        </div>
+    </nav>
+
+    <!-- Conteúdo Específico da Página IA LEIA -->
+    <main class="container mx-auto px-6 py-20">
+        
+        <!-- Hero da IA LEIA -->
+        <section class="text-center mb-20">
+            <!-- Use a sua logo da IA que está na pasta /imagens -->
+            <img src="imagens/Logo faa ai aprendiz.png" alt="Logo IA LEIA" class="mx-auto w-48 h-48 object-contain mb-6"
+                 onerror="this.src='https://placehold.co/200x200/a5f3fc/191919?text=Logo+IA+LEIA'">
+            
+            <h1 class="font-pixel text-3xl md:text-5xl text-preto mb-6">IA LEIA</h1>
+            <p class="text-xl md:text-2xl text-stone-700 max-w-2xl mx-auto mb-8">
+                Sua tutora de Inteligência Artificial para criar currículos e treinar para aquela entrevista difícil.
+            </p>
+            <a href="https://stec.cx/services/trilhadoaprendiz/chat?p=baafde05-f553-45da-ad00-4eafc38c1465" target="_blank" rel="noopener noreferrer" class="pixel-button py-4 px-8 text-lg" style="background-color: var(--azul); color: white;">
+                Começar a Conversar
+            </a>
+        </section>
+
+        <!-- Features da IA LEIA -->
+        <section class="grid md:grid-cols-3 gap-8 text-left">
+            <!-- Feature 1 -->
+            <div class="bg-white p-8 rounded-lg shadow-lg border-b-4 border-blue-800">
+                <div class="font-pixel text-4xl mb-4">📄</div>
+                <h3 class="text-2xl font-bold text-stone-900 mb-4">Construtor de CV</h3>
+                <p class="text-stone-700 leading-relaxed">Não sabe por onde começar? A LEIA faz as perguntas certas e monta um currículo profissional para si.</p>
+            </div>
+
+            <!-- Feature 2 -->
+            <div class="bg-white p-8 rounded-lg shadow-lg border-b-4 border-blue-800">
+                <div class="font-pixel text-4xl mb-4">🎙️</div>
+                <h3 class="text-2xl font-bold text-stone-900 mb-4">Simulador de Entrevista</h3>
+                <p class="text-stone-700 leading-relaxed">Treine as suas respostas. A LEIA simula uma entrevista real e dá-lhe feedback instantâneo sobre a sua performance.</p>
+            </div>
+
+            <!-- Feature 3 -->
+            <div class="bg-white p-8 rounded-lg shadow-lg border-b-4 border-blue-800">
+                <div class="font-pixel text-4xl mb-4">💡</div>
+                <h3 class="text-2xl font-bold text-stone-900 mb-4">Dicas de Carreira</h3>
+                <p class="text-stone-700 leading-relaxed">Pergunte qualquer coisa. Desde "como me vestir" até "como negociar o meu primeiro salário".</p>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer (O mesmo do index.html) -->
+    <footer class="text-white text-center py-10" style="background-color: var(--preto);">
+        <p>&copy; 2025 Trilha do Aprendiz. Todos os direitos reservados.</p>
+        <p class="text-sm mt-2 opacity-70">Feito com 💙 em Manaus, Amazonas.</p>
+        <p class="text-sm mt-1 opacity-70">contato@trilhadoaprendiz.com</p>
+    </footer>
+
+</body>
+</html>

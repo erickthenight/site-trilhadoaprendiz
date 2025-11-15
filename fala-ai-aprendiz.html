@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Podcast FALA AI, Aprendiz - Trilha do Aprendiz</title>
+    
+    <!-- Scripts e Estilos partilhados -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+
+</head>
+<body class="bg-stone-100 text-stone-900">
+
+    <!-- Header (O mesmo do index.html) -->
+    <nav class="bg-white border-b-4 border-preto sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="font-pixel text-xl md:text-2xl text-blue-800" style="color: var(--azul);">
+                TRILHA DO APRENDIZ
+            </a>
+            <div class="hidden md:flex space-x-6">
+                <a href="index.html#como-funciona" class="font-semibold text-stone-600 hover:text-blue-800 transition">Como Funciona</a>
+                <a href="index.html#para-empresas" class="font-semibold text-stone-600 hover:text-blue-800 transition">Para Empresas</a>
+            </div>
+            <a href="index.html#jogo" class="hidden md:block pixel-button py-2 px-4 text-sm">
+                JOGAR!
+            </a>
+        </div>
+    </nav>
+
+    <!-- Conteúdo Específico da Página do Podcast -->
+    <main class="container mx-auto px-6 py-20">
+        
+        <!-- Hero da Página -->
+        <section class="text-center mb-12">
+            <!-- Use a sua logo do Podcast que está na pasta /imagens -->
+            <img src="imagens/Identidade - Fala ai.png" alt="Logo Podcast FALA AI Aprendiz" class="mx-auto w-auto h-48 object-contain mb-6"
+                 onerror="this.src='https://placehold.co/300x200/d8b4fe/191919?text=Logo+Podcast'">
+            
+            <h1 class="font-pixel text-3xl md:text-5xl text-preto mb-6">FALA AI, APRENDIZ</h1>
+            <p class="text-xl md:text-2xl text-stone-700 max-w-2xl mx-auto mb-8">
+                O podcast com dicas de carreira e entrevistas com quem já trilhou este caminho.
+            </p>
+            <a href="#" class="pixel-button py-4 px-8 text-lg" style="background-color: var(--amarelo); color: var(--preto);">
+                Ouvir no Spotify (Em Breve)
+            </a>
+        </section>
+
+        <!-- Lista de Episódios -->
+        <section class="max-w-3xl mx-auto">
+            <h2 class="font-pixel text-3xl text-center text-preto mb-8">Últimos Episódios</h2>
+
+            <!-- Episódio Card -->
+            <div class="podcast-card">
+                <div class="podcast-player-placeholder">
+                    <span>(Aqui entra o player do Spotify/Youtube)</span>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-2xl font-bold text-stone-900 mb-2">Ep. 03: De Jovem Aprendiz a Gerente</h3>
+                    <p class="text-stone-700 leading-relaxed">Conversamos com Maria da Logística sobre sua jornada de 10 anos, começando como aprendiz na mesma empresa que hoje ela gerencia.</p>
+                </div>
+            </div>
+
+            <!-- Episódio Card -->
+            <div class="podcast-card">
+                <div class="podcast-player-placeholder">
+                    <span>(Aqui entra o player do Spotify/Youtube)</span>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-2xl font-bold text-stone-900 mb-2">Ep. 02: O Mago do Excel</h3>
+                    <p class="text-stone-700 leading-relaxed">João da Contabilidade explica por que dominar o Excel pode ser o seu maior super-poder no primeiro emprego, não importa a área.</p>
+                </div>
+            </div>
+
+            <!-- Episódio Card -->
+            <div class="podcast-card">
+                <div class="podcast-player-placeholder">
+                    <span>(Aqui entra o player do Spotify/Youtube)</span>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-2xl font-bold text-stone-900 mb-2">Ep. 01: Consegui a vaga, e agora?</h3>
+                    <p class="text-stone-700 leading-relaxed">Dicas essenciais para sobreviver (e se destacar) nos seus primeiros 30 dias de trabalho como Jovem Aprendiz.</p>
+                </div>
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- Footer (O mesmo do index.html) -->
+    <footer class="text-white text-center py-10" style="background-color: var(--preto);">
+        <p>&copy; 2025 Trilha do Aprendiz. Todos os direitos reservados.</p>
+        <p class="text-sm mt-2 opacity-70">Feito com 💙 em Manaus, Amazonas.</p>
+        <p class="text-sm mt-1 opacity-70">contato@trilhadoaprendiz.com</p>
+    </footer>
+
+</body>
+</html>
