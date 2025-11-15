@@ -1,55 +1,111 @@
-/* Este é o seu ficheiro de estilos personalizado.
-   O Tailwind é carregado via CDN no HTML, mas aqui
-   colocamos todas as nossas classes personalizadas.
-*/
+/* --- Variáveis de Cor (baseado no Manual de Identidade) --- */
+:root {
+    --azul: #0F46B9;     /* Azul Institucional */
+    --amarelo: #FFB80F;  /* Amarelo Institucional */
+    --preto: #191919;    /* Preto Institucional */
+    --rosa: #E92057;     /* Rosa (Campanha) */
+    --verde: #47B28B;    /* Verde (Campanha) */
+}
+
+/* --- Fontes --- */
 body {
     font-family: 'Inter', sans-serif;
-    /* Cores do seu Manual de Identidade Visual */
-    --amarelo: #FFB80F;
-    --azul: #0F46B9;
-    --preto: #191919;
 }
 
 .font-pixel {
     font-family: 'Press Start 2P', cursive;
 }
 
+/* --- Gradiente do Hero --- */
+.bg-blue-gradient {
+    background: linear-gradient(180deg, #FFFFFF 0%, #E0E7FF 100%); /* Branco para Azul-claro */
+}
+
+/* --- Botões Pixelados --- */
 .pixel-button {
-    background-color: var(--amarelo);
-    color: var(--preto);
-    border: 4px solid var(--preto);
-    box-shadow: 4px 4px 0px 0px var(--preto);
-    transition: all 0.1s ease-in;
-}
-
-.pixel-button:hover {
-    transform: translate(2px, 2px);
-    box-shadow: 2px 2px 0px 0px var(--preto);
-}
-
-/* Estilos para o canvas do jogo */
-#gameCanvas {
-    background-color: #a7f3d0; /* Um verde-grama claro */
-    border: 4px solid var(--preto);
-    image-rendering: pixelated; /* Mantém o visual pixel art */
-    width: 100%;
-    max-width: 800px;
-    box-sizing: border-box; /* Garante que a borda não quebre o layout */
-}
-
-/* Caixa de mensagem para as "missões" */
-#mission-popup {
-    display: none; /* Começa escondida */
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: var(--amarelo);
-    color: var(--preto);
-    border: 4px solid var(--preto);
-    padding: 10px 20px;
     font-family: 'Press Start 2P', cursive;
-    font-size: 12px;
-    z-index: 10;
+    background-color: var(--amarelo);
+    color: var(--preto);
+    border: 3px solid var(--preto);
+    box-shadow: 3px 3px 0px 0px var(--preto);
+    padding: 0.5rem 1rem;
+    display: inline-block;
+    transition: all 0.1s ease-in-out;
+    text-align: center; /* Garante alinhamento nos cards */
+}
+.pixel-button:hover {
+    transform: translate(2px, 2px); /* Efeito de clique */
+    box-shadow: 1px 1px 0px 0px var(--preto);
+}
+
+.pixel-button-active {
+    font-family: 'Press Start 2P', cursive;
+    background-color: var(--amarelo);
+    color: var(--preto);
+    border: 3px solid var(--preto);
+    box-shadow: 3px 3px 0px 0px var(--preto);
+    padding: 0.75rem 1.5rem; /* Maior */
+    display: inline-block;
+    transition: all 0.1s ease-in-out;
+}
+.pixel-button-active:hover {
+    transform: translate(2px, 2px);
+    box-shadow: 1px 1px 0px 0px var(--preto);
+}
+
+
+/* --- Cards de "Como Funciona" (index.html) --- */
+.info-card {
+    background-color: #ffffff;
+    border: 4px solid var(--preto);
+    border-radius: 8px; /* Cantos arredondados */
+    padding: 2rem;
+    text-align: center;
     box-shadow: 4px 4px 0px 0px var(--preto);
 }
+.pixel-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+/* --- Cards dos "Canais" (Portal - index.html) --- */
+.canal-card {
+    background-color: #ffffff;
+    border: 4px solid var(--preto);
+    border-radius: 8px; /* Cantos arredondados */
+    box-shadow: 4px 4px 0px 0px var(--preto);
+    transition: all 0.2s ease-in-out;
+    display: flex;
+    flex-direction: column;
+}
+.canal-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 6px 6px 0px 0px var(--preto);
+}
+.canal-card .p-6 {
+    flex-grow: 1; /* Faz o conteúdo crescer */
+    display: flex;
+    flex-direction: column;
+}
+.canal-card p {
+    flex-grow: 1; /* Empurra o botão para baixo */
+}
+.canal-card img {
+    object-fit: contain; /* 'Contain' é melhor para logos */
+    background-color: #f5f5f4; /* Fundo stone-100 */
+    padding: 1rem; /* Adiciona um respiro para os logos */
+    height: 200px; /* Altura fixa para alinhar os cards */
+    width: 100%;
+    border-bottom: 4px solid var(--preto); /* Linha divisória */
+}
+
+
+/* ============================================================
+== ESTILOS PARA O MAPA (mapa-jovem.html) ==
+============================================================
+*/
+#map {
+    height: 600px;
+    border: 4px solid var(--preto);
+    border-radius: 8px; /* Cantos arredondados */
+    width: 1

@@ -5,7 +5,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const canvas = document.getElementById('gameCanvas');
     // Verifica se o canvas existe antes de continuar
     if (!canvas) {
-        console.error("Canvas não encontrado!");
+        // Se o canvas não for encontrado, não faz nada.
+        // Isto é normal em páginas que não têm o jogo, como o index.html.
         return;
     }
 
@@ -24,7 +25,8 @@ document.addEventListener('DOMContentLoaded', () => {
         height: TILE_SIZE * 1.5, // Um pouco mais alto para parecer um personagem
         color: '#0F46B9', // Azul do manual
         headColor: '#a5f3fc', // Um tom de ciano claro para a cabeça
-        speed: TILE_SIZE / 2 // Movimento em "grades"
+        speed: TILE_SIZE / 2, // Movimento em "grades"
+        lastMove: null
     };
 
     // Definições das "Missões" (Prédios)
@@ -55,7 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     ];
     
-    // --- NOVO: Cenário (Árvores) ---
+    // Cenário (Árvores)
     const scenery = [
         // (x, y, tamanho_da_copa, cor_da_copa, cor_do_tronco)
         { x: TILE_SIZE * 1, y: TILE_SIZE * 1, w: TILE_SIZE, h: TILE_SIZE, trunkH: TILE_SIZE / 2 },
@@ -84,7 +86,7 @@ document.addEventListener('DOMContentLoaded', () => {
             ctx.fillStyle = mission.color;
             ctx.fillRect(mission.x, mission.y, mission.width, mission.height);
             
-            // --- NOVO: Desenha o Telhado ---
+            // Desenha o Telhado
             ctx.fillStyle = mission.roofColor;
             ctx.beginPath();
             ctx.moveTo(mission.x - 5, mission.y);
@@ -104,7 +106,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
     
-    // --- NOVO: Desenha o Cenário ---
+    // Desenha o Cenário
     function drawScenery() {
         scenery.forEach(tree => {
             // Tronco
@@ -124,12 +126,20 @@ document.addEventListener('DOMContentLoaded', () => {
             clearTimeout(popupTimer);
         }
         
-        popup.textContent = message;
-        popup.style.display = 'block';
+        // Verifica se o elemento popup existe
+        if (popup) {
+            popup.textContent = message;
+            popup.style.display = 'block';
+        } else {
+            console.warn("Elemento 'mission-popup' não encontrado.");
+        }
+
 
         // Esconde o popup depois de 3 segundos
         popupTimer = setTimeout(() => {
-            popup.style.display = 'none';
+            if (popup) {
+                popup.style.display = 'none';
+            }
             popupTimer = null; // Limpa o timer
         }, 3000);
     }
@@ -151,7 +161,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
-        // 2. --- NOVO: Colisão com Cenário ---
+        // 2. Colisão com Cenário
         scenery.forEach(tree => {
              if (
                 player.x < tree.x + tree.w &&
@@ -203,18 +213,16 @@ document.addEventListener('DOMContentLoaded', () => {
         // 1. Limpa a tela
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         
-        // 2. Desenha o fundo (opcional, já temos o bg-color)
-        
-        // 3. --- NOVO: Desenha o cenário ---
+        // 2. Desenha o cenário
         drawScenery();
         
-        // 4. Desenha os prédios/missões
+        // 3. Desenha os prédios/missões
         drawMissions();
         
-        // 5. Desenha o jogador
+        // 4. Desenha o jogador
         drawPlayer();
         
-        // 6. Verifica colisões
+        // 5. Verifica colisões
         checkCollisions();
         
         // Chama o próximo frame
@@ -225,3 +233,4 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('keydown', handleInput);
     gameLoop(); // Inicia o loop do jogo!
 });
+```eof
