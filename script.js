@@ -233,4 +233,3 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('keydown', handleInput);
     gameLoop(); // Inicia o loop do jogo!
 });
-```eof
