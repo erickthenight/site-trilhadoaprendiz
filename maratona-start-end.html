@@ -18,6 +18,22 @@
             --preto-claro: #2d233a; /* Um tom ligeiramente mais claro do Vinho/Roxo */
             background-color: var(--preto);
         }
+        
+        /* Cor de destaque para os ícones, vindo da paleta */
+        .feature-icon-hackathon {
+            flex-shrink: 0;
+            width: 32px;
+            height: 32px;
+            border-radius: 99px;
+            background-color: var(--hackathon-lilas);
+            color: var(--preto);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.1rem;
+            box-shadow: 0 0 15px rgba(175, 161, 242, 0.3);
+        }
     </style>
 </head>
 <body class="bg-preto text-gray-200">
@@ -84,7 +100,7 @@
                     <img src="imagens/Card-Star-End-Experience-1.png" alt="Equipa a resolver desafios" class="rounded-lg shadow-2xl w-full" 
                          onerror="this.src='https://placehold.co/500x350/3D317A/AFA1F2?text=Desafios+Reais'">
                     <div>
-                        <span class="font-bold text-sm uppercase text-hackathon-lilas">Desafios</span>
+                        <span class="font-bold text-sm uppercase" style="color: var(--hackathon-lilas)">Desafios</span>
                         <h3 class="text-3xl font-bold text-white mt-2 mb-4">Desafios Reais</h3>
                         <p class="text-gray-400 text-lg leading-relaxed">Trabalhe em equipa para resolver um problema de negócio real, proposto pelas nossas empresas parceiras (como SENAI, SENAC e Liga Jovem).</p>
                     </div>
@@ -96,7 +112,7 @@
                              onerror="this.src='https://placehold.co/500x350/364BAA/AFA1F2?text=Mentoria'">
                     </div>
                     <div class="md:order-1">
-                        <span class="font-bold text-sm uppercase text-hackathon-lilas">Networking</span>
+                        <span class="font-bold text-sm uppercase" style="color: var(--hackathon-lilas)">Networking</span>
                         <h3 class="text-3xl font-bold text-white mt-2 mb-4">Mentoria</h3>
                         <p class="text-gray-400 text-lg leading-relaxed">Receba mentoria direta de profissionais seniores das empresas e ajuste o seu projeto para vencer a competição.</p>
                     </div>
@@ -105,7 +121,7 @@
                 <div class="grid md:grid-cols-2 gap-12 items-center">
                     <img src="https://placehold.co/500x350/3A2042/AFA1F2?text=Contrata%C3%A7%C3%A3o" alt="Aperto de mão de contratação" class="rounded-lg shadow-2xl w-full">
                     <div>
-                        <span class="font-bold text-sm uppercase text-hackathon-lilas">Oportunidade</span>
+                        <span class="font-bold text-sm uppercase" style="color: var(--hackathon-lilas)">Oportunidade</span>
                         <h3 class="text-3xl font-bold text-white mt-2 mb-4">Contratação Rápida</h3>
                         <p class="text-gray-400 text-lg leading-relaxed">Os melhores talentos da maratona saem com pré-contratos e vagas de Jovem Aprendiz garantidas.</p>
                     </div>
@@ -122,25 +138,25 @@
             <div class="space-y-8 relative border-l-2 border-gray-700/50 ml-4 md:ml-0">
                 
                 <div class="pl-8 ml-4 md:ml-0 relative">
-                    <div class="absolute -left-[10px] md:-left-[15px] top-1 w-6 h-6 rounded-full bg-hackathon-lilas border-4 border-preto-claro"></div>
+                    <div class="absolute -left-[10px] md:-left-[15px] top-1 w-6 h-6 rounded-full border-4 border-preto-claro" style="background-color: var(--hackathon-lilas)"></div>
                     <h3 class="text-2xl font-semibold text-white mb-2">1. Inscrições</h3>
                     <p class="text-gray-400">Monte a sua equipa (3 a 5 membros) e inscreva-se no desafio. As vagas são limitadas!</p>
                 </div>
                 
                 <div class="pl-8 ml-4 md:ml-0 relative">
-                    <div class="absolute -left-[10px] md:-left-[15px] top-1 w-6 h-6 rounded-full bg-hackathon-lilas border-4 border-preto-claro"></div>
+                    <div class="absolute -left-[10px] md:-left-[15px] top-1 w-6 h-6 rounded-full border-4 border-preto-claro" style="background-color: var(--hackathon-lilas)"></div>
                     <h3 class="text-2xl font-semibold text-white mb-2">2. Workshops de Aquecimento</h3>
                     <p class="text-gray-400">Participe em workshops online com mentores para se preparar para o desafio principal.</p>
                 </div>
 
                 <div class="pl-8 ml-4 md:ml-0 relative">
-                    <div class="absolute -left-[10px] md:-left-[15px] top-1 w-6 h-6 rounded-full bg-hackathon-lilas border-4 border-preto-claro"></div>
+                    <div class="absolute -left-[10px] md:-left-[15px] top-1 w-6 h-6 rounded-full border-4 border-preto-claro" style="background-color: var(--hackathon-lilas)"></div>
                     <h3 class="text-2xl font-semibold text-white mb-2">3. O Hackathon (48h)</h3>
                     <p class="text-gray-400">Dois dias de imersão total (presencial ou online) para desenvolver uma solução inovadora para o desafio proposto.</p>
                 </div>
 
                 <div class="pl-8 ml-4 md:ml-0 relative">
-                    <div class="absolute -left-[10px] md:-left-[15px] top-1 w-6 h-6 rounded-full bg-hackathon-lilas border-4 border-preto-claro"></div>
+                    <div class="absolute -left-[10px] md:-left-[15px] top-1 w-6 h-6 rounded-full border-4 border-preto-claro" style="background-color: var(--hackathon-lilas)"></div>
                     <h3 class="text-2xl font-semibold text-white mb-2">4. Pitch Final e Premiação</h3>
                     <p class="text-gray-400">As equipas finalistas apresentam as suas soluções a uma banca de jurados composta por diretores de empresas parceiras.</p>
                 </div>
