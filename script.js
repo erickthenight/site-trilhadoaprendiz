@@ -1,4 +1,5 @@
 // --- LÓGICA DO MINI-JOGO RPG ---
+// Este ficheiro SÓ é usado pela página 'game-apz-selecao.html'
         
 // Espera o DOM carregar para iniciar o jogo
 document.addEventListener('DOMContentLoaded', () => {
@@ -59,7 +60,6 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Cenário (Árvores)
     const scenery = [
-        // (x, y, tamanho_da_copa, cor_da_copa, cor_do_tronco)
         { x: TILE_SIZE * 1, y: TILE_SIZE * 1, w: TILE_SIZE, h: TILE_SIZE, trunkH: TILE_SIZE / 2 },
         { x: TILE_SIZE * 8, y: TILE_SIZE * 4, w: TILE_SIZE, h: TILE_SIZE, trunkH: TILE_SIZE / 2 },
         { x: TILE_SIZE * 3, y: TILE_SIZE * 9, w: TILE_SIZE, h: TILE_SIZE, trunkH: TILE_SIZE / 2 },
@@ -121,12 +121,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Função de Popup ---
     function showMissionPopup(message) {
-        // Se já houver um popup, limpa o timer antigo
         if (popupTimer) {
             clearTimeout(popupTimer);
         }
         
-        // Verifica se o elemento popup existe
         if (popup) {
             popup.textContent = message;
             popup.style.display = 'block';
@@ -134,13 +132,11 @@ document.addEventListener('DOMContentLoaded', () => {
             console.warn("Elemento 'mission-popup' não encontrado.");
         }
 
-
-        // Esconde o popup depois de 3 segundos
         popupTimer = setTimeout(() => {
             if (popup) {
                 popup.style.display = 'none';
             }
-            popupTimer = null; // Limpa o timer
+            popupTimer = null;
         }, 3000);
     }
 
@@ -185,12 +181,11 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // --- Controlo de Input ---
     function handleInput(e) {
-        // Impede a página de rolar com as setas
         if (["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"].includes(e.key)) {
             e.preventDefault();
         }
 
-        player.lastMove = e.key; // Guarda o último movimento
+        player.lastMove = e.key; 
 
         switch (e.key) {
             case 'ArrowUp':
@@ -210,22 +205,11 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // --- Game Loop ---
     function gameLoop() {
-        // 1. Limpa a tela
         ctx.clearRect(0, 0, canvas.width, canvas.height);
-        
-        // 2. Desenha o cenário
         drawScenery();
-        
-        // 3. Desenha os prédios/missões
         drawMissions();
-        
-        // 4. Desenha o jogador
         drawPlayer();
-        
-        // 5. Verifica colisões
         checkCollisions();
-        
-        // Chama o próximo frame
         requestAnimationFrame(gameLoop);
     }
 
