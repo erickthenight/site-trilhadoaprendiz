@@ -1,51 +1,28 @@
 /* --- Fontes --- */
 body {
     font-family: 'Inter', sans-serif;
-}
-
-/* ============================================================
-== PALETA DE CORES OFICIAL (Baseado nos Manuais) ==
-============================================================
-*/
-:root {
-    /* Cores Base "Tech" (do index) */
-    --preto: #1d232a; 
-    --preto-claro: #272f3a; 
+    /* Cores do Novo Design */
+    --preto: #1d232a; /* O fundo verde-escuro/preto das imagens */
+    --preto-claro: #272f3a; /* Um tom mais claro para seções */
+    --amarelo: #FFB80F;  /* Amarelo do logo */
+    --verde: #32d583;    /* Verde claro dos botões */
+    --verde-escuro: #29ab6d;
     
-    /* Trilha do Aprendiz (Principal) */
-    --amarelo-inst: #FFB80F; /* Amarelo Institucional */
-    --azul-inst: #0F46B9;     /* Azul Institucional */
-    --preto-inst: #191919;    /* Preto Institucional */
-    --creme-inst: #F7EDDD;
-    --verde-inst: #47B28B;    /* Verde (Campanha) */
-    --verde-cta: #32d583;     /* Verde claro (Botões) */
-    --verde-cta-escuro: #29ab6d;
-
-    /* Subproduto: Podcast (Fala Aí) */
+    /* Cores dos Subprodutos */
     --podcast-laranja: #FE5000;
     --podcast-azul-escuro: #090A31;
-    --podcast-creme: #F4EDD3;
-    --podcast-azul-claro: #2466ED;
-
-    /* Subproduto: Mapa (Mapa do Jovem) */
-    --mapa-amarelo: #FFB600;
-    --mapa-verde: #009318;
-    --mapa-azul: #0E248E;
-
-    /* Subproduto: Hackathon (Start End) */
-    --hackathon-roxo: #3D317A;
-    --hackathon-vinho: #3A2042;
-    --hackathon-lilas: #AFA1F2;
-    --hackathon-azul-medio: #364BAA;
+    --mapa-azul: #0F46B9; /* Azul do logo antigo */
+    --hackathon-indigo: #4f46e5;
 }
-
 
 /* --- Cores de Fundo --- */
 .bg-preto { background-color: var(--preto); }
 .bg-preto-claro { background-color: var(--preto-claro); }
 
-/* --- Botões (Atualizados com Cores Oficiais) --- */
-.btn-base {
+/* --- Botões (Novo Estilo - Sem @apply) --- */
+
+/* Propriedades base que estavam no .btn-base */
+.btn-verde, .btn-verde-outline, .btn-laranja-podcast, .btn-azul-mapa, .btn-indigo-hackathon {
     font-weight: 600;
     padding: 12px 24px;
     border-radius: 8px;
@@ -54,16 +31,17 @@ body {
     justify-content: center;
     transition: all 0.2s ease-in-out;
 }
-.btn-base:hover {
+.btn-verde:hover, .btn-verde-outline:hover, .btn-laranja-podcast:hover, .btn-azul-mapa:hover, .btn-indigo-hackathon:hover {
     transform: translateY(-2px);
 }
-.btn-base .arrow {
+.btn-verde .arrow, .btn-verde-outline .arrow, .btn-laranja-podcast .arrow, .btn-azul-mapa .arrow, .btn-indigo-hackathon .arrow {
     margin-left: 8px;
     transition: transform 0.2s ease;
 }
-.btn-base:hover .arrow {
+.btn-verde:hover .arrow, .btn-verde-outline:hover .arrow, .btn-laranja-podcast:hover .arrow, .btn-azul-mapa:hover .arrow, .btn-indigo-hackathon:hover .arrow {
     transform: translateX(4px);
 }
+
 .btn-grande {
     padding: 16px 32px;
     font-size: 1.1rem;
@@ -71,34 +49,30 @@ body {
 
 /* Botão Verde (Principal) */
 .btn-verde {
-    @apply btn-base;
-    background-color: var(--verde-cta);
+    background-color: var(--verde);
     color: var(--preto);
 }
 .btn-verde:hover {
-    background-color: var(--verde-cta-escuro);
+    background-color: var(--verde-escuro);
     box-shadow: 0 4px 10px rgba(49, 213, 131, 0.2);
 }
 
 /* Botão Verde (Outline) */
 .btn-verde-outline {
-    @apply btn-base;
     background-color: transparent;
-    color: var(--verde-cta);
-    border: 2px solid var(--verde-cta);
+    color: var(--verde);
+    border: 2px solid var(--verde);
 }
 .btn-verde-outline:hover {
-    background-color: var(--verde-cta);
+    background-color: var(--verde);
     color: var(--preto);
     box-shadow: 0 4px 10px rgba(49, 213, 131, 0.2);
 }
 
 /* Botão Laranja (Podcast) */
 .btn-laranja-podcast {
-    @apply btn-base;
     background-color: var(--podcast-laranja);
-    color: var(--podcast-azul-escuro); /* Contraste alto */
-    font-weight: 700;
+    color: var(--podcast-azul-escuro);
 }
 .btn-laranja-podcast:hover {
     background-color: #ff7033; /* Laranja mais claro */
@@ -107,24 +81,22 @@ body {
 
 /* Botão Azul (Mapa) */
 .btn-azul-mapa {
-    @apply btn-base;
     background-color: var(--mapa-azul);
     color: white;
 }
 .btn-azul-mapa:hover {
-    background-color: #1a3cb7; /* Azul mais claro */
-    box-shadow: 0 4px 10px rgba(14, 36, 142, 0.2);
+    background-color: #1e63e6; /* Azul mais claro */
+    box-shadow: 0 4px 10px rgba(15, 70, 185, 0.2);
 }
 
-/* Botão Indigo/Roxo (Hackathon) */
+/* Botão Indigo (Hackathon) */
 .btn-indigo-hackathon {
-    @apply btn-base;
-    background-color: var(--hackathon-roxo);
+    background-color: var(--hackathon-indigo);
     color: white;
 }
 .btn-indigo-hackathon:hover {
-    background-color: #4f46e5; /* Roxo mais claro */
-    box-shadow: 0 4px 10px rgba(61, 49, 122, 0.2);
+    background-color: #6366f1; /* Indigo mais claro */
+    box-shadow: 0 4px 10px rgba(79, 70, 229, 0.2);
 }
 
 
@@ -153,10 +125,28 @@ body {
     box-shadow: 0 0 15px rgba(49, 213, 131, 0.3);
 }
 
-/* --- Product Cards (Hub) --- */
+/* ============================================================
+== ATUALIZAÇÃO: Efeito "Glassmorphism" + Grafismo ==
+============================================================
+*/
+
+/* --- Fundo com Grafismo (para a secção #solucoes) --- */
+/* (Adicione a classe 'bg-grafismo' à sua secção no index.html) */
+.bg-grafismo {
+    background-image: url('imagens/Grafismo azul0.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Efeito Parallax simples */
+}
+
+/* --- Product Cards (Hub) - ATUALIZADO com Glassmorphism --- */
 .product-card {
-    background-color: var(--preto);
-    border: 1px solid #334155; /* slate-700 */
+    /* Efeito de Vidro */
+    background-color: rgba(39, 47, 58, 0.6); /* Cor 'preto-claro' com 60% de opacidade */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px); /* Suporte para Safari */
+    
+    border: 1px solid rgba(51, 65, 85, 0.5); /* Borda semi-transparente */
     border-radius: 12px;
     transition: all 0.3s ease;
     display: flex;
@@ -171,8 +161,8 @@ body {
     height: 200px;
     width: 100%;
     object-fit: contain; /* 'contain' para logos */
-    background-color: var(--preto-claro);
-    border-bottom: 1px solid #334155;
+    background-color: rgba(29, 35, 42, 0.5); /* 'preto' com 50% opacidade */
+    border-bottom: 1px solid rgba(51, 65, 85, 0.5);
     border-radius: 12px 12px 0 0;
     padding: 1rem; /* Adiciona respiro para logos */
 }
