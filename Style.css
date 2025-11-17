@@ -208,4 +208,38 @@ body {
     transform: translateY(-5px);
     border-color: var(--verde-cta);
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+
+    /* ... (todo o seu código css existente) ... */
+.media-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--verde-cta);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* ============================================================
+== NOVOS ESTILOS: Plataformas de Podcast ==
+============================================================
+*/
+.platform-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--preto);
+    color: var(--podcast-creme);
+    padding: 2rem 1rem;
+    border-radius: 12px;
+    border: 2px solid #334155; /* slate-700 */
+    transition: all 0.2s ease-in-out;
+}
+.platform-card:hover {
+    color: var(--platform-color); /* Usa a cor definida no HTML */
+    border-color: var(--platform-color);
+    transform: translateY(-5px);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+}
+.platform-card i {
+    color: var(--platform-color);
+    transition: all 0.2s ease-in-out;
+}
 }
