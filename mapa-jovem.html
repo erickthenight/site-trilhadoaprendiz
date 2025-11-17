@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapa do Jovem Trabalhador - Trilha do Aprendiz</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+    <style>
+        #map {
+            height: 600px;
+            border-radius: 8px;
+            width: 100%;
+            z-index: 0;
+            border: 2px solid #334155; /* Cor slate-700 */
+        }
+        .map-icon {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%; /* Círculo */
+            font-size: 1rem;
+            width: 30px;
+            height: 30px;
+            border: 2px solid var(--preto);
+        }
+        .map-icon.vaga-icon {
+            background-color: var(--amarelo);
+            color: var(--preto);
+        }
+        .map-icon.empresa-icon {
+            background-color: var(--verde);
+            color: var(--preto);
+        }
+        /* Ajusta o fundo do mapa Leaflet para o modo escuro */
+        .leaflet-tile-pane {
+            filter: brightness(0.8) contrast(1.2) grayscale(0.2);
+        }
+    </style>
+</head>
+<body class="bg-preto text-gray-200">
+
+    <nav class="bg-preto sticky top-0 z-50 border-b border-gray-700/50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="flex items-center space-x-2">
+                <img src="imagens/Logo trilha do aprendiz azul - preto0.png" alt="Logo Trilha do Aprendiz" class="h-10 w-auto" 
+                     onerror="this.src='https://placehold.co/40x40/0F46B9/FFB80F?text=T'">
+                <span class="font-bold text-xl text-white">TRILHA DO APRENDIZ</span>
+            </a>
+            
+            <div class="hidden md:flex space-x-8">
+                <a href="index.html" class="font-medium text-gray-300 hover:text-white transition">Início</a>
+                <a href="index.html#sobre" class="font-medium text-gray-300 hover:text-white transition">Sobre</a>
+                <a href="index.html#contato" class="font-medium text-gray-300 hover:text-white transition">Contato</a>
+            </div>
+            
+            <a href="ia-leia.html" class="hidden md:block btn-verde">
+                Fale com a LEIA <span class="arrow">→</span>
+            </a>
+        </div>
+    </nav>
+
+    <main class="container mx-auto px-6 py-20">
+        
+        <section class="mb-12">
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                <div>
+                    <h1 class="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
+                        Mapa do Jovem Trabalhador
+                    </h1>
+                    <p class="text-lg text-gray-300 max-w-lg mb-8">
+                        Filtros e ferramentas para o jovem aprendiz criar o seu currículo corretamente e encontrar vagas de forma geolocalizada.
+                    </p>
+                    <a href="#map" class="btn-verde btn-grande">
+                        Explorar Vagas
+                    </a>
+                </div>
+                <div class="flex justify-center">
+                    <img src="imagens/Identidade - Mapa do jovem trabalhador (1).png" 
+                         alt="Mapa do Brasil - Vagas" 
+                         class="w-full max-w-lg"
+                         onerror="this.src='https://placehold.co/500x400/FFB80F/191919?text=Mapa+do+Brasil'">
+                </div>
+            </div>
+        </section>
+
+        <section id="map" class="bg-preto-claro p-6 rounded-lg shadow-lg">
+            <div class="flex flex-wrap gap-4 mb-4">
+                <span class="font-semibold text-white">Legenda:</span>
+                <div class="flex items-center">
+                    <span class="map-icon vaga-icon">💼</span>
+                    <span class="ml-2 text-gray-300">Vaga de Aprendiz</span>
+                </div>
+                <div class="flex items-center">
+                    <span class="map-icon empresa-icon">🏢</span>
+                    <span class="ml-2 text-gray-300">Empresa Parceira</span>
+                </div>
+            </div>
+
+            <div id="map-container" class="relative z-0">
+                <div id="map"></div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer id="contato" class="bg-preto-claro text-white text-center py-16">
+        <div class="container mx-auto px-6">
+            <a href="index.html" class="flex items-center justify-center space-x-2 mb-4">
+                <img src="imagens/Logo trilha do aprendiz azul - preto0.png" alt="Logo Trilha do Aprendiz" class="h-10 w-auto" 
+                     onerror="this.src='https://placehold.co/40x40/0F46B9/FFB80F?text=T'">
+                <span class="font-bold text-xl text-white">TRILHA DO APRENDIZ</span>
+            </a>
+            <p class="text-gray-400 mb-4">Conectando jovens talentos a oportunidades.</p>
+            <p class="text-sm text-gray-500">&copy; 2025 Trilha do Aprendiz. Todos os direitos reservados. Feito em Manaus, Amazonas.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // 1. Inicializa o Mapa (Centralizado em Manaus)
+            const map = L.map('map').setView([-3.1190, -60.0217], 12); 
+
+            // 2. Adiciona o fundo do mapa (tile layer) - Versão escura do Carto
+            L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+                subdomains: 'abcd',
+                maxZoom: 20
+            }).addTo(map);
+
+            // 3. Define Ícones Personalizados
+            const vagaIcon = L.divIcon({
+                className: 'map-icon vaga-icon',
+                html: '💼',
+                iconSize: [30, 30],
+                iconAnchor: [15, 15]
+            });
+
+            const empresaIcon = L.divIcon({
+                className: 'map-icon empresa-icon',
+                html: '🏢',
+                iconSize: [30, 30],
+                iconAnchor: [15, 15]
+            });
+
+            // 4. Dados de Exemplo (Simulação)
+            const vagas = [
+                { lat: -3.1019, lng: -60.0150, nome: "Vaga: Aux. Administrativo", empresa: "Empresa ABC" },
+                { lat: -3.1150, lng: -60.0250, nome: "Vaga: TI Nível 1", empresa: "Tech Solutions" },
+                { lat: -3.0900, lng: -60.0100, nome: "Vaga: Atendimento", empresa: "Loja XYZ" }
+            ];
+
+            const empresas = [
+                { lat: -3.1300, lng: -60.0200, nome: "Empresa Parceira: Inovare" },
+                { lat: -3.1050, lng: -59.9950, nome: "Instituto de Formação Delta" }
+            ];
+
+            // 5. Adiciona Marcadores ao Mapa
+            vagas.forEach(vaga => {
+                L.marker([vaga.lat, vaga.lng], { icon: vagaIcon })
+                    .addTo(map)
+                    .bindPopup(`<strong>${vaga.nome}</strong><br>${vaga.empresa}`);
+            });
+
+            empresas.forEach(empresa => {
+                L.marker([empresa.lat, empresa.lng], { icon: empresaIcon })
+                    .addTo(map)
+                    .bindPopup(`<strong>${empresa.nome}</strong>`);
+            });
+            
+            // Corrige o bug de "azulejos cinzentos" do Leaflet
+            setTimeout(() => {
+                map.invalidateSize();
+            }, 100);
+        });
+    </script>
+
+</body>
+</html>
