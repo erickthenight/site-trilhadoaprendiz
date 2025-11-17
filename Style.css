@@ -212,12 +212,6 @@ body {
 }
 
 /* ============================================================
-== (Estilos de páginas antigas removidos) ==
-============================================================
-*/
-/* (O CSS para .map-icon, .podcast-card, .game-feature-card foi removido
-   porque agora está a ser tratado por classes 'inline' ou foi 
-   /* ============================================================
 == NOVOS ESTILOS: Secção "Nossa Missão" ==
 ============================================================
 */
@@ -227,4 +221,12 @@ body {
     border-radius: 12px;
     border: 1px solid #334155; /* slate-700 */
     height: 100%;
-}substituído por layouts mais recentes) */
+}
+
+/* ============================================================
+== (Estilos de páginas antigas removidos) ==
+============================================================
+*/
+/* (O CSS para .map-icon, .podcast-card, .game-feature-card foi removido
+   porque agora está a ser tratado por classes 'inline' ou foi 
+   substituído por layouts mais recentes) */
