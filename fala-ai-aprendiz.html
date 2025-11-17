@@ -9,6 +9,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link href="style.css" rel="stylesheet">
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
     <style>
         /* Sobrescreve as cores --preto e --preto-claro para esta página */
         body {
@@ -42,7 +44,8 @@
 
     <main>
         
-        <section class="py-20 bg-preto"> <div class="container mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
+        <section class="py-20 bg-preto">
+            <div class="container mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
                 <div>
                     <img src="imagens/logo-fala-ai-aprendiz.png" alt="Logo Podcast FALA AI Aprendiz" class="w-2/3 md:w-full max-w-sm mb-6"
                          onerror="this.src='https://placehold.co/400x150/FE5000/090A31?text=FALA+A%C3%8D%2C+APRENDIZ'">
@@ -53,14 +56,6 @@
                     <p class="text-lg text-gray-300 max-w-lg mb-8">
                         Um bate papo de alta qualidade e muita informação que ajudará no seu crescimento profissional.
                     </p>
-                    <div class="flex flex-wrap gap-4">
-                        <a href="#" class="btn-laranja-podcast btn-grande">
-                            Ouvir no Spotify
-                        </a>
-                         <a href="#" class="btn-verde btn-grande">
-                            Ver no YouTube
-                        </a>
-                    </div>
                 </div>
                 
                 <div class="video-container shadow-2xl rounded-lg overflow-hidden">
@@ -75,38 +70,67 @@
             </div>
         </section>
 
-        <section class="py-20 bg-preto-claro">
+        <section id="onde-ouvir" class="py-16 bg-preto-claro">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl font-bold text-white mb-10">
+                    Onde Ouvir
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-3xl mx-auto">
+                    <a href="#" class="platform-card" style="--platform-color: #1DB954;">
+                        <i class="fab fa-spotify fa-2x"></i>
+                        <span class="mt-2 text-lg font-semibold">Spotify</span>
+                    </a>
+                    <a href="#" class="platform-card" style="--platform-color: #FF0000;">
+                        <i class="fab fa-youtube fa-2x"></i>
+                        <span class="mt-2 text-lg font-semibold">YouTube</span>
+                    </a>
+                    <a href="#" class="platform-card" style="--platform-color: #A934C5;">
+                        <i class="fab fa-apple fa-2x"></i>
+                        <span class="mt-2 text-lg font-semibold">Apple Podcasts</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+
+        <section class="py-20 bg-preto">
             <div class="container mx-auto px-6 max-w-4xl">
                 <h2 class="text-3xl md:text-4xl font-bold text-white mb-12 text-center">
-                    Últimos Episódios
+                    Episódios Anteriores
                 </h2>
                 
                 <div class="space-y-8">
                     
-                    <div class="bg-preto p-6 rounded-lg shadow-lg flex flex-col md:flex-row items-center gap-6 border border-gray-700/50">
-                        <img src="https://placehold.co/150x150/FE5000/090A31?text=Ep.03" alt="Thumbnail Episódio" class="w-full md:w-36 h-36 rounded-lg object-cover flex-shrink-0">
+                    <div class="bg-preto-claro p-6 rounded-lg shadow-lg flex flex-col md:flex-row items-center gap-6 border border-gray-700/50">
+                        <img src="https://placehold.co/150x150/FE5000/090A31?text=Ep.03" alt="Thumbnail Episódio 3" class="w-full md:w-36 h-36 rounded-lg object-cover flex-shrink-0">
                         <div class="w-full">
                             <h3 class="text-2xl font-semibold text-white mb-2">Ep. 03: De Jovem Aprendiz a Gerente</h3>
                             <p class="text-gray-400 mb-4">Conversamos com Maria da Logística sobre sua jornada de 10 anos, começando como aprendiz na mesma empresa que hoje ela gerencia.</p>
-                            <a href="#" class="btn-laranja-podcast text-sm py-2 px-4">Ouvir Agora</a>
+                            <a href="#" class="btn-laranja-podcast text-sm py-2 px-4">
+                                <i class="fas fa-play mr-2"></i>Ouvir Episódio
+                            </a>
                         </div>
                     </div>
 
-                    <div class="bg-preto p-6 rounded-lg shadow-lg flex flex-col md:flex-row items-center gap-6 border border-gray-700/50">
-                        <img src="https://placehold.co/150x150/FE5000/090A31?text=Ep.02" alt="Thumbnail Episódio" class="w-full md:w-36 h-36 rounded-lg object-cover flex-shrink-0">
+                    <div class="bg-preto-claro p-6 rounded-lg shadow-lg flex flex-col md:flex-row items-center gap-6 border border-gray-700/50">
+                        <img src="https://placehold.co/150x150/F4EDD3/090A31?text=Ep.02" alt="Thumbnail Episódio 2" class="w-full md:w-36 h-36 rounded-lg object-cover flex-shrink-0">
                         <div class="w-full">
                             <h3 class="text-2xl font-semibold text-white mb-2">Ep. 02: O Mago do Excel</h3>
                             <p class="text-gray-400 mb-4">João da Contabilidade explica por que dominar o Excel pode ser o seu maior super-poder no primeiro emprego, não importa a área.</p>
-                            <a href="#" class="btn-laranja-podcast text-sm py-2 px-4">Ouvir Agora</a>
+                            <a href="#" class="btn-laranja-podcast text-sm py-2 px-4">
+                                <i class="fas fa-play mr-2"></i>Ouvir Episódio
+                            </a>
                         </div>
                     </div>
 
-                    <div class="bg-preto p-6 rounded-lg shadow-lg flex flex-col md:flex-row items-center gap-6 border border-gray-700/50">
-                        <img src="https://placehold.co/150x150/FE5000/090A31?text=Ep.01" alt="Thumbnail Episódio" class="w-full md:w-36 h-36 rounded-lg object-cover flex-shrink-0">
+                    <div class="bg-preto-claro p-6 rounded-lg shadow-lg flex flex-col md:flex-row items-center gap-6 border border-gray-700/50">
+                        <img src="https://placehold.co/150x150/2466ED/F4EDD3?text=Ep.01" alt="Thumbnail Episódio 1" class="w-full md:w-36 h-36 rounded-lg object-cover flex-shrink-0">
                         <div class="w-full">
                             <h3 class="text-2xl font-semibold text-white mb-2">Ep. 01: Consegui a vaga, e agora?</h3>
                             <p class="text-gray-400 mb-4">Dicas essenciais para sobreviver (e se destacar) nos seus primeiros 30 dias de trabalho como Jovem Aprendiz.</p>
-                            <a href="#" class="btn-laranja-podcast text-sm py-2 px-4">Ouvir Agora</a>
+                            <a href="#" class="btn-laranja-podcast text-sm py-2 px-4">
+                                <i class="fas fa-play mr-2"></i>Ouvir Episódio
+                            </a>
                         </div>
                     </div>
 
