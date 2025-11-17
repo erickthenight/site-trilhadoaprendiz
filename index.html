@@ -3,266 +3,549 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trilha do Aprendiz - Conectando Jovens Talentos a Oportunidades</title>
-    
-    <meta name="description" content="A Trilha do Aprendiz é um portal de empregabilidade em Manaus que conecta jovens (14-24 anos) com as melhores vagas de Jovem Aprendiz usando gamificação e IA.">
-    
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
-    <link href="style.css" rel="stylesheet">
+    <title>Trilha do Aprendiz - Conectando Talentos e Oportunidades</title>
+    <style>
+        :root {
+            --primary: #FFB300;
+            --secondary: #0D47A1;
+            --accent: #4CAF50;
+            --dark: #121212;
+            --light: #FFFFFF;
+            --gray: #616161;
+            --light-gray: #F5F5F5;
+            --dark-bg: #1E2A2A;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background-color: var(--primary);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background-color: var(--secondary);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--light);
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+        
+        .logo-text {
+            font-weight: bold;
+            font-size: 1.2rem;
+            color: var(--dark);
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+        
+        .nav-menu li a {
+            color: var(--dark);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-menu li a:hover {
+            color: var(--secondary);
+        }
+        
+        .cta-button {
+            background-color: var(--accent);
+            color: var(--light);
+            padding: 10px 20px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .cta-button:hover {
+            background-color: #45a049;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--dark-bg) 0%, #0A1919 100%);
+            color: var(--light);
+            padding: 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-container {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero-content {
+            flex: 1;
+        }
+        
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+            max-width: 500px;
+        }
+        
+        .hero-button {
+            background-color: var(--accent);
+            color: var(--light);
+            padding: 12px 24px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+        
+        .hero-button:hover {
+            background-color: #45a049;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .hero-image {
+            flex: 1;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .hero-image-container {
+            position: relative;
+            width: 100%;
+            max-width: 500px;
+            height: 400px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+        
+        .hero-image-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, var(--primary), #FFC107);
+            border-radius: 20px;
+            z-index: 1;
+        }
+        
+        .hero-image-img {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+            z-index: 2;
+        }
+        
+        /* Features Section */
+        .features {
+            padding: 80px 0;
+            background-color: var(--light-gray);
+        }
+        
+        .features-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            color: var(--dark);
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .feature-card {
+            background-color: var(--light);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid #eee;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background-color: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            color: var(--dark);
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        
+        .feature-title {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+        
+        .feature-desc {
+            color: var(--gray);
+            margin-bottom: 20px;
+        }
+        
+        .feature-link {
+            color: var(--secondary);
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .feature-link:hover {
+            color: var(--accent);
+            text-decoration: underline;
+        }
+        
+        /* Media Section */
+        .media-section {
+            padding: 80px 0;
+            background-color: var(--dark-bg);
+            color: var(--light);
+        }
+        
+        .media-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+        }
+        
+        .media-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .media-item {
+            background-color: rgba(255,255,255,0.05);
+            padding: 25px;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .media-item:hover {
+            transform: translateY(-3px);
+            background-color: rgba(255,255,255,0.1);
+        }
+        
+        .media-title-item {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+        
+        .media-source {
+            font-size: 0.9rem;
+            color: var(--gray);
+            font-style: italic;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: var(--light);
+            padding: 40px 0;
+            text-align: center;
+        }
+        
+        .footer-links {
+            margin: 20px 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .footer-links a {
+            color: var(--light);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+        
+        .copyright {
+            margin-top: 20px;
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero-container {
+                flex-direction: column;
+            }
+            
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .hero-image-container {
+                max-width: 400px;
+                height: 300px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .nav-menu {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .features-title {
+                font-size: 2rem;
+            }
+            
+            .media-title {
+                font-size: 2rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 1.5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+            
+            .nav-menu {
+                gap: 15px;
+            }
+            
+            .hero-button {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
 </head>
-<body class="bg-preto text-gray-200">
-
-    <nav class="bg-preto sticky top-0 z-50 border-b border-gray-700/50">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="index.html" class="flex items-center space-x-2">
-                <img src="imagens/logo-trilha-do-aprendiz-AZUL.png" alt="Logotipo da Trilha do Aprendiz" class="h-10 w-auto" 
-                     onerror="this.src='https://placehold.co/40x40/0F46B9/FFB80F?text=T'">
-                <span class="font-bold text-xl text-white">TRILHA DO APRENDIZ</span>
-            </a>
-            
-            <div class="hidden md:flex space-x-8" role="navigation">
-                <a href="#inicio" class="font-medium text-gray-300 hover:text-white transition">Início</a>
-                <a href="#missao" class="font-medium text-gray-300 hover:text-white transition">Nossa Missão</a>
-                <a href="#solucoes" class="font-medium text-gray-300 hover:text-white transition">Soluções</a>
-                <a href="#midia" class="font-medium text-gray-300 hover:text-white transition">Na Mídia</a>
-                <a href="#contato" class="font-medium text-gray-300 hover:text-white transition">Contato</a>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <div class="logo-icon">T</div>
+                <div class="logo-text">TRILHA DO APRENDIZ</div>
             </div>
-            
-            <a href="ia-leia.html" class="hidden md:block btn-verde">
-                Fale com a LEIA <span class="arrow">→</span>
-            </a>
+            <ul class="nav-menu">
+                <li><a href="#">Início</a></li>
+                <li><a href="#">Sobre</a></li>
+                <li><a href="#">Contato</a></li>
+            </ul>
+            <a href="#" class="cta-button">Fale com a LEIA →</a>
         </div>
-    </nav>
+    </header>
 
-    <main>
-
-        <header id="inicio" class="hero-section py-20 md:py-32">
-            <div class="container mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
-                <div>
-                    <h1 class="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">
-                        Encontre as Melhores Oportunidades
-                    </h1>
-                    <p class="text-lg text-gray-300 max-w-lg mb-8">
-                        Descubra sua vocação e seu perfil comportamental. Conectamos jovens talentos com as melhores empresas, transformando potencial em carreira.
-                    </p>
-                    <a href="#solucoes" class="btn-verde btn-grande">
-                        CONHEÇA AS SOLUÇÕES
-                    </a>
-                </div>
-                <div class="flex justify-center">
-                    <img src="imagens/Illustra - (masc) - Institucional0.png" 
-                         alt="Ilustração de um Jovem Aprendiz sorrindo, com mochila e um livro" 
-                         class="w-full max-w-md"
-                         onerror="this.src='https://placehold.co/400x500/34d399/191919?text=Ilustra%C3%A7%C3%A3o'">
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">ENTENDA A LEI DA APRENDIZAGEM</h1>
+                <p class="hero-subtitle">Interaja com a LEIA e assegure o cumprimento de todas as exigências legais, enquanto foca no que realmente importa: o crescimento do seu negócio.</p>
+                <a href="#" class="hero-button">CONVERSAR COM LEIA</a>
+            </div>
+            <div class="hero-image">
+                <div class="hero-image-container">
+                    <div class="hero-image-bg"></div>
+                    <img src="https://placehold.co/400x300/FFB300/FFFFFF?text=LEIA+AI" alt="LEIA - Assistente Virtual" class="hero-image-img">
                 </div>
             </div>
-        </header>
-        
-        <section id="pitch" class="py-20 bg-preto-claro">
-            <div class="container mx-auto px-6 max-w-4xl text-center">
-                <h2 class="text-3xl md:text-4xl font-bold text-white mb-8">
-                    Conheça a Trilha do Aprendiz
-                </h2>
-                <p class="text-lg text-gray-300 max-w-2xl mx-auto mb-8">
-                    Veja o nosso pitch comercial e entenda como estamos a revolucionar a empregabilidade jovem no Amazonas.
-                </p>
-                <div class="video-container shadow-2xl rounded-lg overflow-hidden">
-                    <iframe 
-                        src="https://www.youtube.com/embed/B1S8i9hidcU" 
-                        title="Pitch Comercial da Trilha do Aprendiz" 
-                        frameborder="0" 
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                        allowfullscreen>
-                    </iframe>
-                </div>
-            </div>
-        </section>
-
-        <section id="missao" class="py-20 bg-preto">
-            <div class="container mx-auto px-6 max-w-4xl text-center">
-                <span class="font-semibold text-verde-cta uppercase tracking-wider">Nosso Propósito</span>
-                <h2 class="text-3xl md:text-4xl font-bold text-white mt-4 mb-6">
-                    Revolucionar o acesso ao primeiro emprego.
-                </h2>
-                <p class="text-lg text-gray-300 max-w-3xl mx-auto mb-10">
-                    A Trilha do Aprendiz conecta jovens talentos a oportunidades reais por meio de IA e gamificação, facilitando o recrutamento e capacitação. Simplificamos a contratação para empresas e garantimos impacto social, modernizando a Lei da Aprendizagem.
-                </p>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
-                    <div class="mission-card">
-                        <h3 class="text-2xl font-bold text-white mb-3">Visão</h3>
-                        <p class="text-gray-400">Um mundo onde todos os jovens tenham acesso justo a oportunidades de crescimento, independentemente de sua origem, e a tecnologia reduza as desigualdades.</p>
-                    </div>
-                    <div class="mission-card">
-                        <h3 class="text-2xl font-bold text-white mb-3">Manifesto</h3>
-                        <p class="text-gray-400">Transformamos barreiras em pontes. Usamos inovação para mostrar que talento e esforço valem mais do que conexões. Aprender é o passaporte para um trabalho digno.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="solucoes" class="py-20 bg-preto-claro bg-grafismo">
-            <div class="container mx-auto px-6">
-                <h2 class="text-3xl md:text-4xl font-bold text-white mb-16 text-center">
-                    Conheça Nossas Soluções
-                </h2>
-                
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
-
-                    <div class="product-card">
-                        <img src="imagens/Illustra - (masc) - Institucional0.png" alt="Ilustração do Jogo APZ Seleção" class="product-image" onerror="this.src='https://placehold.co/300x200/34d399/191919?text=Jogo+APZ'">
-                        <div class="p-6 flex flex-col flex-grow">
-                            <h3 class="text-2xl font-bold text-white mb-3">Jogo APZ Seleção</h3>
-                            <p class="text-gray-400 mb-6 flex-grow">A sua carreira em forma de jogo. Cumpra missões, ganhe XP e seja visto por empresas.</p>
-                            <a href="game-apz-selecao.html" class="btn-verde w-full">Ver Vídeo do Jogo <span class="arrow">→</span></a>
-                        </div>
-                    </div>
-                    
-                    <div class="product-card">
-                        <img src="imagens/logo-ia-leia.png" alt="Logotipo da IA LEIA" class="product-image" onerror="this.src='https://placehold.co/300x200/34d399/191919?text=IA+LEIA'">
-                        <div class="p-6 flex flex-col flex-grow">
-                            <h3 class="text-2xl font-bold text-white mb-3">IA LEIA</h3>
-                            <p class="text-gray-400 mb-6 flex-grow">Tire dúvidas sobre a Lei da Aprendizagem e treine para entrevistas com a nossa IA.</p>
-                            <a href="ia-leia.html" class="btn-verde w-full">Fale com a LEIA <span class="arrow">→</span></a>
-                        </div>
-                    </div>
-
-                    <div class="product-card">
-                        <img src="imagens/logo-mapa-jovem-trabalhador.png" alt="Logotipo do Mapa do Jovem Trabalhador" class="product-image" onerror="this.src='https://placehold.co/300x200/0F46B9/FFB80F?text=Mapa'">
-                        <div class="p-6 flex flex-col flex-grow">
-                            <h3 class="text-2xl font-bold text-white mb-3">Mapa do Jovem</h3>
-                            <p class="text-gray-400 mb-6 flex-grow">Encontre vagas de Jovem Aprendiz e empresas parceiras perto de si.</p>
-                            <a href="mapa-jovem.html" class="btn-azul-mapa w-full">Explorar Mapa <span class="arrow">→</span></a>
-                        </div>
-                    </div>
-
-                    <div class="product-card">
-                        <img src="imagens/logo-fala-ai-aprendiz.png" alt="Logotipo do Podcast FALA AI, Aprendiz" class="product-image" onerror="this.src='https://placehold.co/300x200/FE5000/090A31?text=Podcast'">
-                        <div class="p-6 flex flex-col flex-grow">
-                            <h3 class="text-2xl font-bold text-white mb-3">FALA AI, Aprendiz</h3>
-                            <p class="text-gray-400 mb-6 flex-grow">Dicas de carreira e entrevistas com quem já trilhou este caminho. O futuro do país fala aqui.</p>
-                            <a href="fala-ai-aprendiz.html" class="btn-laranja-podcast w-full">Ouvir Agora <span class="arrow">→</span></a>
-                        </div>
-                    </div>
-
-                    <div class="product-card">
-                        <img src="imagens/logo-start-end-experience-Preto.png" alt="Logotipo da Maratona START END EXPERIENCE" class="product-image" onerror="this.src='https://placehold.co/300x200/4f46e5/ffffff?text=Hackathon'">
-                        <div class="p-6 flex flex-col flex-grow">
-                            <h3 class="text-2xl font-bold text-white mb-3">Maratona START END</h3>
-                            <p class="text-gray-400 mb-6 flex-grow">Eventos e competições de Hackathon para mostrar seu talento ao vivo para as maiores empresas.</p>
-                            <a href="maratona-start-end.html" class="btn-indigo-hackathon w-full">Ver Vídeo <span class="arrow">→</span></a>
-                        </div>
-                    </div>
-                    
-                    <div class="product-card">
-                        <img src="imagens/TRILHA 2.png" alt="Gráfico de proposta de valor para empresas" class="product-image cover" onerror="this.src='https://placehold.co/300x200/FFB80F/191919?text=Empresas'">
-                        <div class="p-6 flex flex-col flex-grow">
-                            <h3 class="text-2xl font-bold text-white mb-3">Para Empresas</h3>
-                            <p class="text-gray-400 mb-6 flex-grow">Transforme vocações em carreiras de sucesso. Recrute talentos validados e em conformidade com a Lei.</p>
-                            <a href="#para-empresas-detalhe" class="btn-verde-outline w-full">Seja Parceiro</a>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-        
-        <section id="para-empresas-detalhe" class="py-20 bg-preto">
-            <div class="container mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
-                <div class="flex justify-center">
-                    <img src="imagens/TRILHA 2.png" 
-                         alt="Gráfico Trilha do Aprendiz" 
-                         class="w-full rounded-lg"
-                         onerror="this.src='https://placehold.co/600x400/FFB80F/191919?text=Foto+Jovens'">
-                </div>
-                <div>
-                    <h2 class="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
-                        Transformando vocações em carreiras de sucesso
-                    </h2>
-                    <p class="text-lg text-gray-300 max-w-lg mb-8">
-                        Somos seus parceiros na jornada de desenvolvimento profissional, conectando jovens talentos com oportunidades que impulsionam suas carreiras.
-                    </p>
-                    
-                    <div class="space-y-6">
-                        <div class="flex items-start space-x-4">
-                            <div class="feature-icon">✓</div>
-                            <div>
-                                <h3 class="text-xl font-semibold text-white">Conformidade legal e eficiência</h3>
-                                <p class="text-gray-400">Facilitamos o processo de contratação de jovens aprendizes, assegurando conformidade com a Lei 10097/2000.</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start space-x-4">
-                            <div class="feature-icon">✓</div>
-                            <div>
-                                <h3 class="text-xl font-semibold text-white">Apoio integral ao jovem aprendiz</h3>
-                                <p class="text-gray-400">Oferecemos orientação vocacional e suporte contínuo para que os jovens descubram seu potencial.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="midia" class="py-20 bg-preto-claro">
-            <div class="container mx-auto px-6">
-                <h2 class="text-3xl md:text-4xl font-bold text-white mb-16 text-center">
-                    Trilha do Aprendiz na Mídia
-                </h2>
-
-                <div class="max-w-4xl mx-auto mb-16">
-                    <div class="video-container shadow-2xl rounded-lg overflow-hidden">
-                        <iframe 
-                            src="https://www.youtube.com/embed/0Wb4vMMpGO0" 
-                            title="Vídeo da Trilha do Aprendiz na Mídia" 
-                            frameborder="0" 
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                            allowfullscreen>
-                        </iframe>
-                    </div>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <a href="https://www.acritica.com/geral/programa-de-voluntariado-da-ambev-impulsiona-empregabilidade-juvenil-na-amazonia-1.386476" target="_blank" rel="noopener noreferrer" class="media-card">
-                        <h3 class="text-xl font-semibold text-white mb-2">A Crítica</h3>
-                        <p class="text-gray-400">Programa de voluntariado da Ambev impulsiona empregabilidade juvenil na Amazônia.</p>
-                    </a>
-                    <a href="https://opovoamazonense.com.br/trilha-do-aprendiz-e-ambev-unem-forcas-e-transformam-sonho-em-oportunidade-real/" target="_blank" rel="noopener noreferrer" class="media-card">
-                        <h3 class="text-xl font-semibold text-white mb-2">O Povo Amazonense</h3>
-                        <p class="text-gray-400">Trilha do Aprendiz e Ambev unem forças e transformam sonho em oportunidade real.</p>
-                    </a>
-                    <a href="https://agnonline.com.br/noticias/amazonia/2025/10/21/13148-programa-de-voluntariado-da-ambev-impulsiona-empregabilidade-juvenil" target="_blank" rel="noopener noreferrer" class="media-card">
-                        <h3 class="text-xl font-semibold text-white mb-2">AGN Online</h3>
-                        <p class="text-gray-400">Programa de voluntariado da Ambev impulsiona empregabilidade juvenil.</p>
-                    </a>
-                    <a href="https://www.tjam.jus.br/index.php/menu/sala-de-imprensa/14764-tjam-marca-presenca-em-evento-promovido-por-startup-e-senac-sobre-iniciativa-que-tem-como-foco-a-empregabilidade-de-jovens-aprendizes" target="_blank" rel="noopener noreferrer" class="media-card">
-                        <h3 class="text-xl font-semibold text-white mb-2">TJAM</h3>
-                        <p class="text-gray-400">TJAM marca presença em evento de startup e SENAC sobre empregabilidade de jovens.</p>
-                    </a>
-                    <a href="https://www.tjam.jus.br/index.php/menu/sala-de-imprensa/12711-coij-firma-nova-parceria-com-startup-para-insercao-de-jovens-em-acolhimento-institucional-em-plataforma-de-empregabilidade" target="_blank" rel="noopener noreferrer" class="media-card">
-                        <h3 class="text-xl font-semibold text-white mb-2">TJAM</h3>
-                        <p class="text-gray-400">COIJ firma nova parceria com startup para inserção de jovens em acolhimento.</p>
-                    </a>
-                    <a href="https://emtempo.com.br/213264/economia/manaus-tem-21-novas-startups-desenvolvidas-em-programa-de-inovacao-e-empreendedorismo/" target="_blank" rel="noopener noreferrer" class="media-card">
-                        <h3 class="text-xl font-semibold text-white mb-2">Em Tempo</h3>
-                        <p class="text-gray-400">Manaus tem 21 novas startups desenvolvidas em programa de inovação.</p>
-                    </a>
-                </div>
-            </div>
-        </section>
-
-    </main>
-    <footer id="contato" class="bg-preto text-white text-center py-16">
-        <div class="container mx-auto px-6">
-            <a href="index.html" class="flex items-center justify-center space-x-2 mb-4">
-                <img src="imagens/logo-trilha-do-aprendiz-AZUL.png" alt="Logotipo da Trilha do Aprendiz" class="h-10 w-auto" 
-                     onerror="this.src='https://placehold.co/40x40/0F46B9/FFB80F?text=T'">
-                <span class="font-bold text-xl text-white">TRILHA DO APRENDIZ</span>
-            </a>
-            <p class="text-gray-400 mb-4">Conectando jovens talentos a oportunidades.</p>
-            <p class="text-sm text-gray-500">&copy; 2025 Trilha do Aprendiz. Todos os direitos reservados. Feito em Manaus, Amazonas.</p>
         </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <h2 class="features-title">Conheça Nossas Soluções</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">🎮</div>
+                <h3 class="feature-title">Jogo APZ Seleção</h3>
+                <p class="feature-desc">A sua carreira em forma de jogo. Cumpra missões, ganhe XP e seja visto por empresas.</p>
+                <a href="#" class="feature-link">Ver Vídeo do Jogo →</a>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">🤖</div>
+                <h3 class="feature-title">IA LEIA</h3>
+                <p class="feature-desc">Tire dúvidas sobre a Lei da Aprendizagem e treine para entrevistas com a nossa IA.</p>
+                <a href="#" class="feature-link">Fale com a LEIA →</a>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">🗺️</div>
+                <h3 class="feature-title">Mapa do Jovem Trabalhador</h3>
+                <p class="feature-desc">Descubra seu perfil profissional e encontre oportunidades que combinam com você.</p>
+                <a href="#" class="feature-link">Explore o Mapa →</a>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">🎙️</div>
+                <h3 class="feature-title">FALA AI, Aprendiz</h3>
+                <p class="feature-desc">Dicas de carreira e entrevistas com quem já trilhou este caminho. O futuro do país fala aqui.</p>
+                <a href="#" class="feature-link">Ouvir Agora →</a>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">🏆</div>
+                <h3 class="feature-title">Maratona START END</h3>
+                <p class="feature-desc">Eventos e competições de Hackathon para mostrar seu talento ao vivo para as maiores empresas.</p>
+                <a href="#" class="feature-link">Ver Vídeo →</a>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">🏢</div>
+                <h3 class="feature-title">Para Empresas</h3>
+                <p class="feature-desc">Transforme vocações em carreiras de sucesso. Recrute talentos validados e em conformidade com a Lei.</p>
+                <a href="#" class="feature-link">Seja Parceiro</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Media Section -->
+    <section class="media-section">
+        <h2 class="media-title">Trilha do Aprendiz na Mídia</h2>
+        <div class="media-grid">
+            <div class="media-item">
+                <h3 class="media-title-item">A Crítica</h3>
+                <p class="media-source">Programa de voluntariado da Ambev impulsiona empregabilidade juvenil na Amazônia.</p>
+            </div>
+            
+            <div class="media-item">
+                <h3 class="media-title-item">O Povo Amazonense</h3>
+                <p class="media-source">Trilha do Aprendiz e Ambev unem forças e transformam sonho em oportunidade real.</p>
+            </div>
+            
+            <div class="media-item">
+                <h3 class="media-title-item">AGN Online</h3>
+                <p class="media-source">Programa de voluntariado da Ambev impulsiona empregabilidade juvenil.</p>
+            </div>
+            
+            <div class="media-item">
+                <h3 class="media-title-item">TJAM</h3>
+                <p class="media-source">TJAM marca presença em evento de startup e SENAC sobre empregabilidade de jovens.</p>
+            </div>
+            
+            <div class="media-item">
+                <h3 class="media-title-item">TJAM</h3>
+                <p class="media-source">COIJ firma nova parceria com startup para inserção de jovens em acolhimento.</p>
+            </div>
+            
+            <div class="media-item">
+                <h3 class="media-title-item">Em Tempo</h3>
+                <p class="media-source">Manaus tem 21 novas startups desenvolvidas em programa de inovação.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Trilha do Aprendiz. Todos os direitos reservados.</p>
+        <div class="footer-links">
+            <a href="#">Sobre Nós</a>
+            <a href="#">Contato</a>
+            <a href="#">Política de Privacidade</a>
+            <a href="#">Termos de Uso</a>
+        </div>
+        <p class="copyright">Transformando vocações em carreiras de sucesso</p>
     </footer>
-
 </body>
 </html>
+
