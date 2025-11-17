@@ -19,8 +19,10 @@ body {
 .bg-preto { background-color: var(--preto); }
 .bg-preto-claro { background-color: var(--preto-claro); }
 
-/* --- Botões (Novo Estilo) --- */
-.btn-base {
+/* --- Botões (Novo Estilo - Sem @apply) --- */
+
+/* Propriedades base que estavam no .btn-base */
+.btn-verde, .btn-verde-outline, .btn-laranja-podcast, .btn-azul-mapa, .btn-indigo-hackathon {
     font-weight: 600;
     padding: 12px 24px;
     border-radius: 8px;
@@ -29,16 +31,17 @@ body {
     justify-content: center;
     transition: all 0.2s ease-in-out;
 }
-.btn-base:hover {
+.btn-verde:hover, .btn-verde-outline:hover, .btn-laranja-podcast:hover, .btn-azul-mapa:hover, .btn-indigo-hackathon:hover {
     transform: translateY(-2px);
 }
-.btn-base .arrow {
+.btn-verde .arrow, .btn-verde-outline .arrow, .btn-laranja-podcast .arrow, .btn-azul-mapa .arrow, .btn-indigo-hackathon .arrow {
     margin-left: 8px;
     transition: transform 0.2s ease;
 }
-.btn-base:hover .arrow {
+.btn-verde:hover .arrow, .btn-verde-outline:hover .arrow, .btn-laranja-podcast:hover .arrow, .btn-azul-mapa:hover .arrow, .btn-indigo-hackathon:hover .arrow {
     transform: translateX(4px);
 }
+
 .btn-grande {
     padding: 16px 32px;
     font-size: 1.1rem;
@@ -46,7 +49,6 @@ body {
 
 /* Botão Verde (Principal) */
 .btn-verde {
-    @apply btn-base;
     background-color: var(--verde);
     color: var(--preto);
 }
@@ -57,7 +59,6 @@ body {
 
 /* Botão Verde (Outline) */
 .btn-verde-outline {
-    @apply btn-base;
     background-color: transparent;
     color: var(--verde);
     border: 2px solid var(--verde);
@@ -70,7 +71,6 @@ body {
 
 /* Botão Laranja (Podcast) */
 .btn-laranja-podcast {
-    @apply btn-base;
     background-color: var(--podcast-laranja);
     color: var(--podcast-azul-escuro);
 }
@@ -81,7 +81,6 @@ body {
 
 /* Botão Azul (Mapa) */
 .btn-azul-mapa {
-    @apply btn-base;
     background-color: var(--mapa-azul);
     color: white;
 }
@@ -92,7 +91,6 @@ body {
 
 /* Botão Indigo (Hackathon) */
 .btn-indigo-hackathon {
-    @apply btn-base;
     background-color: var(--hackathon-indigo);
     color: white;
 }
