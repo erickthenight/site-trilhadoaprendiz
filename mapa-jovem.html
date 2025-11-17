@@ -13,6 +13,13 @@
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
     <style>
+        /* Sobrescreve as cores --preto e --preto-claro para esta página */
+        body {
+            --preto: var(--mapa-azul);
+            --preto-claro: #1a3cb7; /* Um tom ligeiramente mais claro do azul */
+            background-color: var(--preto);
+        }
+
         #map {
             height: 600px;
             border-radius: 8px;
@@ -28,15 +35,15 @@
             font-size: 1rem;
             width: 30px;
             height: 30px;
-            border: 2px solid var(--preto);
+            border: 2px solid var(--preto-inst);
         }
         .map-icon.vaga-icon {
-            background-color: var(--amarelo);
-            color: var(--preto);
+            background-color: var(--mapa-amarelo); /* Paleta Oficial Amarelo */
+            color: var(--preto-inst);
         }
         .map-icon.empresa-icon {
-            background-color: var(--verde);
-            color: var(--preto);
+            background-color: var(--mapa-verde); /* Paleta Oficial Verde */
+            color: white;
         }
         /* Ajusta o fundo do mapa Leaflet para o modo escuro */
         .leaflet-tile-pane {
@@ -77,7 +84,7 @@
                     <p class="text-lg text-gray-300 max-w-lg mb-8">
                         Filtros e ferramentas para o jovem aprendiz criar o seu currículo corretamente e encontrar vagas de forma geolocalizada.
                     </p>
-                    <a href="#map" class="btn-verde btn-grande">
+                    <a href="#map" class="btn-azul-mapa btn-grande">
                         Explorar Vagas
                     </a>
                 </div>
