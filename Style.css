@@ -7,6 +7,12 @@ body {
     --amarelo: #FFB80F;  /* Amarelo do logo */
     --verde: #32d583;    /* Verde claro dos botões */
     --verde-escuro: #29ab6d;
+    
+    /* Cores dos Subprodutos */
+    --podcast-laranja: #FE5000;
+    --podcast-azul-escuro: #090A31;
+    --mapa-azul: #0F46B9; /* Azul do logo antigo */
+    --hackathon-indigo: #4f46e5;
 }
 
 /* --- Cores de Fundo --- */
@@ -14,27 +20,23 @@ body {
 .bg-preto-claro { background-color: var(--preto-claro); }
 
 /* --- Botões (Novo Estilo) --- */
-.btn-verde {
-    background-color: var(--verde);
-    color: var(--preto);
+.btn-base {
     font-weight: 600;
     padding: 12px 24px;
     border-radius: 8px;
-    display: inline-flex; /* Para alinhar o ícone da seta */
+    display: inline-flex;
     align-items: center;
     justify-content: center;
     transition: all 0.2s ease-in-out;
 }
-.btn-verde:hover {
-    background-color: var(--verde-escuro);
+.btn-base:hover {
     transform: translateY(-2px);
-    box-shadow: 0 4px 10px rgba(49, 213, 131, 0.2);
 }
-.btn-verde .arrow {
+.btn-base .arrow {
     margin-left: 8px;
     transition: transform 0.2s ease;
 }
-.btn-verde:hover .arrow {
+.btn-base:hover .arrow {
     transform: translateX(4px);
 }
 .btn-grande {
@@ -42,17 +44,74 @@ body {
     font-size: 1.1rem;
 }
 
+/* Botão Verde (Principal) */
+.btn-verde {
+    @apply btn-base;
+    background-color: var(--verde);
+    color: var(--preto);
+}
+.btn-verde:hover {
+    background-color: var(--verde-escuro);
+    box-shadow: 0 4px 10px rgba(49, 213, 131, 0.2);
+}
+
+/* Botão Verde (Outline) */
+.btn-verde-outline {
+    @apply btn-base;
+    background-color: transparent;
+    color: var(--verde);
+    border: 2px solid var(--verde);
+}
+.btn-verde-outline:hover {
+    background-color: var(--verde);
+    color: var(--preto);
+    box-shadow: 0 4px 10px rgba(49, 213, 131, 0.2);
+}
+
+/* Botão Laranja (Podcast) */
+.btn-laranja-podcast {
+    @apply btn-base;
+    background-color: var(--podcast-laranja);
+    color: var(--podcast-azul-escuro);
+}
+.btn-laranja-podcast:hover {
+    background-color: #ff7033; /* Laranja mais claro */
+    box-shadow: 0 4px 10px rgba(254, 80, 0, 0.2);
+}
+
+/* Botão Azul (Mapa) */
+.btn-azul-mapa {
+    @apply btn-base;
+    background-color: var(--mapa-azul);
+    color: white;
+}
+.btn-azul-mapa:hover {
+    background-color: #1e63e6; /* Azul mais claro */
+    box-shadow: 0 4px 10px rgba(15, 70, 185, 0.2);
+}
+
+/* Botão Indigo (Hackathon) */
+.btn-indigo-hackathon {
+    @apply btn-base;
+    background-color: var(--hackathon-indigo);
+    color: white;
+}
+.btn-indigo-hackathon:hover {
+    background-color: #6366f1; /* Indigo mais claro */
+    box-shadow: 0 4px 10px rgba(79, 70, 229, 0.2);
+}
+
+
 /* --- Hero Section --- */
 .hero-section {
     background-color: var(--preto);
-    /* Adiciona os círculos de fundo como no screenshot 2.jpg */
     background-image: 
         radial-gradient(circle at 15% 25%, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0) 20%),
         radial-gradient(circle at 85% 70%, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0) 25%);
     overflow: hidden;
 }
 
-/* --- Seção "Para Empresas" (4.jpg) --- */
+/* --- Feature Icon (Checkmark) --- */
 .feature-icon {
     flex-shrink: 0;
     width: 32px;
@@ -68,5 +127,31 @@ body {
     box-shadow: 0 0 15px rgba(49, 213, 131, 0.3);
 }
 
-/* --- Remove o CSS de Pixel Art Antigo --- */
-/* (Todo o CSS .font-pixel, .pixel-button, #gameCanvas, etc. foi removido) */
+/* --- Product Cards (Hub) --- */
+.product-card {
+    background-color: var(--preto);
+    border: 1px solid #334155; /* slate-700 */
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+.product-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--verde);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+.product-card .product-image {
+    height: 200px;
+    width: 100%;
+    object-fit: contain; /* 'contain' para logos */
+    background-color: var(--preto-claro);
+    border-bottom: 1px solid #334155;
+    border-radius: 12px 12px 0 0;
+    padding: 1rem; /* Adiciona respiro para logos */
+}
+/* Imagens que são fotos ficam melhor com 'cover' */
+.product-card .product-image.cover {
+    object-fit: cover;
+    padding: 0;
+}
