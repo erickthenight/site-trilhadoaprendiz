@@ -4,16 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trilha do Aprendiz - Conectando Talentos e Oportunidades</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
         :root {
-            --primary: #FFB300;
-            --secondary: #0D47A1;
-            --accent: #4CAF50;
+            /* Paleta de Cores (do seu ficheiro) */
+            --primary: #FFB300;   /* Amarelo */
+            --secondary: #0D47A1;  /* Azul Escuro */
+            --accent: #4CAF50;    /* Verde */
             --dark: #121212;
             --light: #FFFFFF;
             --gray: #616161;
             --light-gray: #F5F5F5;
-            --dark-bg: #1E2A2A;
+            --dark-bg: #1E2A2A;   /* Fundo escuro do Hero */
         }
         
         * {
@@ -37,7 +39,7 @@
         
         /* Header */
         header {
-            background-color: var(--primary);
+            background-color: var(--primary); /* Header Amarelo */
             padding: 15px 0;
             position: sticky;
             top: 0;
@@ -58,19 +60,14 @@
             display: flex;
             align-items: center;
             gap: 10px;
+            text-decoration: none;
         }
         
-        .logo-icon {
+        .logo-icon img {
             width: 40px;
             height: 40px;
-            background-color: var(--secondary);
             border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--light);
-            font-weight: bold;
-            font-size: 1.5rem;
+            object-fit: contain;
         }
         
         .logo-text {
@@ -115,7 +112,7 @@
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
         
-        /* Hero Section */
+        /* Hero Section (Atualizado para "Encontre Oportunidades") */
         .hero {
             background: linear-gradient(135deg, var(--dark-bg) 0%, #0A1919 100%);
             color: var(--light);
@@ -183,9 +180,9 @@
             height: 400px;
             border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
         }
         
+        /* Fundo amarelo atrás da imagem, como no 2.jpg */
         .hero-image-bg {
             position: absolute;
             top: 0;
@@ -195,20 +192,22 @@
             background: linear-gradient(45deg, var(--primary), #FFC107);
             border-radius: 20px;
             z-index: 1;
+            /* Simula o recorte do logo 'T' */
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%, 0 70%, 20% 70%, 20% 40%, 40% 40%, 40% 70%, 0 70%);
         }
         
         .hero-image-img {
             position: absolute;
-            top: 50%;
+            bottom: 0;
             left: 50%;
-            transform: translate(-50%, -50%);
-            max-width: 90%;
-            max-height: 90%;
+            transform: translateX(-50%);
+            width: auto;
+            height: 90%;
             object-fit: contain;
             z-index: 2;
         }
         
-        /* Features Section */
+        /* Features Section (Atualizado com Logos) */
         .features {
             padding: 80px 0;
             background-color: var(--light-gray);
@@ -234,6 +233,8 @@
             box-shadow: 0 5px 15px rgba(0,0,0,0.05);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             border: 1px solid #eee;
+            display: flex;
+            flex-direction: column;
         }
         
         .feature-card:hover {
@@ -242,17 +243,28 @@
         }
         
         .feature-icon {
-            width: 60px;
-            height: 60px;
-            background-color: var(--primary);
-            border-radius: 50%;
+            width: 100%; /* Ocupa a largura */
+            height: 120px; /* Altura fixa */
+            background-color: var(--dark-bg);
+            border-radius: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
             margin-bottom: 20px;
-            color: var(--dark);
-            font-size: 1.5rem;
-            font-weight: bold;
+            overflow: hidden;
+        }
+        
+        .feature-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain; /* 'contain' é melhor para logos */
+            padding: 10px;
+        }
+
+        /* Estilo específico para fotos/ilustrações */
+        .feature-icon img.cover {
+            object-fit: cover;
+            padding: 0;
         }
         
         .feature-title {
@@ -264,6 +276,7 @@
         .feature-desc {
             color: var(--gray);
             margin-bottom: 20px;
+            flex-grow: 1; /* Empurra o link para baixo */
         }
         
         .feature-link {
@@ -304,13 +317,16 @@
             background-color: rgba(255,255,255,0.05);
             padding: 25px;
             border-radius: 10px;
-            transition: transform 0.3s ease;
+            transition: all 0.3s ease;
             border: 1px solid rgba(255,255,255,0.1);
+            text-decoration: none;
+            color: var(--light);
         }
         
         .media-item:hover {
             transform: translateY(-3px);
             background-color: rgba(255,255,255,0.1);
+            border-color: var(--primary);
         }
         
         .media-title-item {
@@ -321,7 +337,7 @@
         
         .media-source {
             font-size: 0.9rem;
-            color: var(--gray);
+            color: #aaa;
             font-style: italic;
         }
         
@@ -365,6 +381,17 @@
             
             .hero-title {
                 font-size: 2.5rem;
+                text-align: center;
+            }
+            .hero-subtitle {
+                text-align: center;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .hero-content {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
             }
             
             .hero-image-container {
@@ -388,18 +415,14 @@
                 font-size: 2rem;
             }
             
-            .features-title {
-                font-size: 2rem;
-            }
-            
-            .media-title {
+            .features-title, .media-title {
                 font-size: 2rem;
             }
         }
         
         @media (max-width: 480px) {
             .hero-title {
-                font-size: 1.5rem;
+                font-size: 1.8rem;
             }
             
             .hero-subtitle {
@@ -418,125 +441,131 @@
     </style>
 </head>
 <body>
-    <!-- Header -->
     <header>
         <div class="header-container">
-            <div class="logo">
-                <div class="logo-icon">T</div>
+            <a href="index.html" class="logo">
+                <div class="logo-icon">
+                    <img src="imagens/Logo trilha do aprendiz azul - preto0.png" alt="Logo Trilha do Aprendiz">
+                </div>
                 <div class="logo-text">TRILHA DO APRENDIZ</div>
-            </div>
+            </a>
             <ul class="nav-menu">
-                <li><a href="#">Início</a></li>
-                <li><a href="#">Sobre</a></li>
-                <li><a href="#">Contato</a></li>
+                <li><a href="#inicio">Início</a></li>
+                <li><a href="#solucoes">Soluções</a></li>
+                <li><a href="#midia">Na Mídia</a></li>
+                <li><a href="#contato">Contato</a></li>
             </ul>
-            <a href="#" class="cta-button">Fale com a LEIA →</a>
+            <a href="ia-leia.html" class="cta-button">Fale com a LEIA →</a>
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero">
+    <section class="hero" id="inicio">
         <div class="hero-container">
             <div class="hero-content">
-                <h1 class="hero-title">ENTENDA A LEI DA APRENDIZAGEM</h1>
-                <p class="hero-subtitle">Interaja com a LEIA e assegure o cumprimento de todas as exigências legais, enquanto foca no que realmente importa: o crescimento do seu negócio.</p>
-                <a href="#" class="hero-button">CONVERSAR COM LEIA</a>
+                <h1 class="hero-title">Encontre as Melhores Oportunidades</h1>
+                <p class="hero-subtitle">Já imaginou descobrir sua vocação e seu perfil comportamental em um só lugar? Agora é possível com a gente. Teste agora mesmo.</p>
+                <a href="#" class="hero-button">REGISTRAR AGORA</a>
             </div>
             <div class="hero-image">
                 <div class="hero-image-container">
                     <div class="hero-image-bg"></div>
-                    <img src="https://placehold.co/400x300/FFB300/FFFFFF?text=LEIA+AI" alt="LEIA - Assistente Virtual" class="hero-image-img">
+                    <img src="imagens/Illustra - (masc) - Institucional0.png" alt="Jovem Aprendiz Trilha do Aprendiz" class="hero-image-img">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Features Section -->
-    <section class="features">
+    <section class="features" id="solucoes">
         <h2 class="features-title">Conheça Nossas Soluções</h2>
         <div class="features-grid">
+            
             <div class="feature-card">
-                <div class="feature-icon">🎮</div>
+                <div class="feature-icon">
+                    <img src="imagens/Illustra - (masc) - Institucional0.png" alt="GAME APZ Seleção" class="cover">
+                </div>
                 <h3 class="feature-title">Jogo APZ Seleção</h3>
                 <p class="feature-desc">A sua carreira em forma de jogo. Cumpra missões, ganhe XP e seja visto por empresas.</p>
-                <a href="#" class="feature-link">Ver Vídeo do Jogo →</a>
+                <a href="game-apz-selecao.html" class="feature-link">Ver Vídeo do Jogo →</a>
             </div>
             
             <div class="feature-card">
-                <div class="feature-icon">🤖</div>
+                <div class="feature-icon">
+                    <img src="imagens/Logo IA LEIA.jpg" alt="IA LEIA">
+                </div>
                 <h3 class="feature-title">IA LEIA</h3>
                 <p class="feature-desc">Tire dúvidas sobre a Lei da Aprendizagem e treine para entrevistas com a nossa IA.</p>
-                <a href="#" class="feature-link">Fale com a LEIA →</a>
+                <a href="ia-leia.html" class="feature-link">Fale com a LEIA →</a>
             </div>
             
             <div class="feature-card">
-                <div class="feature-icon">🗺️</div>
+                <div class="feature-icon">
+                    <img src="imagens/Logo Mapa do Jovem Trabalhador .png" alt="Mapa do Jovem Trabalhador">
+                </div>
                 <h3 class="feature-title">Mapa do Jovem Trabalhador</h3>
                 <p class="feature-desc">Descubra seu perfil profissional e encontre oportunidades que combinam com você.</p>
-                <a href="#" class="feature-link">Explore o Mapa →</a>
+                <a href="mapa-jovem.html" class="feature-link">Explore o Mapa →</a>
             </div>
             
             <div class="feature-card">
-                <div class="feature-icon">🎙️</div>
+                <div class="feature-icon">
+                    <img src="imagens/Logo fala ai aprendiz.png" alt="FALA AI, Aprendiz">
+                </div>
                 <h3 class="feature-title">FALA AI, Aprendiz</h3>
                 <p class="feature-desc">Dicas de carreira e entrevistas com quem já trilhou este caminho. O futuro do país fala aqui.</p>
-                <a href="#" class="feature-link">Ouvir Agora →</a>
+                <a href="fala-ai-aprendiz.html" class="feature-link">Ouvir Agora →</a>
             </div>
             
             <div class="feature-card">
-                <div class="feature-icon">🏆</div>
+                <div class="feature-icon">
+                    <img src="imagens/Logo preto0 start end exp nova 2024.png" alt="Maratona START END">
+                </div>
                 <h3 class="feature-title">Maratona START END</h3>
                 <p class="feature-desc">Eventos e competições de Hackathon para mostrar seu talento ao vivo para as maiores empresas.</p>
-                <a href="#" class="feature-link">Ver Vídeo →</a>
+                <a href="maratona-start-end.html" class="feature-link">Ver Vídeo →</a>
             </div>
             
             <div class="feature-card">
-                <div class="feature-icon">🏢</div>
+                <div class="feature-icon">
+                    <img src="imagens/TRILHA 2.png" alt="Para Empresas" class="cover">
+                </div>
                 <h3 class="feature-title">Para Empresas</h3>
                 <p class="feature-desc">Transforme vocações em carreiras de sucesso. Recrute talentos validados e em conformidade com a Lei.</p>
-                <a href="#" class="feature-link">Seja Parceiro</a>
+                <a href="#contato" class="feature-link">Seja Parceiro</a>
             </div>
         </div>
     </section>
 
-    <!-- Media Section -->
-    <section class="media-section">
+    <section class="media-section" id="midia">
         <h2 class="media-title">Trilha do Aprendiz na Mídia</h2>
         <div class="media-grid">
-            <div class="media-item">
+            <a href="https://www.acritica.com/geral/programa-de-voluntariado-da-ambev-impulsiona-empregabilidade-juvenil-na-amazonia-1.386476" target="_blank" rel="noopener noreferrer" class="media-item">
                 <h3 class="media-title-item">A Crítica</h3>
-                <p class="media-source">Programa de voluntariado da Ambev impulsiona empregabilidade juvenil na Amazônia.</p>
-            </div>
-            
-            <div class="media-item">
+                <p class="media-source">Programa de voluntariado da Ambev impulsiona empregabilidade juvenil...</p>
+            </a>
+            <a href="https://opovoamazonense.com.br/trilha-do-aprendiz-e-ambev-unem-forcas-e-transformam-sonho-em-oportunidade-real/" target="_blank" rel="noopener noreferrer" class="media-item">
                 <h3 class="media-title-item">O Povo Amazonense</h3>
                 <p class="media-source">Trilha do Aprendiz e Ambev unem forças e transformam sonho em oportunidade real.</p>
-            </div>
-            
-            <div class="media-item">
+            </a>
+            <a href="https://agnonline.com.br/noticias/amazonia/2025/10/21/13148-programa-de-voluntariado-da-ambev-impulsiona-empregabilidade-juvenil" target="_blank" rel="noopener noreferrer" class="media-item">
                 <h3 class="media-title-item">AGN Online</h3>
                 <p class="media-source">Programa de voluntariado da Ambev impulsiona empregabilidade juvenil.</p>
-            </div>
-            
-            <div class="media-item">
+            </a>
+            <a href="https://www.tjam.jus.br/index.php/menu/sala-de-imprensa/14764-tjam-marca-presenca-em-evento-promovido-por-startup-e-senac-sobre-iniciativa-que-tem-como-foco-a-empregabilidade-de-jovens-aprendizes" target="_blank" rel="noopener noreferrer" class="media-item">
                 <h3 class="media-title-item">TJAM</h3>
-                <p class="media-source">TJAM marca presença em evento de startup e SENAC sobre empregabilidade de jovens.</p>
-            </div>
-            
-            <div class="media-item">
+                <p class="media-source">TJAM marca presença em evento de startup e SENAC sobre empregabilidade...</p>
+            </a>
+            <a href="https://www.tjam.jus.br/index.php/menu/sala-de-imprensa/12711-coij-firma-nova-parceria-com-startup-para-insercao-de-jovens-em-acolhimento-institucional-em-plataforma-de-empregabilidade" target="_blank" rel="noopener noreferrer" class="media-item">
                 <h3 class="media-title-item">TJAM</h3>
-                <p class="media-source">COIJ firma nova parceria com startup para inserção de jovens em acolhimento.</p>
-            </div>
-            
-            <div class="media-item">
+                <p class="media-source">COIJ firma nova parceria com startup para inserção de jovens em acolhimento...</p>
+            </a>
+            <a href="https://emtempo.com.br/213264/economia/manaus-tem-21-novas-startups-desenvolvidas-em-programa-de-inovacao-e-empreendedorismo/" target="_blank" rel="noopener noreferrer" class="media-item">
                 <h3 class="media-title-item">Em Tempo</h3>
-                <p class="media-source">Manaus tem 21 novas startups desenvolvidas em programa de inovação.</p>
-            </div>
+                <p class="media-source">Manaus tem 21 novas startups desenvolvidas em programa de inovação...</p>
+            </a>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer>
+    <footer id="contato">
         <p>&copy; 2025 Trilha do Aprendiz. Todos os direitos reservados.</p>
         <div class="footer-links">
             <a href="#">Sobre Nós</a>
@@ -548,4 +577,3 @@
     </footer>
 </body>
 </html>
-
