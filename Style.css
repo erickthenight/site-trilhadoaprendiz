@@ -13,6 +13,7 @@ body {
     --podcast-azul-escuro: #090A31;
     --mapa-azul: #0F46B9; /* Azul do logo antigo */
     --hackathon-indigo: #4f46e5;
+    --hackathon-lilas: #AFA1F2;
 }
 
 /* --- Cores de Fundo --- */
@@ -109,7 +110,7 @@ body {
     overflow: hidden;
 }
 
-/* --- Feature Icon (Checkmark) --- */
+/* --- Feature Icon (Checkmark - Usado em ia-leia.html) --- */
 .feature-icon {
     flex-shrink: 0;
     width: 32px;
@@ -208,38 +209,12 @@ body {
     transform: translateY(-5px);
     border-color: var(--verde-cta);
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-
-    /* ... (todo o seu código css existente) ... */
-.media-card:hover {
-    transform: translateY(-5px);
-    border-color: var(--verde-cta);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
 /* ============================================================
-== NOVOS ESTILOS: Plataformas de Podcast ==
+== (Estilos de páginas antigas removidos) ==
 ============================================================
 */
-.platform-card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-color: var(--preto);
-    color: var(--podcast-creme);
-    padding: 2rem 1rem;
-    border-radius: 12px;
-    border: 2px solid #334155; /* slate-700 */
-    transition: all 0.2s ease-in-out;
-}
-.platform-card:hover {
-    color: var(--platform-color); /* Usa a cor definida no HTML */
-    border-color: var(--platform-color);
-    transform: translateY(-5px);
-    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
-}
-.platform-card i {
-    color: var(--platform-color);
-    transition: all 0.2s ease-in-out;
-}
-}
+/* (O CSS para .map-icon, .podcast-card, .game-feature-card foi removido
+   porque agora está a ser tratado por classes 'inline' ou foi 
+   substituído por layouts mais recentes) */
