@@ -1,28 +1,51 @@
 /* --- Fontes --- */
 body {
     font-family: 'Inter', sans-serif;
-    /* Cores do Novo Design */
-    --preto: #1d232a; /* O fundo verde-escuro/preto das imagens */
-    --preto-claro: #272f3a; /* Um tom mais claro para seções */
-    --amarelo: #FFB80F;  /* Amarelo do logo */
-    --verde: #32d583;    /* Verde claro dos botões */
-    --verde-escuro: #29ab6d;
+}
+
+/* ============================================================
+== PALETA DE CORES OFICIAL (Baseado nos Manuais) ==
+============================================================
+*/
+:root {
+    /* Cores Base "Tech" (do index) */
+    --preto: #1d232a; 
+    --preto-claro: #272f3a; 
     
-    /* Cores dos Subprodutos */
+    /* Trilha do Aprendiz (Principal) */
+    --amarelo-inst: #FFB80F; /* Amarelo Institucional */
+    --azul-inst: #0F46B9;     /* Azul Institucional */
+    --preto-inst: #191919;    /* Preto Institucional */
+    --creme-inst: #F7EDDD;
+    --verde-inst: #47B28B;    /* Verde (Campanha) */
+    --verde-cta: #32d583;     /* Verde claro (Botões) */
+    --verde-cta-escuro: #29ab6d;
+
+    /* Subproduto: Podcast (Fala Aí) */
     --podcast-laranja: #FE5000;
     --podcast-azul-escuro: #090A31;
-    --mapa-azul: #0F46B9; /* Azul do logo antigo */
-    --hackathon-indigo: #4f46e5;
+    --podcast-creme: #F4EDD3;
+    --podcast-azul-claro: #2466ED;
+
+    /* Subproduto: Mapa (Mapa do Jovem) */
+    --mapa-amarelo: #FFB600;
+    --mapa-verde: #009318;
+    --mapa-azul: #0E248E;
+
+    /* Subproduto: Hackathon (Start End) */
+    --hackathon-roxo: #3D317A;
+    --hackathon-vinho: #3A2042;
+    --hackathon-lilas: #AFA1F2;
+    --hackathon-azul-medio: #364BAA;
 }
+
 
 /* --- Cores de Fundo --- */
 .bg-preto { background-color: var(--preto); }
 .bg-preto-claro { background-color: var(--preto-claro); }
 
-/* --- Botões (Novo Estilo - Sem @apply) --- */
-
-/* Propriedades base que estavam no .btn-base */
-.btn-verde, .btn-verde-outline, .btn-laranja-podcast, .btn-azul-mapa, .btn-indigo-hackathon {
+/* --- Botões (Atualizados com Cores Oficiais) --- */
+.btn-base {
     font-weight: 600;
     padding: 12px 24px;
     border-radius: 8px;
@@ -31,17 +54,16 @@ body {
     justify-content: center;
     transition: all 0.2s ease-in-out;
 }
-.btn-verde:hover, .btn-verde-outline:hover, .btn-laranja-podcast:hover, .btn-azul-mapa:hover, .btn-indigo-hackathon:hover {
+.btn-base:hover {
     transform: translateY(-2px);
 }
-.btn-verde .arrow, .btn-verde-outline .arrow, .btn-laranja-podcast .arrow, .btn-azul-mapa .arrow, .btn-indigo-hackathon .arrow {
+.btn-base .arrow {
     margin-left: 8px;
     transition: transform 0.2s ease;
 }
-.btn-verde:hover .arrow, .btn-verde-outline:hover .arrow, .btn-laranja-podcast:hover .arrow, .btn-azul-mapa:hover .arrow, .btn-indigo-hackathon:hover .arrow {
+.btn-base:hover .arrow {
     transform: translateX(4px);
 }
-
 .btn-grande {
     padding: 16px 32px;
     font-size: 1.1rem;
@@ -49,30 +71,34 @@ body {
 
 /* Botão Verde (Principal) */
 .btn-verde {
-    background-color: var(--verde);
+    @apply btn-base;
+    background-color: var(--verde-cta);
     color: var(--preto);
 }
 .btn-verde:hover {
-    background-color: var(--verde-escuro);
+    background-color: var(--verde-cta-escuro);
     box-shadow: 0 4px 10px rgba(49, 213, 131, 0.2);
 }
 
 /* Botão Verde (Outline) */
 .btn-verde-outline {
+    @apply btn-base;
     background-color: transparent;
-    color: var(--verde);
-    border: 2px solid var(--verde);
+    color: var(--verde-cta);
+    border: 2px solid var(--verde-cta);
 }
 .btn-verde-outline:hover {
-    background-color: var(--verde);
+    background-color: var(--verde-cta);
     color: var(--preto);
     box-shadow: 0 4px 10px rgba(49, 213, 131, 0.2);
 }
 
 /* Botão Laranja (Podcast) */
 .btn-laranja-podcast {
+    @apply btn-base;
     background-color: var(--podcast-laranja);
-    color: var(--podcast-azul-escuro);
+    color: var(--podcast-azul-escuro); /* Contraste alto */
+    font-weight: 700;
 }
 .btn-laranja-podcast:hover {
     background-color: #ff7033; /* Laranja mais claro */
@@ -81,22 +107,24 @@ body {
 
 /* Botão Azul (Mapa) */
 .btn-azul-mapa {
+    @apply btn-base;
     background-color: var(--mapa-azul);
     color: white;
 }
 .btn-azul-mapa:hover {
-    background-color: #1e63e6; /* Azul mais claro */
-    box-shadow: 0 4px 10px rgba(15, 70, 185, 0.2);
+    background-color: #1a3cb7; /* Azul mais claro */
+    box-shadow: 0 4px 10px rgba(14, 36, 142, 0.2);
 }
 
-/* Botão Indigo (Hackathon) */
+/* Botão Indigo/Roxo (Hackathon) */
 .btn-indigo-hackathon {
-    background-color: var(--hackathon-indigo);
+    @apply btn-base;
+    background-color: var(--hackathon-roxo);
     color: white;
 }
 .btn-indigo-hackathon:hover {
-    background-color: #6366f1; /* Indigo mais claro */
-    box-shadow: 0 4px 10px rgba(79, 70, 229, 0.2);
+    background-color: #4f46e5; /* Roxo mais claro */
+    box-shadow: 0 4px 10px rgba(61, 49, 122, 0.2);
 }
 
 
@@ -115,7 +143,7 @@ body {
     width: 32px;
     height: 32px;
     border-radius: 99px;
-    background-color: var(--verde);
+    background-color: var(--verde-cta);
     color: var(--preto);
     display: flex;
     align-items: center;
@@ -136,7 +164,7 @@ body {
 }
 .product-card:hover {
     transform: translateY(-8px);
-    border-color: var(--verde);
+    border-color: var(--verde-cta);
     box-shadow: 0 10px 20px rgba(0,0,0,0.2);
 }
 .product-card .product-image {
@@ -155,7 +183,7 @@ body {
 }
 
 /* ============================================================
-== NOVOS ESTILOS: Vídeos e Mídia ==
+== Vídeos e Mídia ==
 ============================================================
 */
 
@@ -188,6 +216,6 @@ body {
 }
 .media-card:hover {
     transform: translateY(-5px);
-    border-color: var(--verde);
+    border-color: var(--verde-cta);
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
