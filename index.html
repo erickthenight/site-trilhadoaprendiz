@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trilha do Aprendiz - Conectando Jovens Talentos a Oportunidades</title>
     
+    <meta name="description" content="A Trilha do Aprendiz é um portal de empregabilidade em Manaus que conecta jovens (14-24 anos) com as melhores vagas de Jovem Aprendiz usando gamificação e IA.">
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     
@@ -15,12 +17,12 @@
     <nav class="bg-preto sticky top-0 z-50 border-b border-gray-700/50">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
             <a href="index.html" class="flex items-center space-x-2">
-                <img src="imagens/logo-trilha-do-aprendiz-AZUL.png" alt="Logo Trilha do Aprendiz" class="h-10 w-auto" 
+                <img src="imagens/logo-trilha-do-aprendiz-AZUL.png" alt="Logotipo da Trilha do Aprendiz" class="h-10 w-auto" 
                      onerror="this.src='https://placehold.co/40x40/0F46B9/FFB80F?text=T'">
                 <span class="font-bold text-xl text-white">TRILHA DO APRENDIZ</span>
             </a>
             
-            <div class="hidden md:flex space-x-8">
+            <div class="hidden md:flex space-x-8" role="navigation">
                 <a href="#inicio" class="font-medium text-gray-300 hover:text-white transition">Início</a>
                 <a href="#solucoes" class="font-medium text-gray-300 hover:text-white transition">Soluções</a>
                 <a href="#midia" class="font-medium text-gray-300 hover:text-white transition">Na Mídia</a>
@@ -33,172 +35,175 @@
         </div>
     </nav>
 
-    <header id="inicio" class="hero-section py-20 md:py-32">
-        <div class="container mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
-            <div>
-                <h1 class="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">
-                    Encontre as Melhores Oportunidades
-                </h1>
-                <p class="text-lg text-gray-300 max-w-lg mb-8">
-                    Descubra sua vocação e seu perfil comportamental. Conectamos jovens talentos com as melhores empresas, transformando potencial em carreira.
+    <main>
+
+        <header id="inicio" class="hero-section py-20 md:py-32">
+            <div class="container mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
+                <div>
+                    <h1 class="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">
+                        Encontre as Melhores Oportunidades
+                    </h1>
+                    <p class="text-lg text-gray-300 max-w-lg mb-8">
+                        Descubra sua vocação e seu perfil comportamental. Conectamos jovens talentos com as melhores empresas, transformando potencial em carreira.
+                    </p>
+                    <a href="#solucoes" class="btn-verde btn-grande">
+                        CONHEÇA AS SOLUÇÕES
+                    </a>
+                </div>
+                <div class="flex justify-center">
+                    <img src="imagens/Illustra - (masc) - Institucional0.png" 
+                         alt="Ilustração de um Jovem Aprendiz sorrindo, com mochila e um livro" 
+                         class="w-full max-w-md"
+                         onerror="this.src='https://placehold.co/400x500/34d399/191919?text=Ilustra%C3%A7%C3%A3o'">
+                </div>
+            </div>
+        </header>
+        
+        <section id="pitch" class="py-20 bg-preto-claro">
+            <div class="container mx-auto px-6 max-w-4xl text-center">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-8">
+                    Conheça a Trilha do Aprendiz
+                </h2>
+                <p class="text-lg text-gray-300 max-w-2xl mx-auto mb-8">
+                    Veja o nosso pitch comercial e entenda como estamos a revolucionar a empregabilidade jovem no Amazonas.
                 </p>
-                <a href="#solucoes" class="btn-verde btn-grande">
-                    CONHEÇA AS SOLUÇÕES
-                </a>
-            </div>
-            <div class="flex justify-center">
-                <img src="imagens/Illustra - (masc) - Institucional0.png" 
-                     alt="Jovem Aprendiz" 
-                     class="w-full max-w-md"
-                     onerror="this.src='https://placehold.co/400x500/34d399/191919?text=Ilustra%C3%A7%C3%A3o'">
-            </div>
-        </div>
-    </header>
-    
-    <section id="pitch" class="py-20 bg-preto-claro">
-        <div class="container mx-auto px-6 max-w-4xl text-center">
-            <h2 class="text-3xl md:text-4xl font-bold text-white mb-8">
-                Conheça a Trilha do Aprendiz
-            </h2>
-            <p class="text-lg text-gray-300 max-w-2xl mx-auto mb-8">
-                Veja o nosso pitch comercial e entenda como estamos a revolucionar a empregabilidade jovem no Amazonas.
-            </p>
-            <div class="video-container shadow-2xl rounded-lg overflow-hidden">
-                <iframe 
-                    src="https://www.youtube.com/embed/B1S8i9hidcU" 
-                    title="YouTube video player" 
-                    frameborder="0" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                    allowfullscreen>
-                </iframe>
-            </div>
-        </div>
-    </section>
-
-    <section id="solucoes" class="py-20 bg-preto">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl md:text-4xl font-bold text-white mb-16 text-center">
-                Conheça Nossas Soluções
-            </h2>
-            
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
-
-                <div class="product-card">
-                    <img src="imagens/Illustra - (masc) - Institucional0.png" alt="GAME APZ Seleção" class="product-image" onerror="this.src='https://placehold.co/300x200/34d399/191919?text=Jogo+APZ'">
-                    <div class="p-6 flex flex-col flex-grow">
-                        <h3 class="text-2xl font-bold text-white mb-3">Jogo APZ Seleção</h3>
-                        <p class="text-gray-400 mb-6 flex-grow">A sua carreira em forma de jogo. Cumpra missões, ganhe XP e seja visto por empresas.</p>
-                        <a href="game-apz-selecao.html" class="btn-verde w-full">Ver Vídeo do Jogo <span class="arrow">→</span></a>
-                    </div>
-                </div>
-                
-                <div class="product-card">
-                    <img src="imagens/logo-ia-leia.png" alt="IA LEIA" class="product-image" onerror="this.src='https://placehold.co/300x200/34d399/191919?text=IA+LEIA'">
-                    <div class="p-6 flex flex-col flex-grow">
-                        <h3 class="text-2xl font-bold text-white mb-3">IA LEIA</h3>
-                        <p class="text-gray-400 mb-6 flex-grow">Tire dúvidas sobre a Lei da Aprendizagem e treine para entrevistas com a nossa IA.</p>
-                        <a href="ia-leia.html" class="btn-verde w-full">Fale com a LEIA <span class="arrow">→</span></a>
-                    </div>
-                </div>
-
-                <div class="product-card">
-                    <img src="imagens/logo-mapa-jovem-trabalhador.png" alt="Mapa do Jovem Trabalhador" class="product-image" onerror="this.src='https://placehold.co/300x200/0F46B9/FFB80F?text=Mapa'">
-                    <div class="p-6 flex flex-col flex-grow">
-                        <h3 class="text-2xl font-bold text-white mb-3">Mapa do Jovem</h3>
-                        <p class="text-gray-400 mb-6 flex-grow">Encontre vagas de Jovem Aprendiz e empresas parceiras perto de si.</p>
-                        <a href="mapa-jovem.html" class="btn-azul-mapa w-full">Explorar Mapa <span class="arrow">→</span></a>
-                    </div>
-                </div>
-
-                <div class="product-card">
-                    <img src="imagens/logo-fala-ai-aprendiz.png" alt="Podcast FALA AI Aprendiz" class="product-image" onerror="this.src='https://placehold.co/300x200/FE5000/090A31?text=Podcast'">
-                    <div class="p-6 flex flex-col flex-grow">
-                        <h3 class="text-2xl font-bold text-white mb-3">FALA AI, Aprendiz</h3>
-                        <p class="text-gray-400 mb-6 flex-grow">Dicas de carreira e entrevistas com quem já trilhou este caminho. O futuro do país fala aqui.</p>
-                        <a href="fala-ai-aprendiz.html" class="btn-laranja-podcast w-full">Ouvir Agora <span class="arrow">→</span></a>
-                    </div>
-                </div>
-
-                <div class="product-card">
-                    <img src="imagens/logo-start-end-experience-Preto.png" alt="Maratona START END EXPERIENCE" class="product-image" onerror="this.src='https://placehold.co/300x200/4f46e5/ffffff?text=Hackathon'">
-                    <div class="p-6 flex flex-col flex-grow">
-                        <h3 class="text-2xl font-bold text-white mb-3">Maratona START END</h3>
-                        <p class="text-gray-400 mb-6 flex-grow">Eventos e competições de Hackathon para mostrar seu talento ao vivo para as maiores empresas.</p>
-                        <a href="maratona-start-end.html" class="btn-indigo-hackathon w-full">Ver Vídeo <span class="arrow">→</span></a>
-                    </div>
-                </div>
-                
-                <div class="product-card">
-                    <img src="imagens/TRILHA 2.png" alt="Para Empresas" class="product-image cover" onerror="this.src='https://placehold.co/300x200/FFB80F/191919?text=Empresas'">
-                    <div class="p-6 flex flex-col flex-grow">
-                        <h3 class="text-2xl font-bold text-white mb-3">Para Empresas</h3>
-                        <p class="text-gray-400 mb-6 flex-grow">Transforme vocações em carreiras de sucesso. Recrute talentos validados e em conformidade com a Lei.</p>
-                        <a href="#contato" class="btn-verde-outline w-full">Seja Parceiro</a>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-    
-    <section id="midia" class="py-20 bg-preto">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl md:text-4xl font-bold text-white mb-16 text-center">
-                Trilha do Aprendiz na Mídia
-            </h2>
-
-            <div class="max-w-4xl mx-auto mb-16">
                 <div class="video-container shadow-2xl rounded-lg overflow-hidden">
                     <iframe 
-                        src="https://www.youtube.com/embed/0Wb4vMMpGO0" 
-                        title="YouTube video player" 
+                        src="https://www.youtube.com/embed/B1S8i9hidcU" 
+                        title="Pitch Comercial da Trilha do Aprendiz" 
                         frameborder="0" 
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                         allowfullscreen>
                     </iframe>
                 </div>
             </div>
+        </section>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <section id="solucoes" class="py-20 bg-preto-claro bg-grafismo">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-16 text-center">
+                    Conheça Nossas Soluções
+                </h2>
                 
-                <a href="https://www.acritica.com/geral/programa-de-voluntariado-da-ambev-impulsiona-empregabilidade-juvenil-na-amazonia-1.386476" target="_blank" rel="noopener noreferrer" class="media-card">
-                    <h3 class="text-xl font-semibold text-white mb-2">A Crítica</h3>
-                    <p class="text-gray-400">Programa de voluntariado da Ambev impulsiona empregabilidade juvenil na Amazônia.</p>
-                </a>
-                
-                <a href="https://opovoamazonense.com.br/trilha-do-aprendiz-e-ambev-unem-forcas-e-transformam-sonho-em-oportunidade-real/" target="_blank" rel="noopener noreferrer" class="media-card">
-                    <h3 class="text-xl font-semibold text-white mb-2">O Povo Amazonense</h3>
-                    <p class="text-gray-400">Trilha do Aprendiz e Ambev unem forças e transformam sonho em oportunidade real.</p>
-                </a>
-                
-                <a href="https://agnonline.com.br/noticias/amazonia/2025/10/21/13148-programa-de-voluntariado-da-ambev-impulsiona-empregabilidade-juvenil" target="_blank" rel="noopener noreferrer" class="media-card">
-                    <h3 class="text-xl font-semibold text-white mb-2">AGN Online</h3>
-                    <p class="text-gray-400">Programa de voluntariado da Ambev impulsiona empregabilidade juvenil.</p>
-                </a>
-                
-                <a href="https://www.tjam.jus.br/index.php/menu/sala-de-imprensa/14764-tjam-marca-presenca-em-evento-promovido-por-startup-e-senac-sobre-iniciativa-que-tem-como-foco-a-empregabilidade-de-jovens-aprendizes" target="_blank" rel="noopener noreferrer" class="media-card">
-                    <h3 class="text-xl font-semibold text-white mb-2">TJAM</h3>
-                    <p class="text-gray-400">TJAM marca presença em evento de startup e SENAC sobre empregabilidade de jovens.</p>
-                </a>
-                
-                <a href="https://www.tjam.jus.br/index.php/menu/sala-de-imprensa/12711-coij-firma-nova-parceria-com-startup-para-insercao-de-jovens-em-acolhimento-institucional-em-plataforma-de-empregabilidade" target="_blank" rel="noopener noreferrer" class="media-card">
-                    <h3 class="text-xl font-semibold text-white mb-2">TJAM</h3>
-                    <p class="text-gray-400">COIJ firma nova parceria com startup para inserção de jovens em acolhimento.</p>
-                </a>
-                
-                <a href="https://emtempo.com.br/213264/economia/manaus-tem-21-novas-startups-desenvolvidas-em-programa-de-inovacao-e-empreendedorismo/" target="_blank" rel="noopener noreferrer" class="media-card">
-                    <h3 class="text-xl font-semibold text-white mb-2">Em Tempo</h3>
-                    <p class="text-gray-400">Manaus tem 21 novas startups desenvolvidas em programa de inovação.</p>
-                </a>
-                
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+
+                    <div class="product-card">
+                        <img src="imagens/Illustra - (masc) - Institucional0.png" alt="Ilustração do Jogo APZ Seleção" class="product-image" onerror="this.src='https://placehold.co/300x200/34d399/191919?text=Jogo+APZ'">
+                        <div class="p-6 flex flex-col flex-grow">
+                            <h3 class="text-2xl font-bold text-white mb-3">Jogo APZ Seleção</h3>
+                            <p class="text-gray-400 mb-6 flex-grow">A sua carreira em forma de jogo. Cumpra missões, ganhe XP e seja visto por empresas.</p>
+                            <a href="game-apz-selecao.html" class="btn-verde w-full">Ver Vídeo do Jogo <span class="arrow">→</span></a>
+                        </div>
+                    </div>
+                    
+                    <div class="product-card">
+                        <img src="imagens/logo-ia-leia.png" alt="Logotipo da IA LEIA" class="product-image" onerror="this.src='https://placehold.co/300x200/34d399/191919?text=IA+LEIA'">
+                        <div class="p-6 flex flex-col flex-grow">
+                            <h3 class="text-2xl font-bold text-white mb-3">IA LEIA</h3>
+                            <p class="text-gray-400 mb-6 flex-grow">Tire dúvidas sobre a Lei da Aprendizagem e treine para entrevistas com a nossa IA.</p>
+                            <a href="ia-leia.html" class="btn-verde w-full">Fale com a LEIA <span class="arrow">→</span></a>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <img src="imagens/logo-mapa-jovem-trabalhador.png" alt="Logotipo do Mapa do Jovem Trabalhador" class="product-image" onerror="this.src='https://placehold.co/300x200/0F46B9/FFB80F?text=Mapa'">
+                        <div class="p-6 flex flex-col flex-grow">
+                            <h3 class="text-2xl font-bold text-white mb-3">Mapa do Jovem</h3>
+                            <p class="text-gray-400 mb-6 flex-grow">Encontre vagas de Jovem Aprendiz e empresas parceiras perto de si.</p>
+                            <a href="mapa-jovem.html" class="btn-azul-mapa w-full">Explorar Mapa <span class="arrow">→</span></a>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <img src="imagens/logo-fala-ai-aprendiz.png" alt="Logotipo do Podcast FALA AI, Aprendiz" class="product-image" onerror="this.src='https://placehold.co/300x200/FE5000/090A31?text=Podcast'">
+                        <div class="p-6 flex flex-col flex-grow">
+                            <h3 class="text-2xl font-bold text-white mb-3">FALA AI, Aprendiz</h3>
+                            <p class="text-gray-400 mb-6 flex-grow">Dicas de carreira e entrevistas com quem já trilhou este caminho. O futuro do país fala aqui.</p>
+                            <a href="fala-ai-aprendiz.html" class="btn-laranja-podcast w-full">Ouvir Agora <span class="arrow">→</span></a>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <img src="imagens/logo-start-end-experience-Preto.png" alt="Logotipo da Maratona START END EXPERIENCE" class="product-image" onerror="this.src='https://placehold.co/300x200/4f46e5/ffffff?text=Hackathon'">
+                        <div class="p-6 flex flex-col flex-grow">
+                            <h3 class="text-2xl font-bold text-white mb-3">Maratona START END</h3>
+                            <p class="text-gray-400 mb-6 flex-grow">Eventos e competições de Hackathon para mostrar seu talento ao vivo para as maiores empresas.</p>
+                            <a href="maratona-start-end.html" class="btn-indigo-hackathon w-full">Ver Vídeo <span class="arrow">→</span></a>
+                        </div>
+                    </div>
+                    
+                    <div class="product-card">
+                        <img src="imagens/TRILHA 2.png" alt="Gráfico de proposta de valor para empresas" class="product-image cover" onerror="this.src='https://placehold.co/300x200/FFB80F/191919?text=Empresas'">
+                        <div class="p-6 flex flex-col flex-grow">
+                            <h3 class="text-2xl font-bold text-white mb-3">Para Empresas</h3>
+                            <p class="text-gray-400 mb-6 flex-grow">Transforme vocações em carreiras de sucesso. Recrute talentos validados e em conformidade com a Lei.</p>
+                            <a href="#contato" class="btn-verde-outline w-full">Seja Parceiro</a>
+                        </div>
+                    </div>
+
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
+        
+        <section id="midia" class="py-20 bg-preto">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-16 text-center">
+                    Trilha do Aprendiz na Mídia
+                </h2>
 
+                <div class="max-w-4xl mx-auto mb-16">
+                    <div class="video-container shadow-2xl rounded-lg overflow-hidden">
+                        <iframe 
+                            src="https://www.youtube.com/embed/0Wb4vMMpGO0" 
+                            title="Vídeo da Trilha do Aprendiz na Mídia" 
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    
+                    <a href="https://www.acritica.com/geral/programa-de-voluntariado-da-ambev-impulsiona-empregabilidade-juvenil-na-amazonia-1.386476" target="_blank" rel="noopener noreferrer" class="media-card">
+                        <h3 class="text-xl font-semibold text-white mb-2">A Crítica</h3>
+                        <p class="text-gray-400">Programa de voluntariado da Ambev impulsiona empregabilidade juvenil na Amazônia.</p>
+                    </a>
+                    
+                    <a href="https://opovoamazonense.com.br/trilha-do-aprendiz-e-ambev-unem-forcas-e-transformam-sonho-em-oportunidade-real/" target="_blank" rel="noopener noreferrer" class="media-card">
+                        <h3 class="text-xl font-semibold text-white mb-2">O Povo Amazonense</h3>
+                        <p class="text-gray-400">Trilha do Aprendiz e Ambev unem forças e transformam sonho em oportunidade real.</p>
+                    </a>
+                    
+                    <a href="https://agnonline.com.br/noticias/amazonia/2025/10/21/13148-programa-de-voluntariado-da-ambev-impulsiona-empregabilidade-juvenil" target="_blank" rel="noopener noreferrer" class="media-card">
+                        <h3 class="text-xl font-semibold text-white mb-2">AGN Online</h3>
+                        <p class="text-gray-400">Programa de voluntariado da Ambev impulsiona empregabilidade juvenil.</p>
+                    </a>
+                    
+                    <a href="https://www.tjam.jus.br/index.php/menu/sala-de-imprensa/14764-tjam-marca-presenca-em-evento-promovido-por-startup-e-senac-sobre-iniciativa-que-tem-como-foco-a-empregabilidade-de-jovens-aprendizes" target="_blank" rel="noopener noreferrer" class="media-card">
+                        <h3 class="text-xl font-semibold text-white mb-2">TJAM</h3>
+                        <p class="text-gray-400">TJAM marca presença em evento de startup e SENAC sobre empregabilidade de jovens.</p>
+                    </a>
+                    
+                    <a href="https://www.tjam.jus.br/index.php/menu/sala-de-imprensa/12711-coij-firma-nova-parceria-com-startup-para-insercao-de-jovens-em-acolhimento-institucional-em-plataforma-de-empregabilidade" target="_blank" rel="noopener noreferrer" class="media-card">
+                        <h3 class="text-xl font-semibold text-white mb-2">TJAM</h3>
+                        <p class="text-gray-400">COIJ firma nova parceria com startup para inserção de jovens em acolhimento.</p>
+                    </a>
+                    
+                    <a href="https://emtempo.com.br/213264/economia/manaus-tem-21-novas-startups-desenvolvidas-em-programa-de-inovacao-e-empreendedorismo/" target="_blank" rel="noopener noreferrer" class="media-card">
+                        <h3 class="text-xl font-semibold text-white mb-2">Em Tempo</h3>
+                        <p class="text-gray-400">Manaus tem 21 novas startups desenvolvidas em programa de inovação.</p>
+                    </a>
+                    
+                </div>
+            </div>
+        </section>
+
+    </main>
     <footer id="contato" class="bg-preto text-white text-center py-16">
         <div class="container mx-auto px-6">
             <a href="index.html" class="flex items-center justify-center space-x-2 mb-4">
-                <img src="imagens/logo-trilha-do-aprendiz-AZUL.png" alt="Logo Trilha do Aprendiz" class="h-10 w-auto" 
+                <img src="imagens/logo-trilha-do-aprendiz-AZUL.png" alt="Logotipo da Trilha do Aprendiz" class="h-10 w-auto" 
                      onerror="this.src='https://placehold.co/40x40/0F46B9/FFB80F?text=T'">
                 <span class="font-bold text-xl text-white">TRILHA DO APRENDIZ</span>
             </a>
