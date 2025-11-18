@@ -7,10 +7,19 @@
     
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     
     <link href="style.css" rel="stylesheet">
+
+    <style>
+        /* Sobrescreve o fundo para o tema do jogo */
+        body {
+            background-color: var(--amarelo-inst); /* Amarelo principal */
+        }
+        /* O cabeçalho (nav) e rodapé (footer) mantêm o estilo "tech" */
+    </style>
 </head>
-<body class="bg-preto text-gray-200">
+<body class="bg-amarelo-inst text-stone-900">
 
     <nav class="bg-preto sticky top-0 z-50 border-b border-gray-700/50">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
@@ -32,69 +41,82 @@
         </div>
     </nav>
 
-    <header class="py-20 bg-preto-claro">
-        <div class="container mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
-            
-            <div class="video-container shadow-2xl rounded-lg overflow-hidden">
-                <iframe 
-                    src="https://www.youtube.com/embed/el_cPC9cvZ4" 
-                    title="YouTube video player" 
-                    frameborder="0" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                    allowfullscreen>
-                </iframe>
-            </div>
-
-            <div>
-                <h1 class="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
-                    GAME APZ Seleção
-                </h1>
-                <p class="text-lg text-gray-300 max-w-lg mb-8">
-                    Sua carreira em forma de jogo. Cumpra missões, ganhe XP e seja visto por empresas. Aqui, o seu desempenho no jogo torna-se a sua avaliação.
+    <main>
+        
+        <section class="py-20" style="background-color: var(--azul-inst);">
+            <div class="container mx-auto px-6 text-center">
+                <h1 class="font-pixel text-3xl md:text-5xl text-amarelo-inst mb-6">GAME APZ SELEÇÃO</h1>
+                <p class="text-xl md:text-2xl text-white max-w-2xl mx-auto mb-8">
+                    Um RPG urbano onde o desafio é construir seu currículo e encontrar sua primeira vaga de Jovem Aprendiz.
                 </p>
-                <a href="#" class="btn-verde btn-grande">
-                    JOGAR AGORA (Em Breve)
+                <a href="#jogo-demo" class="pixel-button-active py-4 px-8 text-lg">
+                    JOGAR DEMO
                 </a>
             </div>
-        </div>
-    </header>
-    
-    <section class="py-20 bg-preto">
-        <div class="container mx-auto px-6 max-w-5xl">
-            <h2 class="text-3xl md:text-4xl font-bold text-white mb-12 text-center">
-                Como Funciona?
-            </h2>
-            
-            <div class="grid md:grid-cols-3 gap-8">
-                
-                <div class="flex items-start space-x-4">
-                    <div class="feature-icon">✓</div>
-                    <div>
-                        <h3 class="text-xl font-semibold text-white">Crie seu CV-Avatar</h3>
-                        <p class="text-gray-400">O seu avatar é o seu currículo. Cada item que você equipa (como um "Capacete de TI") mostra as suas *hard skills*.</p>
-                    </div>
-                </div>
+        </section>
 
-                <div class="flex items-start space-x-4">
-                    <div class="feature-icon">✓</div>
-                    <div>
-                        <h3 class="text-xl font-semibold text-white">Complete Missões</h3>
-                        <p class="text-gray-400">As missões simulam desafios reais de trabalho (atendimento, lógica, etc.). Completá-las prova as suas *soft skills*.</p>
+        <section id="como-funciona" class="py-20 bg-stone-100">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center text-stone-900 mb-12">Sua Carreira em forma de Jogo</h2>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="info-card">
+                        <div class="pixel-icon">👾</div>
+                        <h3 class="text-2xl font-bold text-stone-900 mb-4">1. CRIE SEU AVATAR</h3>
+                        <p class="text-stone-700 leading-relaxed">O seu personagem é o seu currículo. Escolha suas *skills* e monte um perfil único que impressiona os recrutadores.</p>
                     </div>
-                </div>
-
-                <div class="flex items-start space-x-4">
-                    <div class="feature-icon">✓</div>
-                    <div>
-                        <h3 class="text-xl font-semibold text-white">Seja Visto por Empresas</h3>
-                        <p class="text-gray-400">Recrutadores não veem apenas o seu CV, eles veem o seu *desempenho no jogo*. É a sua experiência gamificada que vira a sua avaliação.</p>
+                    <div class="info-card">
+                        <div class="pixel-icon">🎯</div>
+                        <h3 class="text-2xl font-bold text-stone-900 mb-4">2. CUMPRA MISSÕES</h3>
+                        <p class="text-stone-700 leading-relaxed">Participe de simulações de trabalho reais. Cada "quest" completa prova suas habilidades e gera XP para seu perfil.</p>
+                    </div>
+                    <div class="info-card">
+                        <div class="pixel-icon">💼</div>
+                        <h3 class="text-2xl font-bold text-stone-900 mb-4">3. SEJA CONTRATADO</h3>
+                        <p class="text-stone-700 leading-relaxed">Empresas parceiras avaliam seu desempenho no jogo. Seu XP é a sua experiência. Conquiste sua primeira vaga!</p>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+        
+        <section id="video-jogo" class="py-20" style="background-color: var(--preto-inst);">
+            <div class="container mx-auto px-6 max-w-4xl text-center">
+                <h2 class="text-3xl md:text-4xl font-pixel text-white mb-8">
+                    Veja o Jogo em Ação
+                </h2>
+                <div class="video-container shadow-2xl rounded-lg overflow-hidden border-4 border-amarelo-inst">
+                    <iframe 
+                        src="https://www.youtube.com/embed/el_cPC9cvZ4" 
+                        title="YouTube video player - Jogo APZ" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+        </section>
 
-    <footer id="contato" class="bg-preto-claro text-white text-center py-16">
+        <section id="jogo-demo" class="py-20" style="background-color: var(--amarelo-inst);">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="font-pixel text-3xl text-preto mb-8">Demo Interativa</h2>
+                <p class="text-lg text-preto max-w-2xl mx-auto mb-4">
+                    Explore o mapa que simula um ambiente profissional.
+                </p>
+                <p class="font-pixel text-md text-preto max-w-2xl mx-auto mb-8">
+                    [ Use as setas do teclado para mover! ]
+                </p>
+                <div class="relative w-full max-w-5xl mx-auto" style="padding-bottom: 56.25%; height: 0;">
+                    <canvas id="gameCanvas" class="absolute top-0 left-0 w-full h-full" style="background-color: #f5f5f4;"></canvas>
+                </div>
+                
+                <div id="mission-popup" class="hidden fixed bottom-10 left-1/2 -translate-x-1/2 bg-preto text-white font-pixel text-center p-4 rounded-lg border-4 border-amarelo-inst shadow-lg z-50">
+                    Nova Missão: Simulação de Entrevista!
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer id="contato" class="bg-preto text-white text-center py-16">
         <div class="container mx-auto px-6">
             <a href="index.html" class="flex items-center justify-center space-x-2 mb-4">
                 <img src="imagens/logo-trilha-do-aprendiz-AZUL.png" alt="Logo Trilha do Aprendiz" class="h-10 w-auto" 
@@ -106,5 +128,7 @@
         </div>
     </footer>
 
-    </body>
+    <script src="script.js" defer></script>
+
+</body>
 </html>
