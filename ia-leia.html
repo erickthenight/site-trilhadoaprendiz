@@ -3,105 +3,265 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IA LEIA - Gestão e Conformidade | Trilha do Aprendiz</title>
-    
+    <title>LEIA IA - A Advogada Digital para a Lei da Aprendizagem | Trilha do Aprendiz</title>
+    <!-- Carrega Tailwind CSS via CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     
-    <link href="style.css" rel="stylesheet">
+    <!-- Configuração de fontes e cores customizadas -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'blue-ta': '#0056b3',      // Azul tecnológico (Destaque LEIA)
+                        'orange-ta': '#f7991e',    // Laranja energia jovem (Navbar/CTA)
+                        'gray-ta': '#f4f4f4',      // Cinza neutro
+                        'black-ta': '#222222',     // Preto institucional (Rodapé)
+                        'dark-ta': '#1a1a1a',      // Fundo Escuro Principal
+                        'dark-card': '#2f2f2f',    // Fundo de Card
+                        'green-ta': '#4CAF50',     // Botão CTA Principal
+                    },
+                    fontFamily: {
+                        'poppins': ['Poppins', 'sans-serif'],
+                        'inter': ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <!-- Carrega as fontes Poppins e Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    
+    <!-- Link para seu CSS Customizado -->
+    <link rel="stylesheet" href="style.css">
 </head>
-<body class="bg-preto text-gray-200">
+<body class="bg-dark-ta min-h-screen antialiased font-inter text-white">
 
-    <nav class="bg-preto sticky top-0 z-50 border-b border-gray-700/50">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="index.html" class="flex items-center space-x-2">
-                <img src="imagens/logo-trilha-do-aprendiz-AZUL.png" alt="Logo Trilha do Aprendiz" class="h-10 w-auto" 
-                     onerror="this.src='https://placehold.co/40x40/0F46B9/FFB80F?text=T'">
-                <span class="font-bold text-xl text-white">TRILHA DO APRENDIZ</span>
-            </a>
-            
-            <div class="hidden md:flex space-x-8">
-                <a href="index.html" class="font-medium text-gray-300 hover:text-white transition">Início</a>
-                <a href="index.html#solucoes" class="font-medium text-gray-300 hover:text-white transition">Soluções</a>
-                <a href="index.html#contato" class="font-medium text-gray-300 hover:text-white transition">Contato</a>
+    <!-- CABEÇALHO (HEADER) - Menu Principal -->
+    <header class="bg-orange-ta shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <!-- Logo -->
+                <div class="flex-shrink-0">
+                    <img src="imagens/logo-trilha-do-aprendiz-AZUL.png" alt="Logo Trilha do Aprendiz" class="h-10">
+                </div>
+                
+                <!-- Links do Menu (Desktop) -->
+                <nav class="hidden md:flex space-x-4 lg:space-x-8 items-center">
+                    <a href="index.html" class="text-white hover:text-blue-ta px-3 py-2 text-sm font-medium transition duration-150 rounded-md">Início</a>
+                    <a href="sobre.html" class="text-white hover:text-blue-ta px-3 py-2 text-sm font-medium transition duration-150 rounded-md">Sobre</a>
+                    <div class="group relative">
+                        <button class="text-blue-ta border-b-2 border-blue-ta px-3 py-2 text-sm font-medium transition duration-150 rounded-md flex items-center font-poppins font-semibold">
+                            Soluções
+                            <svg class="w-4 h-4 ml-1" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 9l-7 7-7-7"></path></svg>
+                        </button>
+                        <!-- Submenu (Fundo Branco para contraste) -->
+                        <div class="hidden group-hover:block absolute left-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 z-20">
+                            <a href="game-apz-selecao.html" class="block px-4 py-2 text-sm text-black-ta hover:bg-gray-ta rounded-t-md">Game APZ Seleção</a>
+                            <a href="ia-leia.html" class="block px-4 py-2 text-sm text-blue-ta bg-gray-ta hover:bg-gray-ta">LEIA Inteligência Artificial</a>
+                            <a href="mapa-jovem.html" class="block px-4 py-2 text-sm text-black-ta hover:bg-gray-ta">Mapa do Jovem Trabalhador</a>
+                            <a href="maratona-start-end.html" class="block px-4 py-2 text-sm text-black-ta hover:bg-gray-ta">Start End Experience</a>
+                            <a href="fala-ai-aprendiz.html" class="block px-4 py-2 text-sm text-black-ta hover:bg-gray-ta rounded-b-md">PodCas Fala Ai Aprendiz</a>
+                        </div>
+                    </div>
+                    <a href="parceiros.html" class="text-white hover:text-blue-ta px-3 py-2 text-sm font-medium transition duration-150 rounded-md">Parceiros</a>
+                    <a href="blog.html" class="text-white hover:text-blue-ta px-3 py-2 text-sm font-medium transition duration-150 rounded-md">Blog / Notícias</a>
+                    <a href="contato.html" class="bg-green-ta text-white hover:bg-green-ta/80 px-4 py-2 text-sm font-medium rounded-full transition duration-300 shadow-lg font-poppins font-semibold">Fale com a LEIA →</a>
+                </nav>
+                
+                <!-- Botão Mobile (Toggle) -->
+                <button id="menu-toggle" class="md:hidden text-white focus:outline-none p-2 rounded-lg hover:bg-dark-card transition duration-150">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
             </div>
-            
-            <a href="ia-leia.html" class="hidden md:block btn-verde">
-                Fale com a LEIA <span class="arrow">→</span>
-            </a>
         </div>
-    </nav>
-
-    <header class="py-20 bg-preto-claro">
-        <div class="container mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
-            <div class="flex justify-center">
-                <img src="imagens/duvidas.png" 
-                     alt="IA LEIA" 
-                     class="w-full max-w-md rounded-lg"
-                     onerror="this.src='https://placehold.co/400x500/1e293b/ffffff?text=Foto+LEIA'">
-            </div>
-            <div>
-                <h1 class="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
-                    Conheça a LEIA: sua IA de Gestão e Conformidade
-                </h1>
-                <p class="text-lg text-gray-300 max-w-lg mb-8">
-                    A LEIA é a ferramenta de IA da Trilha do Aprendiz destinada a RHs e entidades formadoras. Ela auxilia na gestão, manutenção da Lei da Aprendizagem e no processo de seleção, usando dados do Jogo APZ para avaliar os talentos.
-                </p>
-                <a href="https://stec.cx/services/trilhadoaprendiz/chat?p=baafde05-f553-45da-ad00-4eafc38c1465" target="_blank" rel="noopener noreferrer" class="btn-verde btn-grande">
-                    CONVERSAR COM LEIA
-                </a>
+        <!-- Menu Mobile -->
+        <div id="mobile-menu" class="hidden md:hidden bg-dark-card shadow-xl">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 flex flex-col">
+                <a href="index.html" class="text-white hover:bg-dark-ta block px-3 py-2 rounded-md text-base font-medium">Início</a>
+                <a href="sobre.html" class="text-white hover:bg-dark-ta block px-3 py-2 rounded-md text-base font-medium">Sobre</a>
+                <span class="text-blue-ta px-3 py-2 text-base font-bold">Soluções:</span>
+                <a href="game-apz-selecao.html" class="text-white hover:bg-dark-ta block px-6 py-2 rounded-md text-sm">Game APZ Seleção</a>
+                <a href="ia-leia.html" class="text-blue-ta bg-dark-ta block px-6 py-2 rounded-md text-sm">LEIA Inteligência Artificial</a>
+                <a href="mapa-jovem.html" class="text-white hover:bg-dark-ta block px-6 py-2 rounded-md text-sm">Mapa do Jovem Trabalhador</a>
+                <a href="maratona-start-end.html" class="text-white hover:bg-dark-ta block px-6 py-2 rounded-md text-sm">Start End Experience</a>
+                <a href="fala-ai-aprendiz.html" class="text-white hover:bg-dark-ta block px-6 py-2 rounded-md text-sm">PodCas Fala Ai Aprendiz</a>
+                <a href="parceiros.html" class="text-white hover:bg-dark-ta block px-3 py-2 rounded-md text-base font-medium">Parceiros</a>
+                <a href="blog.html" class="text-white hover:bg-dark-ta block px-3 py-2 rounded-md text-base font-medium">Blog / Notícias</a>
+                <a href="contato.html" class="bg-green-ta text-white text-center hover:bg-green-ta/80 mt-2 block px-3 py-2 rounded-full text-base font-medium transition duration-300">Fale Conosco</a>
             </div>
         </div>
     </header>
-    
-    <section class="py-20 bg-preto">
-        <div class="container mx-auto px-6 max-w-5xl">
-            <h2 class="text-3xl md:text-4xl font-bold text-white mb-12 text-center">
-                O que a LEIA faz pela sua Empresa?
-            </h2>
-            
-            <div class="grid md:grid-cols-3 gap-8">
-                
-                <div class="flex items-start space-x-4">
-                    <div class="feature-icon">✓</div>
-                    <div>
-                        <h3 class="text-xl font-semibold text-white">Conformidade Legal (Lei 10097/2000)</h3>
-                        <p class="text-gray-400">Tire dúvidas instantâneas sobre cotas, obrigações legais e gestão de aprendizes para manter sua empresa 100% em conformidade.</p>
-                    </div>
-                </div>
 
-                <div class="flex items-start space-x-4">
-                    <div class="feature-icon">✓</div>
-                    <div>
-                        <h3 class="text-xl font-semibold text-white">Seleção Inteligente</h3>
-                        <p class="text-gray-400">A LEIA analisa os dados de desempenho dos candidatos no "GAME APZ Seleção" e sugere os perfis mais adequados para a sua vaga.</p>
+    <main>
+        <!-- 1. HERO SECTION (Destaque) -->
+        <section class="bg-dark-ta pt-16 pb-20 md:pt-24 md:pb-32 border-b border-gray-700">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid lg:grid-cols-12 gap-12 items-center">
+                    
+                    <!-- Coluna de Texto -->
+                    <div class="lg:col-span-7 space-y-6">
+                        <h1 class="font-poppins text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight text-blue-ta">
+                            LEIA IA: A Primeira Inteligência Artificial Especializada na Lei da Aprendizagem
+                        </h1>
+                        <p class="font-inter text-lg sm:text-xl text-white/90">
+                            A LEIA é a sua advogada digital, desenvolvida para **simplificar a gestão da cota de aprendizes**, garantir a conformidade legal e otimizar a responsabilidade social da sua empresa.
+                        </p>
+                        <!-- Botões CTA -->
+                        <div class="flex pt-4">
+                            <a href="contato.html?assunto=Demonstracao-LEIA-IA" class="inline-flex justify-center items-center px-8 py-4 border border-transparent text-base font-semibold rounded-full text-white bg-orange-ta hover:bg-orange-ta/80 transition duration-300 shadow-lg font-poppins">
+                                Solicite uma Demonstração da LEIA
+                            </a>
+                        </div>
                     </div>
-                </div>
-
-                <div class="flex items-start space-x-4">
-                    <div class="feature-icon">✓</div>
-                    <div>
-                        <h3 class="text-xl font-semibold text-white">Gestão e Suporte</h3>
-                        <p class="text-gray-400">Auxilia o RH no acompanhamento do desenvolvimento do aprendiz, sugerindo trilhas de capacitação e gerando relatórios.</p>
+                    
+                    <!-- Coluna de Imagem (Mockup/Visual) -->
+                    <div class="lg:col-span-5 flex justify-center lg:justify-end">
+                        <div class="w-full max-w-sm h-72 md:h-80 bg-blue-ta/20 rounded-xl shadow-2xl flex items-center justify-center p-4">
+                            <!-- Ícone ou Mockup da IA LEIA -->
+                            <img src="imagens/logo-ia-leia.png" alt="Logotipo da IA LEIA" class="w-2/3 h-auto">
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <footer id="contato" class="bg-preto text-white text-center py-16">
-    <div class="container mx-auto px-6">
-        <a href="index.html" class="flex items-center justify-center space-x-2 mb-4">
-            <img src="imagens/logo-trilha-do-aprendiz-AZUL.png" alt="Logotipo da Trilha do Aprendiz" class="h-10 w-auto" 
-                 onerror="this.src='https://placehold.co/40x40/0F46B9/FFB80F?text=T'">
-            <span class="font-bold text-xl text-white">TRILHA DO APRENDIZ</span>
-        </a>
-        <p class="text-gray-400 mb-8">Conectando jovens talentos a oportunidades.</p>
+        <!-- 2. SESSÃO: O DESAFIO E A SOLUÇÃO LEIA -->
+        <section class="py-16 md:py-24 bg-dark-card">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="font-poppins text-3xl sm:text-4xl font-bold mb-12 text-orange-ta">
+                    ADEUS, DÚVIDAS LEGAIS. BEM-VINDA, EFICIÊNCIA.
+                </h2>
+                <div class="grid md:grid-cols-2 gap-12 text-lg">
+                    <!-- Problema -->
+                    <div>
+                        <h3 class="font-poppins text-2xl font-semibold mb-4 text-white">O Desafio da Lei da Aprendizagem</h3>
+                        <p class="text-gray-300 mb-4 leading-relaxed">
+                            A complexidade da **Lei da Aprendizagem** (Lei nº 10.097/2000) e as constantes atualizações geram incertezas, multas e dificuldade na gestão de programas. Muitas empresas perdem tempo e recursos tentando interpretar regras e calcular cotas.
+                        </p>
+                        <p class="text-gray-300 leading-relaxed">
+                            A falta de integração entre a seleção de jovens e a conformidade legal compromete a eficácia do seu programa ESG e a qualidade da contratação.
+                        </p>
+                    </div>
+                    <!-- Solução -->
+                    <div>
+                        <h3 class="font-poppins text-2xl font-semibold mb-4 text-white">A Solução com Inteligência Artificial</h3>
+                        <p class="text-gray-300 mb-4 leading-relaxed border-l-4 border-blue-ta pl-4">
+                            A LEIA resolve isso. Nossa IA é treinada com a legislação atualizada, jurisprudência e melhores práticas do setor. Ela está sempre disponível para fornecer **diagnósticos precisos** e orientações em tempo real.
+                        </p>
+                        <p class="text-gray-300 leading-relaxed">
+                            Com a LEIA, sua empresa garante conformidade, otimiza o planejamento de RH e foca no desenvolvimento do jovem, não na burocracia.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-        <div class="mb-8">
-            <img src="imagens/negocio-de-impacto.png" alt="Selo Negócio de Impacto - Certificadora Social" class="footer-seal-badge">
-        </div>
+        <!-- 3. SESSÃO: RECURSOS EXCLUSIVOS DA LEIA -->
+        <section class="py-16 md:py-24 bg-dark-ta">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="font-poppins text-3xl sm:text-4xl font-bold text-center mb-16 text-white">
+                    Recursos Exclusivos: O que a LEIA faz pelo seu RH
+                </h2>
+                
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    
+                    <!-- Card 1: Diagnóstico Automatizado -->
+                    <div class="bg-dark-card p-6 rounded-xl shadow-xl border-t-4 border-blue-ta">
+                        <div class="text-4xl text-blue-ta mb-4">⚙️</div>
+                        <h3 class="font-poppins text-xl font-bold mb-3 text-white">Diagnóstico Automatizado da Lei</h3>
+                        <p class="font-inter text-gray-300">Verifique em minutos o status de cumprimento da Lei da Aprendizagem e receba recomendações personalizadas para evitar autuações e multas.</p>
+                    </div>
+                    
+                    <!-- Card 2: Simulação Inteligente -->
+                    <div class="bg-dark-card p-6 rounded-xl shadow-xl border-t-4 border-orange-ta">
+                        <div class="text-4xl text-orange-ta mb-4">🧮</div>
+                        <h3 class="font-poppins text-xl font-bold mb-3 text-white">Simulação Inteligente de Cotas</h3>
+                        <p class="font-inter text-gray-300">Calcule sua cota obrigatória de aprendizes, considerando a CLT e exceções. Otimize seu planejamento sem erros.</p>
+                    </div>
+
+                    <!-- Card 3: Geração de Relatórios -->
+                    <div class="bg-dark-card p-6 rounded-xl shadow-xl border-t-4 border-blue-ta">
+                        <div class="text-4xl text-blue-ta mb-4">📈</div>
+                        <h3 class="font-poppins text-xl font-bold mb-3 text-white">Geração de Relatórios ESG</h3>
+                        <p class="font-inter text-gray-300">Converta a contratação de aprendizes em dados concretos de Responsabilidade Social para seus relatórios ESG e de Sustentabilidade.</p>
+                    </div>
+                    
+                    <!-- Card 4: Integração com APZ -->
+                    <div class="bg-dark-card p-6 rounded-xl shadow-xl border-t-4 border-orange-ta">
+                        <div class="text-4xl text-orange-ta mb-4">🔗</div>
+                        <h3 class="font-poppins text-xl font-bold mb-3 text-white">Integração com APZ Seleção</h3>
+                        <p class="font-inter text-gray-300">Sinergia total: conecte as vagas identificadas pela LEIA com o perfil de competências dos jovens avaliados no nosso Game RPG.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
         
-        <p class="text-sm text-gray-500">&copy; 2025 Trilha do Aprendiz. Todos os direitos reservados. Feito em Manaus, Amazonas.</p>
-    </div>
-</footer>
+        <!-- 4. SESSÃO: MOCKUP DE CHATBOT (Simulação de Interatividade) -->
+        <section class="py-16 md:py-24 bg-dark-card">
+             <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="font-poppins text-3xl sm:text-4xl font-bold text-center mb-12 text-white">
+                    Advogada Digital em Ação
+                </h2>
+                <!-- Mockup de Chatbot Estático -->
+                <div class="max-w-2xl mx-auto bg-dark-ta rounded-xl shadow-2xl p-6 border-t-8 border-blue-ta">
+                    
+                    <!-- Mensagem da LEIA -->
+                    <div class="flex justify-start mb-4">
+                        <div class="bg-blue-ta text-white p-4 rounded-lg rounded-tl-none max-w-[80%]">
+                            <span class="font-semibold">LEIA:</span> Olá! Sou sua assistente. Qual é a sua dúvida sobre a Lei da Aprendizagem hoje?
+                        </div>
+                    </div>
+                    
+                    <!-- Mensagem do Usuário (Empresa) -->
+                    <div class="flex justify-end mb-4">
+                        <div class="bg-orange-ta text-black-ta p-4 rounded-lg rounded-br-none max-w-[80%]">
+                            Qual a cota obrigatória de aprendizes para uma empresa com 150 funcionários no setor administrativo e 50 na produção?
+                        </div>
+                    </div>
+                    
+                    <!-- Resposta da LEIA (Exemplo de Suporte) -->
+                    <div class="flex justify-start">
+                        <div class="bg-blue-ta text-white p-4 rounded-lg rounded-tl-none max-w-[80%]">
+                            <span class="font-semibold">LEIA:</span> Com base na CLT, sua cota mínima é de 7 aprendizes (7% dos 100 funcionários elegíveis). Quer que eu gere um planejamento de seleção?
+                        </div>
+                    </div>
+                    
+                    <!-- Área de Input (Simulada) -->
+                    <div class="mt-6 flex">
+                        <input type="text" placeholder="Digite sua pergunta aqui..." class="flex-grow p-3 rounded-l-lg bg-dark-ta border border-gray-600 text-white focus:ring-1 focus:ring-blue-ta" disabled>
+                        <button class="bg-orange-ta text-white p-3 rounded-r-lg font-semibold" disabled>Enviar</button>
+                    </div>
+                </div>
+             </div>
+        </section>
+
+        <!-- 5. SESSÃO: CTA FINAL PARA EMPRESAS -->
+        <section class="py-16 bg-dark-ta">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="font-poppins text-3xl sm:text-4xl font-bold mb-6 text-white">
+                    SUA CONFORMIDADE LEGAL NUNCA FOI TÃO FÁCIL E INTELIGENTE.
+                </h2>
+                <p class="font-inter text-xl text-white/80 mb-8">
+                    Pare de se preocupar com a legislação. Deixe a LEIA gerenciar os detalhes e foque no desenvolvimento do futuro dos seus jovens aprendizes.
+                </p>
+                <a href="contato.html?assunto=Falar-sobre-LEIA-IA" class="inline-flex items-center justify-center px-10 py-4 border border-transparent text-lg font-semibold rounded-full text-white bg-orange-ta hover:bg-orange-ta/80 transition duration-300 shadow-lg">
+                    Quero Falar com um Especialista sobre a LEIA IA
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- RODAPÉ (FOOTER) -->
+    <footer class="bg-black-ta py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-gray-400 font-inter text-sm">
+            <p>&copy; 2025 Trilha do Aprendiz. Todos os direitos reservados.</p>
+            <p class="mt-2">Desenvolvido por Trilha do Aprendiz | Instituto Valendo</p>
+        </div>
+    </footer>
+
+    <!-- Link para seu JavaScript (A lógica do Menu Mobile deve ser definida aqui) -->
+    <script src="script.js"></script>
+</body>
+</html>

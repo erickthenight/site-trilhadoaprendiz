@@ -3,134 +3,232 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Podcast FALA AI, Aprendiz - Trilha do Aprendiz</title>
-    
+    <title>PodCas Fala Aí Aprendiz - O Podcast do Jovem Trabalhador | Trilha do Aprendiz</title>
+    <!-- Carrega Tailwind CSS via CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link href="style.css" rel="stylesheet">
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-
-    <style>
-        /* Sobrescreve as cores --preto e --preto-claro para esta página */
-        body {
-            --preto: var(--podcast-azul-escuro);
-            --preto-claro: #1a1b3d; /* Um tom ligeiramente mais claro do azul-escuro */
-            background-color: var(--preto);
+    
+    <!-- Configuração de fontes e cores customizadas -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'blue-ta': '#0056b3',      // Azul tecnológico (Destaque)
+                        'orange-ta': '#f7991e',    // Laranja energia jovem (Navbar/CTA)
+                        'gray-ta': '#f4f4f4',      // Cinza neutro
+                        'black-ta': '#222222',     // Preto institucional (Rodapé)
+                        'dark-ta': '#1a1a1a',      // Fundo Escuro Principal
+                        'dark-card': '#2f2f2f',    // Fundo de Card
+                        'green-ta': '#4CAF50',     // Botão CTA Principal
+                    },
+                    fontFamily: {
+                        'poppins': ['Poppins', 'sans-serif'],
+                        'inter': ['Inter', 'sans-serif'],
+                    },
+                }
+            }
         }
-    </style>
+    </script>
+    <!-- Carrega as fontes Poppins e Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    
+    <!-- Link para seu CSS Customizado -->
+    <link rel="stylesheet" href="style.css">
 </head>
-<body class="bg-preto text-gray-200">
+<body class="bg-dark-ta min-h-screen antialiased font-inter text-white">
 
-    <nav class="bg-preto sticky top-0 z-50 border-b border-gray-700/50">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="index.html" class="flex items-center space-x-2">
-                <img src="imagens/logo-trilha-do-aprendiz-AZUL.png" alt="Logo Trilha do Aprendiz" class="h-10 w-auto" 
-                     onerror="this.src='https://placehold.co/40x40/0F46B9/FFB80F?text=T'">
-                <span class="font-bold text-xl text-white">TRILHA DO APRENDIZ</span>
-            </a>
-            
-            <div class="hidden md:flex space-x-8">
-                <a href="index.html" class="font-medium text-gray-300 hover:text-white transition">Início</a>
-                <a href="index.html#solucoes" class="font-medium text-gray-300 hover:text-white transition">Soluções</a>
-                <a href="index.html#contato" class="font-medium text-gray-300 hover:text-white transition">Contato</a>
+    <!-- CABEÇALHO (HEADER) - Menu Principal -->
+    <header class="bg-orange-ta shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <!-- Logo -->
+                <div class="flex-shrink-0">
+                    <img src="imagens/logo-trilha-do-aprendiz-AZUL.png" alt="Logo Trilha do Aprendiz" class="h-10">
+                </div>
+                
+                <!-- Links do Menu (Desktop) -->
+                <nav class="hidden md:flex space-x-4 lg:space-x-8 items-center">
+                    <a href="index.html" class="text-white hover:text-blue-ta px-3 py-2 text-sm font-medium transition duration-150 rounded-md">Início</a>
+                    <a href="sobre.html" class="text-white hover:text-blue-ta px-3 py-2 text-sm font-medium transition duration-150 rounded-md">Sobre</a>
+                    <div class="group relative">
+                        <button class="text-blue-ta border-b-2 border-blue-ta px-3 py-2 text-sm font-medium transition duration-150 rounded-md flex items-center font-poppins font-semibold">
+                            Soluções
+                            <svg class="w-4 h-4 ml-1" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 9l-7 7-7-7"></path></svg>
+                        </button>
+                        <!-- Submenu (Fundo Branco para contraste) -->
+                        <div class="hidden group-hover:block absolute left-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 z-20">
+                            <a href="game-apz-selecao.html" class="block px-4 py-2 text-sm text-black-ta hover:bg-gray-ta rounded-t-md">Game APZ Seleção</a>
+                            <a href="ia-leia.html" class="block px-4 py-2 text-sm text-black-ta hover:bg-gray-ta">LEIA Inteligência Artificial</a>
+                            <a href="mapa-jovem.html" class="block px-4 py-2 text-sm text-black-ta hover:bg-gray-ta">Mapa do Jovem Trabalhador</a>
+                            <a href="maratona-start-end.html" class="block px-4 py-2 text-sm text-black-ta hover:bg-gray-ta">Start End Experience</a>
+                            <a href="fala-ai-aprendiz.html" class="block px-4 py-2 text-sm text-blue-ta bg-gray-ta hover:bg-gray-ta rounded-b-md">PodCas Fala Ai Aprendiz</a>
+                        </div>
+                    </div>
+                    <a href="parceiros.html" class="text-white hover:text-blue-ta px-3 py-2 text-sm font-medium transition duration-150 rounded-md">Parceiros</a>
+                    <a href="blog.html" class="text-white hover:text-blue-ta px-3 py-2 text-sm font-medium transition duration-150 rounded-md">Blog / Notícias</a>
+                    <a href="contato.html" class="bg-green-ta text-white hover:bg-green-ta/80 px-4 py-2 text-sm font-medium rounded-full transition duration-300 shadow-lg font-poppins font-semibold">Fale com a LEIA →</a>
+                </nav>
+                
+                <!-- Botão Mobile (Toggle) -->
+                <button id="menu-toggle" class="md:hidden text-white focus:outline-none p-2 rounded-lg hover:bg-dark-card transition duration-150">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
             </div>
-            
-            <a href="ia-leia.html" class="hidden md:block btn-verde">
-                Fale com a LEIA <span class="arrow">→</span>
-            </a>
         </div>
-    </nav>
+        <!-- Menu Mobile -->
+        <div id="mobile-menu" class="hidden md:hidden bg-dark-card shadow-xl">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 flex flex-col">
+                <a href="index.html" class="text-white hover:bg-dark-ta block px-3 py-2 rounded-md text-base font-medium">Início</a>
+                <a href="sobre.html" class="text-white hover:bg-dark-ta block px-3 py-2 rounded-md text-base font-medium">Sobre</a>
+                <span class="text-blue-ta px-3 py-2 text-base font-bold">Soluções:</span>
+                <a href="game-apz-selecao.html" class="text-white hover:bg-dark-ta block px-6 py-2 rounded-md text-sm">Game APZ Seleção</a>
+                <a href="ia-leia.html" class="text-white hover:bg-dark-ta block px-6 py-2 rounded-md text-sm">LEIA Inteligência Artificial</a>
+                <a href="mapa-jovem.html" class="text-white hover:bg-dark-ta block px-6 py-2 rounded-md text-sm">Mapa do Jovem Trabalhador</a>
+                <a href="maratona-start-end.html" class="text-white hover:bg-dark-ta block px-6 py-2 rounded-md text-sm">Start End Experience</a>
+                <a href="fala-ai-aprendiz.html" class="text-blue-ta bg-dark-ta block px-6 py-2 rounded-md text-sm">PodCas Fala Ai Aprendiz</a>
+                <a href="parceiros.html" class="text-white hover:bg-dark-ta block px-3 py-2 rounded-md text-base font-medium">Parceiros</a>
+                <a href="blog.html" class="text-white hover:bg-dark-ta block px-3 py-2 rounded-md text-base font-medium">Blog / Notícias</a>
+                <a href="contato.html" class="bg-green-ta text-white text-center hover:bg-green-ta/80 mt-2 block px-3 py-2 rounded-full text-base font-medium transition duration-300">Fale Conosco</a>
+            </div>
+        </div>
+    </header>
 
     <main>
-        
-        <section class="py-20 bg-preto">
-            <div class="container mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
-                <div>
-                    <img src="imagens/logo-fala-ai-aprendiz.png" alt="Logo Podcast FALA AI Aprendiz" class="w-2/3 md:w-full max-w-sm mb-6"
-                         onerror="this.src='https://placehold.co/400x150/FE5000/090A31?text=FALA+A%C3%8D%2C+APRENDIZ'">
+        <!-- 1. HERO SECTION (Destaque) -->
+        <section class="bg-dark-ta pt-16 pb-20 md:pt-24 md:pb-32 border-b border-gray-700">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid lg:grid-cols-12 gap-12 items-center">
                     
-                    <h1 class="text-3xl md:text-5xl font-bold text-white mb-6 leading-tight">
-                        Um espaço acolhedor para ouvir o futuro do país.
-                    </h1>
-                    <p class="text-lg text-gray-300 max-w-lg mb-8">
-                        Um bate papo de alta qualidade e muita informação que ajudará no seu crescimento profissional.
+                    <!-- Coluna de Imagem (Logo do Podcast) -->
+                    <div class="lg:col-span-5 flex justify-center lg:justify-start">
+                        <div class="w-full max-w-xs h-72 md:h-80 bg-orange-ta rounded-xl shadow-2xl flex items-center justify-center p-4">
+                            <!-- Placeholder de Mapa/Geolocalização -->
+                            <img src="imagens/logo-fala-ai-aprendiz.png" alt="Logotipo Fala Aí Aprendiz" class="w-2/3 h-auto">
+                        </div>
+                    </div>
+                    
+                    <!-- Coluna de Texto -->
+                    <div class="lg:col-span-7 space-y-6">
+                        <h1 class="font-poppins text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight text-orange-ta">
+                            PodCas Fala Aí Aprendiz: Conectando Você ao Mercado de Trabalho
+                        </h1>
+                        <p class="font-inter text-lg sm:text-xl text-white/90">
+                            Nosso podcast é o seu guia semanal para o universo da Aprendizagem, Inovação e Carreira. Ouça histórias inspiradoras, dicas de quem já está no mercado e o que a Geração Z precisa saber para ter sucesso.
+                        </p>
+                        <!-- Botões CTA -->
+                        <div class="flex pt-4">
+                            <a href="#plataformas" class="inline-flex justify-center items-center px-8 py-4 border border-transparent text-base font-semibold rounded-full text-white bg-blue-ta hover:bg-blue-ta/80 transition duration-300 shadow-lg font-poppins">
+                                Onde Ouvir o Podcast
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. SESSÃO: ÚLTIMOS EPISÓDIOS (Simulação) -->
+        <section class="py-16 md:py-24 bg-dark-card">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="font-poppins text-3xl sm:text-4xl font-bold mb-12 text-white text-center">
+                    Ouça os Últimos Episódios
+                </h2>
+                <div class="text-center max-w-3xl mx-auto mb-12">
+                    <p class="font-inter text-lg text-white/80">
+                        Entrevistas com CEOs, dicas práticas para o processo seletivo e muito sobre tecnologia e impacto social.
                     </p>
-                    <div class="flex flex-wrap gap-4">
-                        <a href="#" class="btn-laranja-podcast btn-grande">
-                            Ouvir no Spotify
-                        </a>
-                         <a href="#" class="btn-verde btn-grande">
-                            Ver no YouTube
-                        </a>
+                </div>
+                
+                <div class="grid md:grid-cols-3 gap-8">
+                    <!-- Episódio 1 -->
+                    <div class="bg-dark-ta p-6 rounded-xl shadow-xl border-t-4 border-orange-ta">
+                        <h3 class="font-poppins text-xl font-bold mb-3 text-orange-ta">EP 12: Desvendando a IA LEIA</h3>
+                        <p class="font-inter text-gray-300 mb-4">Convidamos Erick Mattos para falar sobre como a Inteligência Artificial está simplificando a Lei da Aprendizagem para as empresas.</p>
+                        <a href="[LINK_DO_EPISODIO_12]" target="_blank" class="text-blue-ta font-semibold hover:text-orange-ta transition duration-300 text-sm">Ouvir no Spotify →</a>
+                    </div>
+                    <!-- Episódio 2 -->
+                    <div class="bg-dark-ta p-6 rounded-xl shadow-xl border-t-4 border-blue-ta">
+                        <h3 class="font-poppins text-xl font-bold mb-3 text-blue-ta">EP 11: Como Montar um Currículo Invencível</h3>
+                        <p class="font-inter text-gray-300 mb-4">Dicas práticas para jovens que saem do Game APZ e precisam se destacar na entrevista final.</p>
+                        <a href="[LINK_DO_EPISODIO_11]" target="_blank" class="text-blue-ta font-semibold hover:text-orange-ta transition duration-300 text-sm">Ouvir no Deezer →</a>
+                    </div>
+                    <!-- Episódio 3 -->
+                    <div class="bg-dark-ta p-6 rounded-xl shadow-xl border-t-4 border-orange-ta">
+                        <h3 class="font-poppins text-xl font-bold mb-3 text-orange-ta">EP 10: O Futuro do Trabalho na Amazônia</h3>
+                        <p class="font-inter text-gray-300 mb-4">Oportunidades, desafios e o papel da inovação na região com um convidado especial da FAPEAM.</p>
+                        <a href="[LINK_DO_EPISODIO_10]" target="_blank" class="text-blue-ta font-semibold hover:text-orange-ta transition duration-300 text-sm">Ouvir no Apple Podcasts →</a>
                     </div>
                 </div>
-                
-                <div class="video-container shadow-2xl rounded-lg overflow-hidden">
-                    <iframe 
-                        src="https://www.youtube.com/embed/vl3Hf1iPAu8" 
-                        title="YouTube video player - Podcast Helen Araújo e a IA LEIA" 
-                        frameborder="0" 
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                        allowfullscreen>
-                    </iframe>
-                </div>
             </div>
         </section>
 
-        <section id="onde-ouvir" class="py-16 bg-preto-claro">
-            <div class="container mx-auto px-6 text-center">
-                <h2 class="text-3xl font-bold text-white mb-10">
-                    Onde Ouvir
+        <!-- 3. SESSÃO: PLATAFORMAS DE ESCUTA -->
+        <section id="plataformas" class="py-16 md:py-24 bg-dark-ta">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="font-poppins text-3xl sm:text-4xl font-bold mb-12 text-white">
+                    Disponível nas Melhores Plataformas
                 </h2>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-3xl mx-auto">
-                    <a href="#" class="platform-card" style="--platform-color: #1DB954;">
-                        <i class="fab fa-spotify fa-2x"></i>
-                        <span class="mt-2 text-lg font-semibold">Spotify</span>
-                    </a>
-                    <a href="#" class="platform-card" style="--platform-color: #FF0000;">
-                        <i class="fab fa-youtube fa-2x"></i>
-                        <span class="mt-2 text-lg font-semibold">YouTube</span>
-                    </a>
-                    <a href="#" class="platform-card" style="--platform-color: #A934C5;">
-                        <i class="fab fa-apple fa-2x"></i>
-                        <span class="mt-2 text-lg font-semibold">Apple Podcasts</span>
-                    </a>
-                </div>
-            </div>
-        </section>
-
-
-        <section class="py-20 bg-preto">
-            <div class="container mx-auto px-6 max-w-4xl">
-                <h2 class="text-3xl md:text-4xl font-bold text-white mb-12 text-center">
-                    Episódios Anteriores
-                </h2>
-                
-                <div class="space-y-8">
+                <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-6 gap-8 items-center justify-center">
                     
-                    <div class="bg-preto-claro p-6 rounded-lg shadow-lg flex flex-col md:flex-row items-center gap-6 border border-gray-700/50">
-                        <img src="https://placehold.co/150x150/FE5000/090A31?text=Ep.03" alt="Thumbnail Episódio 3" class="w-full md:w-36 h-36 rounded-lg object-cover flex-shrink-0">
-                        <div class="w-full">
-                            <h3 class="text-2xl font-semibold text-white mb-2">Ep. 03: De Jovem Aprendiz a Gerente</h3>
-                            <p class="text-gray-400 mb-4">Conversamos com Maria da Logística sobre sua jornada de 10 anos, começando como aprendiz na mesma empresa que hoje ela gerencia.</p>
-                            <a href="#" class="btn-laranja-podcast text-sm py-2 px-4">
-                                <i class="fas fa-play mr-2"></i>Ouvir Episódio
-                            </a>
-                        </div>
-                    </div>
+                    <!-- Plataforma 1 -->
+                    <a href="[LINK_SPOTIFY]" target="_blank" class="bg-dark-card p-4 rounded-xl shadow-md hover:scale-[1.05] transition duration-300 border-b-4 border-green-ta">
+                        <img src="imagens/logo-spotify.png" alt="Spotify" class="h-16 w-auto mx-auto grayscale hover:grayscale-0">
+                        <p class="text-sm mt-2 text-white">Spotify</p>
+                    </a>
+                    <!-- Plataforma 2 -->
+                    <a href="[LINK_DEEZER]" target="_blank" class="bg-dark-card p-4 rounded-xl shadow-md hover:scale-[1.05] transition duration-300 border-b-4 border-green-ta">
+                        <img src="imagens/logo-deezer.png" alt="Deezer" class="h-16 w-auto mx-auto grayscale hover:grayscale-0">
+                        <p class="text-sm mt-2 text-white">Deezer</p>
+                    </a>
+                    <!-- Plataforma 3 -->
+                    <a href="[LINK_APPLE]" target="_blank" class="bg-dark-card p-4 rounded-xl shadow-md hover:scale-[1.05] transition duration-300 border-b-4 border-green-ta">
+                        <img src="imagens/logo-apple-podcasts.png" alt="Apple Podcasts" class="h-16 w-auto mx-auto grayscale hover:grayscale-0">
+                        <p class="text-sm mt-2 text-white">Apple Podcasts</p>
+                    </a>
+                    <!-- Plataforma 4 -->
+                    <a href="[LINK_GOOGLE]" target="_blank" class="bg-dark-card p-4 rounded-xl shadow-md hover:scale-[1.05] transition duration-300 border-b-4 border-green-ta">
+                        <img src="imagens/logo-google-podcasts.png" alt="Google Podcasts" class="h-16 w-auto mx-auto grayscale hover:grayscale-0">
+                        <p class="text-sm mt-2 text-white">Google Podcasts</p>
+                    </a>
+                    <!-- Plataforma 5 -->
+                    <a href="[LINK_AMAZON]" target="_blank" class="bg-dark-card p-4 rounded-xl shadow-md hover:scale-[1.05] transition duration-300 border-b-4 border-green-ta">
+                        <img src="imagens/logo-amazon-music.png" alt="Amazon Music" class="h-16 w-auto mx-auto grayscale hover:grayscale-0">
+                        <p class="text-sm mt-2 text-white">Amazon Music</p>
+                    </a>
+                    <!-- Plataforma 6 -->
+                    <a href="[LINK_OUTRAS]" target="_blank" class="bg-dark-card p-4 rounded-xl shadow-md hover:scale-[1.05] transition duration-300 border-b-4 border-green-ta">
+                        <div class="text-4xl text-white h-16 flex items-center justify-center">...</div>
+                        <p class="text-sm mt-2 text-white">Outras</p>
+                    </a>
+                </div>
+            </div>
+        </section>
 
-                    <div class="bg-preto-claro p-6 rounded-lg shadow-lg flex flex-col md:flex-row items-center gap-6 border border-gray-700/50">
-                        <img src="https://placehold.co/150x150/F4EDD3/090A31?text=Ep.02" alt="Thumbnail Episódio 2" class="w-full md:w-36 h-36 rounded-lg object-cover flex-shrink-0">
-                        <div class="w-full">
-                            <h3 class="text-2xl font-semibold text-white mb-2">Ep. 02: O Mago do Excel</h3>
-                            <p class="text-gray-400 mb-4">João da Contabilidade explica por que dominar o Excel pode ser o seu maior super-poder no primeiro emprego, não importa a área.</p>
-                            <a href="#" class="btn-laranja-podcast text-sm py-2 px-4">
-                                <i class="fas fa-play mr-2"></i>Ouvir Episódio
-                            </a>
-                        </div>
-                    </div>
+        <!-- 4. SESSÃO: CTA FINAL - PARA JOVENS -->
+        <section class="py-16 bg-dark-card">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="font-poppins text-3xl sm:text-4xl font-bold mb-6 text-white">
+                    PRONTO PARA DECOLAR SUA CARREIRA?
+                </h2>
+                <p class="font-inter text-xl text-white/80 mb-8">
+                    Não perca nenhum episódio! Comece sua jornada profissional hoje mesmo com o Game APZ Seleção.
+                </p>
+                <a href="game-apz-selecao.html" class="inline-flex items-center justify-center px-10 py-4 border border-transparent text-lg font-semibold rounded-full text-white bg-green-ta hover:bg-green-ta/80 transition duration-300 shadow-lg">
+                    Acesse o Game APZ Seleção →
+                </a>
+            </div>
+        </section>
 
-                    <div class="bg-preto-claro p-6 rounded-lg shadow-lg flex flex-col md:flex-row items-center gap-6 border border-gray-700/50">
-                        <img src="https://placehold.co/150x150/2466ED/F4EDD3?text=Ep.01" alt="Thumbnail Episódio 1" class="w-full md:w-36 h-36 rounded-lg object-cover flex-shrink-0">
-                        <div class
+    </main>
+
+    <!-- RODAPÉ (FOOTER) -->
+    <footer class="bg-black-ta py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-gray-400 font-inter text-sm">
+            <p>&copy; 2025 Trilha do Aprendiz. Todos os direitos reservados.</p>
+            <p class="mt-2">Desenvolvido por Trilha do Aprendiz | Instituto Valendo</p>
+        </div>
+    </footer>
+
+    <!-- Link para seu JavaScript (A lógica do Menu Mobile deve ser definida aqui) -->
+    <script src="script.js"></script>
+</body>
+</html>

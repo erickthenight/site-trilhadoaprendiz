@@ -3,181 +3,236 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Maratona START END - Trilha do Aprendiz</title>
-    
+    <title>Maratona Start End Experience - Capacitação e Empregabilidade | Trilha do Aprendiz</title>
+    <!-- Carrega Tailwind CSS via CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     
-    <link href="style.css" rel="stylesheet">
-
-    <style>
-        /* Sobrescreve as cores --preto e --preto-claro para esta página */
-        body {
-            /* Cor de fundo principal da paleta: #191919 (Preto) ou #3A2042 (Vinho) */
-            --preto: #191919;
-            --preto-claro: #2d233a; /* Um tom ligeiramente mais claro do Vinho/Roxo */
-            background-color: var(--preto);
+    <!-- Configuração de fontes e cores customizadas -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'blue-ta': '#0056b3',      // Azul tecnológico (Destaque)
+                        'orange-ta': '#f7991e',    // Laranja energia jovem (Navbar/CTA)
+                        'gray-ta': '#f4f4f4',      // Cinza neutro
+                        'black-ta': '#222222',     // Preto institucional (Rodapé)
+                        'dark-ta': '#1a1a1a',      // Fundo Escuro Principal
+                        'dark-card': '#2f2f2f',    // Fundo de Card
+                        'green-ta': '#4CAF50',     // Botão CTA Principal
+                    },
+                    fontFamily: {
+                        'poppins': ['Poppins', 'sans-serif'],
+                        'inter': ['Inter', 'sans-serif'],
+                    },
+                }
+            }
         }
-        
-        /* Cor de destaque para os ícones, vindo da paleta */
-        .feature-icon-hackathon {
-            flex-shrink: 0;
-            width: 32px;
-            height: 32px;
-            border-radius: 99px;
-            background-color: var(--hackathon-lilas);
-            color: var(--preto);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            font-size: 1.1rem;
-            box-shadow: 0 0 15px rgba(175, 161, 242, 0.3);
-        }
-    </style>
+    </script>
+    <!-- Carrega as fontes Poppins e Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    
+    <!-- Link para seu CSS Customizado -->
+    <link rel="stylesheet" href="style.css">
 </head>
-<body class="bg-preto text-gray-200">
+<body class="bg-dark-ta min-h-screen antialiased font-inter text-white">
 
-    <nav class="bg-preto sticky top-0 z-50 border-b border-gray-700/50">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="index.html" class="flex items-center space-x-2">
-                <img src="imagens/logo-trilha-do-aprendiz-AZUL.png" alt="Logo Trilha do Aprendiz" class="h-10 w-auto" 
-                     onerror="this.src='https://placehold.co/40x40/0F46B9/FFB80F?text=T'">
-                <span class="font-bold text-xl text-white">TRILHA DO APRENDIZ</span>
-            </a>
-            
-            <div class="hidden md:flex space-x-8">
-                <a href="index.html" class="font-medium text-gray-300 hover:text-white transition">Início</a>
-                <a href="index.html#solucoes" class="font-medium text-gray-300 hover:text-white transition">Soluções</a>
-                <a href="index.html#contato" class="font-medium text-gray-300 hover:text-white transition">Contato</a>
-            </div>
-            
-            <a href="ia-leia.html" class="hidden md:block btn-verde">
-                Fale com a LEIA <span class="arrow">→</span>
-            </a>
-        </div>
-    </nav>
-
-    <header class="py-20 bg-preto-claro">
-        <div class="container mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
-            <div>
-                 <img src="imagens/logo-start-end-experience-Branco.png" 
-                     alt="Hackathon START END" 
-                     class="w-full max-w-sm mb-6"
-                     onerror="this.src='https://placehold.co/500x300/4f46e5/ffffff?text=Hackathon'">
+    <!-- CABEÇALHO (HEADER) - Menu Principal -->
+    <header class="bg-orange-ta shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <!-- Logo -->
+                <div class="flex-shrink-0">
+                    <img src="imagens/logo-trilha-do-aprendiz-AZUL.png" alt="Logo Trilha do Aprendiz" class="h-10">
+                </div>
                 
-                <h1 class="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
-                    Maratona START END Experience
-                </h1>
-                <p class="text-lg text-gray-300 max-w-lg mb-8">
-                    Eventos e competições de Hackathon para mostrar seu talento ao vivo para as maiores empresas e resolver desafios reais de negócio.
-                </p>
-                <a href="#" class="btn-indigo-hackathon btn-grande">
-                    Inscreva-se (Em Breve)
-                </a>
+                <!-- Links do Menu (Desktop) -->
+                <nav class="hidden md:flex space-x-4 lg:space-x-8 items-center">
+                    <a href="index.html" class="text-white hover:text-blue-ta px-3 py-2 text-sm font-medium transition duration-150 rounded-md">Início</a>
+                    <a href="sobre.html" class="text-white hover:text-blue-ta px-3 py-2 text-sm font-medium transition duration-150 rounded-md">Sobre</a>
+                    <div class="group relative">
+                        <button class="text-blue-ta border-b-2 border-blue-ta px-3 py-2 text-sm font-medium transition duration-150 rounded-md flex items-center font-poppins font-semibold">
+                            Soluções
+                            <svg class="w-4 h-4 ml-1" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 9l-7 7-7-7"></path></svg>
+                        </button>
+                        <!-- Submenu (Fundo Branco para contraste) -->
+                        <div class="hidden group-hover:block absolute left-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 z-20">
+                            <a href="game-apz-selecao.html" class="block px-4 py-2 text-sm text-black-ta hover:bg-gray-ta rounded-t-md">Game APZ Seleção</a>
+                            <a href="ia-leia.html" class="block px-4 py-2 text-sm text-black-ta hover:bg-gray-ta">LEIA Inteligência Artificial</a>
+                            <a href="mapa-jovem.html" class="block px-4 py-2 text-sm text-black-ta hover:bg-gray-ta">Mapa do Jovem Trabalhador</a>
+                            <a href="maratona-start-end.html" class="block px-4 py-2 text-sm text-blue-ta bg-gray-ta hover:bg-gray-ta">Start End Experience</a>
+                            <a href="fala-ai-aprendiz.html" class="block px-4 py-2 text-sm text-black-ta hover:bg-gray-ta rounded-b-md">PodCas Fala Ai Aprendiz</a>
+                        </div>
+                    </div>
+                    <a href="parceiros.html" class="text-white hover:text-blue-ta px-3 py-2 text-sm font-medium transition duration-150 rounded-md">Parceiros</a>
+                    <a href="blog.html" class="text-white hover:text-blue-ta px-3 py-2 text-sm font-medium transition duration-150 rounded-md">Blog / Notícias</a>
+                    <a href="contato.html" class="bg-green-ta text-white hover:bg-green-ta/80 px-4 py-2 text-sm font-medium rounded-full transition duration-300 shadow-lg font-poppins font-semibold">Fale com a LEIA →</a>
+                </nav>
+                
+                <!-- Botão Mobile (Toggle) -->
+                <button id="menu-toggle" class="md:hidden text-white focus:outline-none p-2 rounded-lg hover:bg-dark-card transition duration-150">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
             </div>
-            <div class="video-container shadow-2xl rounded-lg overflow-hidden">
-                <iframe 
-                    src="https://www.youtube.com/embed/-b3rgSVOvtE" 
-                    title="YouTube video player - Start End Experience" 
-                    frameborder="0" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                    allowfullscreen>
-                </iframe>
+        </div>
+        <!-- Menu Mobile -->
+        <div id="mobile-menu" class="hidden md:hidden bg-dark-card shadow-xl">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 flex flex-col">
+                <a href="index.html" class="text-white hover:bg-dark-ta block px-3 py-2 rounded-md text-base font-medium">Início</a>
+                <a href="sobre.html" class="text-white hover:bg-dark-ta block px-3 py-2 rounded-md text-base font-medium">Sobre</a>
+                <span class="text-blue-ta px-3 py-2 text-base font-bold">Soluções:</span>
+                <a href="game-apz-selecao.html" class="text-white hover:bg-dark-ta block px-6 py-2 rounded-md text-sm">Game APZ Seleção</a>
+                <a href="ia-leia.html" class="text-white hover:bg-dark-ta block px-6 py-2 rounded-md text-sm">LEIA Inteligência Artificial</a>
+                <a href="mapa-jovem.html" class="text-white hover:bg-dark-ta block px-6 py-2 rounded-md text-sm">Mapa do Jovem Trabalhador</a>
+                <a href="maratona-start-end.html" class="text-blue-ta bg-dark-ta block px-6 py-2 rounded-md text-sm">Start End Experience</a>
+                <a href="fala-ai-aprendiz.html" class="text-white hover:bg-dark-ta block px-6 py-2 rounded-md text-sm">PodCas Fala Ai Aprendiz</a>
+                <a href="parceiros.html" class="text-white hover:bg-dark-ta block px-3 py-2 rounded-md text-base font-medium">Parceiros</a>
+                <a href="blog.html" class="text-white hover:bg-dark-ta block px-3 py-2 rounded-md text-base font-medium">Blog / Notícias</a>
+                <a href="contato.html" class="bg-green-ta text-white text-center hover:bg-green-ta/80 mt-2 block px-3 py-2 rounded-full text-base font-medium transition duration-300">Fale Conosco</a>
             </div>
         </div>
     </header>
-    
-    <section class="py-20 bg-preto">
-        <div class="container mx-auto px-6 max-w-5xl">
-            <h2 class="text-3xl md:text-4xl font-bold text-white mb-16 text-center">
-                Uma Experiência de Imersão Real
-            </h2>
-            
-            <div class="space-y-20">
-                
-                <div class="grid md:grid-cols-2 gap-12 items-center">
-                    <img src="imagens/Card-Star-End-Experience-1.png" alt="Equipa a resolver desafios" class="rounded-lg shadow-2xl w-full" 
-                         onerror="this.src='https://placehold.co/500x350/3D317A/AFA1F2?text=Desafios+Reais'">
-                    <div>
-                        <span class="font-bold text-sm uppercase" style="color: var(--hackathon-lilas)">Desafios</span>
-                        <h3 class="text-3xl font-bold text-white mt-2 mb-4">Desafios Reais</h3>
-                        <p class="text-gray-400 text-lg leading-relaxed">Trabalhe em equipa para resolver um problema de negócio real, proposto pelas nossas empresas parceiras (como SENAI, SENAC e Liga Jovem).</p>
-                    </div>
-                </div>
 
-                <div class="grid md:grid-cols-2 gap-12 items-center">
-                    <div class="md:order-2">
-                        <img src="imagens/Card-Star-End-Experience-2.png" alt="Mentoria com profissionais" class="rounded-lg shadow-2xl w-full"
-                             onerror="this.src='https://placehold.co/500x350/364BAA/AFA1F2?text=Mentoria'">
+    <main>
+        <!-- 1. HERO SECTION (Destaque) -->
+        <section class="bg-dark-ta pt-16 pb-20 md:pt-24 md:pb-32 border-b border-gray-700">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid lg:grid-cols-12 gap-12 items-center">
+                    
+                    <!-- Coluna de Texto -->
+                    <div class="lg:col-span-7 space-y-6">
+                        <h1 class="font-poppins text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight text-blue-ta">
+                            Start End Experience: A Maratona de Empregabilidade Jovem
+                        </h1>
+                        <p class="font-inter text-lg sm:text-xl text-white/90">
+                            A Maratona Start End Experience é um evento de imersão que simula o ciclo completo de um profissional, desde a capacitação (*Start*) até a experiência real de trabalho (*End*).
+                        </p>
+                        <!-- Botões CTA -->
+                        <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 pt-4">
+                            <a href="contato.html?assunto=Interesse-Maratona-Empresa" class="inline-flex justify-center items-center px-8 py-4 border border-transparent text-base font-semibold rounded-full text-white bg-orange-ta hover:bg-orange-ta/80 transition duration-300 shadow-lg font-poppins">
+                                Minha Empresa Quer Patrocinar/Participar
+                            </a>
+                            <a href="contato.html?assunto=Inscricao-Maratona-Jovem" class="inline-flex justify-center items-center px-8 py-4 border-2 border-green-ta text-base font-semibold rounded-full text-green-ta hover:bg-green-ta hover:text-dark-ta transition duration-300">
+                                Quero Me Inscrever (Jovem)
+                            </a>
+                        </div>
                     </div>
-                    <div class="md:order-1">
-                        <span class="font-bold text-sm uppercase" style="color: var(--hackathon-lilas)">Networking</span>
-                        <h3 class="text-3xl font-bold text-white mt-2 mb-4">Mentoria</h3>
-                        <p class="text-gray-400 text-lg leading-relaxed">Receba mentoria direta de profissionais seniores das empresas e ajuste o seu projeto para vencer a competição.</p>
-                    </div>
-                </div>
-
-                <div class="grid md:grid-cols-2 gap-12 items-center">
-                    <img src="https://placehold.co/500x350/3A2042/AFA1F2?text=Contrata%C3%A7%C3%A3o" alt="Aperto de mão de contratação" class="rounded-lg shadow-2xl w-full">
-                    <div>
-                        <span class="font-bold text-sm uppercase" style="color: var(--hackathon-lilas)">Oportunidade</span>
-                        <h3 class="text-3xl font-bold text-white mt-2 mb-4">Contratação Rápida</h3>
-                        <p class="text-gray-400 text-lg leading-relaxed">Os melhores talentos da maratona saem com pré-contratos e vagas de Jovem Aprendiz garantidas.</p>
+                    
+                    <!-- Coluna de Imagem (Mockup/Visual) -->
+                    <div class="lg:col-span-5 flex justify-center lg:justify-end">
+                        <!-- Placeholder de Logo Start End Experience -->
+                        <div class="w-full max-w-sm h-72 md:h-80 bg-orange-ta/20 rounded-xl shadow-2xl flex items-center justify-center p-4 border-4 border-orange-ta">
+                             <img src="imagens/logo-start-end-experience.png" alt="Logotipo Start End Experience" class="w-2/3 h-auto">
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section class="py-20 bg-preto-claro">
-        <div class="container mx-auto px-6 max-w-4xl">
-            <h2 class="text-3xl md:text-4xl font-bold text-white mb-12 text-center">
-                Etapas da Maratona
-            </h2>
-            <div class="space-y-8 relative border-l-2 border-gray-700/50 ml-4 md:ml-0">
-                
-                <div class="pl-8 ml-4 md:ml-0 relative">
-                    <div class="absolute -left-[10px] md:-left-[15px] top-1 w-6 h-6 rounded-full border-4 border-preto-claro" style="background-color: var(--hackathon-lilas)"></div>
-                    <h3 class="text-2xl font-semibold text-white mb-2">1. Inscrições</h3>
-                    <p class="text-gray-400">Monte a sua equipa (3 a 5 membros) e inscreva-se no desafio. As vagas são limitadas!</p>
+        <!-- 2. SESSÃO: COMO FUNCIONA O EVENTO (O Ciclo Start-End) -->
+        <section class="py-16 md:py-24 bg-dark-card">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="font-poppins text-3xl sm:text-4xl font-bold mb-12 text-orange-ta text-center">
+                    O CICLO START-END: DA TEORIA À VAGA GARANTIDA
+                </h2>
+                <div class="grid md:grid-cols-3 gap-8 text-lg">
+                    <!-- FASE 1: START (Capacitação) -->
+                    <div class="bg-dark-ta p-6 rounded-xl shadow-xl border-t-4 border-blue-ta">
+                        <h3 class="font-poppins text-2xl font-semibold mb-3 text-blue-ta">1. Start: Capacitação Intensiva</h3>
+                        <p class="font-inter text-gray-300 leading-relaxed">
+                            Jovens participam de *workshops* rápidos, *bootcamps* e desafios de competências (muitas vezes via Game APZ). Foco em currículo, entrevista, comunicação e *soft skills*.
+                        </p>
+                    </div>
+                    <!-- FASE 2: EXPERIENCE (Desafio) -->
+                    <div class="bg-dark-ta p-6 rounded-xl shadow-xl border-t-4 border-orange-ta">
+                        <h3 class="font-poppins text-2xl font-semibold mb-3 text-orange-ta">2. Experience: Desafio Prático</h3>
+                        <p class="font-inter text-gray-300 leading-relaxed">
+                            Simulação de um dia de trabalho real na empresa parceira ou resolução de *cases* de mercado. É aqui que o perfil comportamental e as habilidades técnicas são testadas sob pressão.
+                        </p>
+                    </div>
+                    <!-- FASE 3: END (Oportunidade) -->
+                    <div class="bg-dark-ta p-6 rounded-xl shadow-xl border-t-4 border-blue-ta">
+                        <h3 class="font-poppins text-2xl font-semibold mb-3 text-blue-ta">3. End: Conexão e Contratação</h3>
+                        <p class="font-inter text-gray-300 leading-relaxed">
+                            Os jovens com melhor desempenho recebem *feedback* direto dos RHs e são encaminhados prioritariamente para as vagas de Aprendiz da empresa patrocinadora.
+                        </p>
+                    </div>
                 </div>
                 
-                <div class="pl-8 ml-4 md:ml-0 relative">
-                    <div class="absolute -left-[10px] md:-left-[15px] top-1 w-6 h-6 rounded-full border-4 border-preto-claro" style="background-color: var(--hackathon-lilas)"></div>
-                    <h3 class="text-2xl font-semibold text-white mb-2">2. Workshops de Aquecimento</h3>
-                    <p class="text-gray-400">Participe em workshops online com mentores para se preparar para o desafio principal.</p>
+                <div class="text-center pt-12">
+                    <p class="text-xl text-white/90 font-semibold border-t border-gray-700 pt-6 mt-6">
+                        RESULTADO: Seleção precisa para empresas, primeira oportunidade garantida para jovens.
+                    </p>
                 </div>
-
-                <div class="pl-8 ml-4 md:ml-0 relative">
-                    <div class="absolute -left-[10px] md:-left-[15px] top-1 w-6 h-6 rounded-full border-4 border-preto-claro" style="background-color: var(--hackathon-lilas)"></div>
-                    <h3 class="text-2xl font-semibold text-white mb-2">3. O Hackathon (48h)</h3>
-                    <p class="text-gray-400">Dois dias de imersão total (presencial ou online) para desenvolver uma solução inovadora para o desafio proposto.</p>
-                </div>
-
-                <div class="pl-8 ml-4 md:ml-0 relative">
-                    <div class="absolute -left-[10px] md:-left-[15px] top-1 w-6 h-6 rounded-full border-4 border-preto-claro" style="background-color: var(--hackathon-lilas)"></div>
-                    <h3 class="text-2xl font-semibold text-white mb-2">4. Pitch Final e Premiação</h3>
-                    <p class="text-gray-400">As equipas finalistas apresentam as suas soluções a uma banca de jurados composta por diretores de empresas parceiras.</p>
-                </div>
-
             </div>
-        </div>
-    </section>
+        </section>
 
-    <footer id="contato" class="bg-preto text-white text-center py-16">
-    <div class="container mx-auto px-6">
-        <a href="index.html" class="flex items-center justify-center space-x-2 mb-4">
-            <img src="imagens/logo-trilha-do-aprendiz-AZUL.png" alt="Logotipo da Trilha do Aprendiz" class="h-10 w-auto" 
-                 onerror="this.src='https://placehold.co/40x40/0F46B9/FFB80F?text=T'">
-            <span class="font-bold text-xl text-white">TRILHA DO APRENDIZ</span>
-        </a>
-        <p class="text-gray-400 mb-8">Conectando jovens talentos a oportunidades.</p>
+        <!-- 3. SESSÃO: BENEFÍCIOS PARA EMPRESAS -->
+        <section class="py-16 md:py-24 bg-dark-ta">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="font-poppins text-3xl sm:text-4xl font-bold text-center mb-16 text-white">
+                    Benefícios para Empresas Parceiras e Patrocinadoras
+                </h2>
+                
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    
+                    <!-- Card 1: Seleção Imersiva -->
+                    <div class="bg-dark-card p-6 rounded-xl shadow-xl border-t-4 border-orange-ta">
+                        <div class="text-4xl text-orange-ta mb-4">⭐</div>
+                        <h3 class="font-poppins text-xl font-bold mb-3 text-white">Seleção Imersiva</h3>
+                        <p class="font-inter text-gray-300">Avalie os candidatos em um ambiente prático e dinâmico, simulando a realidade da sua empresa antes da contratação.</p>
+                    </div>
+                    
+                    <!-- Card 2: Branding e ESG -->
+                    <div class="bg-dark-card p-6 rounded-xl shadow-xl border-t-4 border-blue-ta">
+                        <div class="text-4xl text-blue-ta mb-4">🌱</div>
+                        <h3 class="font-poppins text-xl font-bold mb-3 text-white">Branding e ESG</h3>
+                        <p class="font-inter text-gray-300">Fortaleça sua marca empregadora junto à Geração Z e gere dados concretos para o pilar Social (S) dos relatórios ESG.</p>
+                    </div>
 
-        <div class="mb-8">
-            <img src="imagens/negocio-de-impacto.png" alt="Selo Negócio de Impacto - Certificadora Social" class="footer-seal-badge">
+                    <!-- Card 3: Redução de Turnover -->
+                    <div class="bg-dark-card p-6 rounded-xl shadow-xl border-t-4 border-orange-ta">
+                        <div class="text-4xl text-orange-ta mb-4">📉</div>
+                        <h3 class="font-poppins text-xl font-bold mb-3 text-white">Redução de Turnover</h3>
+                        <p class="font-inter text-gray-300">Ao alinhar expectativas no *Experience*, a Maratona garante que o jovem contratado se adapte melhor, reduzindo a rotatividade.</p>
+                    </div>
+                    
+                    <!-- Card 4: Alinhamento Curricular -->
+                    <div class="bg-dark-card p-6 rounded-xl shadow-xl border-t-4 border-blue-ta">
+                        <div class="text-4xl text-blue-ta mb-4">📚</div>
+                        <h3 class="font-poppins text-xl font-bold mb-3 text-white">Alinhamento Curricular</h3>
+                        <p class="font-inter text-gray-300">A Maratona serve de base para Entidades Formadoras, ajustando a capacitação às necessidades reais da sua indústria ou setor.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. SESSÃO: CTA FINAL PARA EMPRESAS -->
+        <section class="py-16 bg-dark-card">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="font-poppins text-3xl sm:text-4xl font-bold mb-6 text-white">
+                    TRANSFORME SEU PROCESSO SELETIVO EM UM EVENTO DE TALENTOS.
+                </h2>
+                <p class="font-inter text-xl text-white/80 mb-8">
+                    Patrocine ou participe da próxima Maratona Start End Experience e encontre seus próximos jovens líderes.
+                </p>
+                <a href="contato.html?assunto=Maratona-Parceria" class="inline-flex items-center justify-center px-10 py-4 border border-transparent text-lg font-semibold rounded-full text-white bg-orange-ta hover:bg-orange-ta/80 transition duration-300 shadow-lg">
+                    Fale com a Equipe Start End →
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- RODAPÉ (FOOTER) -->
+    <footer class="bg-black-ta py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-gray-400 font-inter text-sm">
+            <p>&copy; 2025 Trilha do Aprendiz. Todos os direitos reservados.</p>
+            <p class="mt-2">Desenvolvido por Trilha do Aprendiz </p>
         </div>
-        
-        <p class="text-sm text-gray-500">&copy; 2025 Trilha do Aprendiz. Todos os direitos reservados. Feito em Manaus, Amazonas.</p>
-    </div>
-</footer>
+    </footer>
+
+    <!-- Link para seu JavaScript (A lógica do Menu Mobile deve ser definida aqui) -->
+    <script src="script.js"></script>
+</body>
+</html>

@@ -3,190 +3,226 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mapa do Jovem Trabalhador - Trilha do Aprendiz</title>
-    
+    <title>Mapa do Jovem Trabalhador - Geolocalização de Oportunidades | Trilha do Aprendiz</title>
+    <!-- Carrega Tailwind CSS via CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link href="style.css" rel="stylesheet">
-
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-
-    <style>
-        /* Sobrescreve as cores --preto e --preto-claro para esta página */
-        body {
-            --preto: var(--mapa-azul);
-            --preto-claro: #1a3cb7; /* Um tom ligeiramente mais claro do azul */
-            background-color: var(--preto);
+    
+    <!-- Configuração de fontes e cores customizadas -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'blue-ta': '#0056b3',      // Azul tecnológico (Destaque)
+                        'orange-ta': '#f7991e',    // Laranja energia jovem (Navbar/CTA)
+                        'gray-ta': '#f4f4f4',      // Cinza neutro
+                        'black-ta': '#222222',     // Preto institucional (Rodapé)
+                        'dark-ta': '#1a1a1a',      // Fundo Escuro Principal
+                        'dark-card': '#2f2f2f',    // Fundo de Card
+                        'green-ta': '#4CAF50',     // Botão CTA Principal
+                    },
+                    fontFamily: {
+                        'poppins': ['Poppins', 'sans-serif'],
+                        'inter': ['Inter', 'sans-serif'],
+                    },
+                }
+            }
         }
-
-        #map {
-            height: 600px;
-            border-radius: 8px;
-            width: 100%;
-            z-index: 0;
-            border: 2px solid #334155; /* Cor slate-700 */
-        }
-        .map-icon {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            border-radius: 50%; /* Círculo */
-            font-size: 1rem;
-            width: 30px;
-            height: 30px;
-            border: 2px solid var(--preto-inst);
-        }
-        .map-icon.vaga-icon {
-            background-color: var(--mapa-amarelo); /* Paleta Oficial Amarelo */
-            color: var(--preto-inst);
-        }
-        .map-icon.empresa-icon {
-            background-color: var(--mapa-verde); /* Paleta Oficial Verde */
-            color: white;
-        }
-        /* Ajusta o fundo do mapa Leaflet para o modo escuro */
-        .leaflet-tile-pane {
-            filter: brightness(0.8) contrast(1.2) grayscale(0.2);
-        }
-    </style>
+    </script>
+    <!-- Carrega as fontes Poppins e Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    
+    <!-- Link para seu CSS Customizado -->
+    <link rel="stylesheet" href="style.css">
 </head>
-<body class="bg-preto text-gray-200">
+<body class="bg-dark-ta min-h-screen antialiased font-inter text-white">
 
-    <nav class="bg-preto sticky top-0 z-50 border-b border-gray-700/50">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="index.html" class="flex items-center space-x-2">
-                <img src="imagens/logo-trilha-do-aprendiz-AZUL.png" alt="Logo Trilha do Aprendiz" class="h-10 w-auto" 
-                     onerror="this.src='https://placehold.co/40x40/0F46B9/FFB80F?text=T'">
-                <span class="font-bold text-xl text-white">TRILHA DO APRENDIZ</span>
-            </a>
-            
-            <div class="hidden md:flex space-x-8">
-                <a href="index.html" class="font-medium text-gray-300 hover:text-white transition">Início</a>
-                <a href="index.html#solucoes" class="font-medium text-gray-300 hover:text-white transition">Soluções</a>
-                <a href="index.html#contato" class="font-medium text-gray-300 hover:text-white transition">Contato</a>
-            </div>
-            
-            <a href="ia-leia.html" class="hidden md:block btn-verde">
-                Fale com a LEIA <span class="arrow">→</span>
-            </a>
-        </div>
-    </nav>
-
-    <main class="container mx-auto px-6 py-20">
-        
-        <section class="mb-12">
-            <div class="grid md:grid-cols-2 gap-16 items-center">
-                <div>
-                    <h1 class="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
-                        Mapa do Jovem Trabalhador
-                    </h1>
-                    <p class="text-lg text-gray-300 max-w-lg mb-8">
-                        Filtros e ferramentas para o jovem aprendiz criar o seu currículo corretamente e encontrar vagas de forma geolocalizada.
-                    </p>
-                    <a href="#map" class="btn-azul-mapa btn-grande">
-                        Explorar Vagas
-                    </a>
+    <!-- CABEÇALHO (HEADER) - Menu Principal -->
+    <header class="bg-orange-ta shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <!-- Logo -->
+                <div class="flex-shrink-0">
+                    <img src="imagens/logo-trilha-do-aprendiz-AZUL.png" alt="Logo Trilha do Aprendiz" class="h-10">
                 </div>
-                <div class="flex justify-center">
-                    <img src="imagens/logo-mapa-jovem-trabalhador.png" 
-                         alt="Mapa do Jovem Trabalhador" 
-                         class="w-full max-w-lg"
-                         onerror="this.src='https://placehold.co/500x400/FFB80F/191919?text=Mapa+do+Brasil'">
+                
+                <!-- Links do Menu (Desktop) -->
+                <nav class="hidden md:flex space-x-4 lg:space-x-8 items-center">
+                    <a href="index.html" class="text-white hover:text-blue-ta px-3 py-2 text-sm font-medium transition duration-150 rounded-md">Início</a>
+                    <a href="sobre.html" class="text-white hover:text-blue-ta px-3 py-2 text-sm font-medium transition duration-150 rounded-md">Sobre</a>
+                    <div class="group relative">
+                        <button class="text-blue-ta border-b-2 border-blue-ta px-3 py-2 text-sm font-medium transition duration-150 rounded-md flex items-center font-poppins font-semibold">
+                            Soluções
+                            <svg class="w-4 h-4 ml-1" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 9l-7 7-7-7"></path></svg>
+                        </button>
+                        <!-- Submenu (Fundo Branco para contraste) -->
+                        <div class="hidden group-hover:block absolute left-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 z-20">
+                            <a href="game-apz-selecao.html" class="block px-4 py-2 text-sm text-black-ta hover:bg-gray-ta rounded-t-md">Game APZ Seleção</a>
+                            <a href="ia-leia.html" class="block px-4 py-2 text-sm text-black-ta hover:bg-gray-ta">LEIA Inteligência Artificial</a>
+                            <a href="mapa-jovem.html" class="block px-4 py-2 text-sm text-blue-ta bg-gray-ta hover:bg-gray-ta">Mapa do Jovem Trabalhador</a>
+                            <a href="maratona-start-end.html" class="block px-4 py-2 text-sm text-black-ta hover:bg-gray-ta">Start End Experience</a>
+                            <a href="fala-ai-aprendiz.html" class="block px-4 py-2 text-sm text-black-ta hover:bg-gray-ta rounded-b-md">PodCas Fala Ai Aprendiz</a>
+                        </div>
+                    </div>
+                    <a href="parceiros.html" class="text-white hover:text-blue-ta px-3 py-2 text-sm font-medium transition duration-150 rounded-md">Parceiros</a>
+                    <a href="blog.html" class="text-white hover:text-blue-ta px-3 py-2 text-sm font-medium transition duration-150 rounded-md">Blog / Notícias</a>
+                    <a href="contato.html" class="bg-green-ta text-white hover:bg-green-ta/80 px-4 py-2 text-sm font-medium rounded-full transition duration-300 shadow-lg font-poppins font-semibold">Fale com a LEIA →</a>
+                </nav>
+                
+                <!-- Botão Mobile (Toggle) -->
+                <button id="menu-toggle" class="md:hidden text-white focus:outline-none p-2 rounded-lg hover:bg-dark-card transition duration-150">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </div>
+        </div>
+        <!-- Menu Mobile -->
+        <div id="mobile-menu" class="hidden md:hidden bg-dark-card shadow-xl">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 flex flex-col">
+                <a href="index.html" class="text-white hover:bg-dark-ta block px-3 py-2 rounded-md text-base font-medium">Início</a>
+                <a href="sobre.html" class="text-white hover:bg-dark-ta block px-3 py-2 rounded-md text-base font-medium">Sobre</a>
+                <span class="text-blue-ta px-3 py-2 text-base font-bold">Soluções:</span>
+                <a href="game-apz-selecao.html" class="text-white hover:bg-dark-ta block px-6 py-2 rounded-md text-sm">Game APZ Seleção</a>
+                <a href="ia-leia.html" class="text-white hover:bg-dark-ta block px-6 py-2 rounded-md text-sm">LEIA Inteligência Artificial</a>
+                <a href="mapa-jovem.html" class="text-blue-ta bg-dark-ta block px-6 py-2 rounded-md text-sm">Mapa do Jovem Trabalhador</a>
+                <a href="maratona-start-end.html" class="text-white hover:bg-dark-ta block px-6 py-2 rounded-md text-sm">Start End Experience</a>
+                <a href="fala-ai-aprendiz.html" class="text-white hover:bg-dark-ta block px-6 py-2 rounded-md text-sm">PodCas Fala Ai Aprendiz</a>
+                <a href="parceiros.html" class="text-white hover:bg-dark-ta block px-3 py-2 rounded-md text-base font-medium">Parceiros</a>
+                <a href="blog.html" class="text-white hover:bg-dark-ta block px-3 py-2 rounded-md text-base font-medium">Blog / Notícias</a>
+                <a href="contato.html" class="bg-green-ta text-white text-center hover:bg-green-ta/80 mt-2 block px-3 py-2 rounded-full text-base font-medium transition duration-300">Fale Conosco</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- 1. HERO SECTION (Destaque) -->
+        <section class="bg-dark-ta pt-16 pb-20 md:pt-24 md:pb-32 border-b border-gray-700">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid lg:grid-cols-12 gap-12 items-center">
+                    
+                    <!-- Coluna de Texto -->
+                    <div class="lg:col-span-7 space-y-6">
+                        <h1 class="font-poppins text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight text-blue-ta">
+                            Mapa do Jovem Trabalhador: Mapeando Talentos e Oportunidades
+                        </h1>
+                        <p class="font-inter text-lg sm:text-xl text-white/90">
+                            A ferramenta interativa de geolocalização que **elimina barreiras** e conecta jovens em situação de vulnerabilidade social com as melhores chances de capacitação e trabalho formal.
+                        </p>
+                        <!-- Botões CTA -->
+                        <div class="flex pt-4">
+                            <a href="contato.html?assunto=Demonstracao-Mapa" class="inline-flex justify-center items-center px-8 py-4 border border-transparent text-base font-semibold rounded-full text-white bg-orange-ta hover:bg-orange-ta/80 transition duration-300 shadow-lg font-poppins">
+                                Acesse a Demonstração do Mapa
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Coluna de Imagem (Mockup/Visual) -->
+                    <div class="lg:col-span-5 flex justify-center lg:justify-end">
+                        <!-- Placeholder de Mapa/Geolocalização -->
+                        <div class="w-full max-w-sm h-72 md:h-80 bg-blue-ta rounded-xl shadow-2xl flex items-center justify-center p-4">
+                            <img src="imagens/logo-mapa-jovem-trabalhador.png" alt="Logotipo Mapa do Jovem Trabalhador" class="w-2/3 h-auto">
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section id="map" class="bg-preto-claro p-6 rounded-lg shadow-lg">
-            <div class="flex flex-wrap gap-4 mb-4">
-                <span class="font-semibold text-white">Legenda:</span>
-                <div class="flex items-center">
-                    <span class="map-icon vaga-icon">💼</span>
-                    <span class="ml-2 text-gray-300">Vaga de Aprendiz</span>
-                </div>
-                <div class="flex items-center">
-                    <span class="map-icon empresa-icon">🏢</span>
-                    <span class="ml-2 text-gray-300">Empresa Parceira</span>
+        <!-- 2. SESSÃO: COMO FUNCIONA A CONEXÃO -->
+        <section class="py-16 md:py-24 bg-dark-card">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="font-poppins text-3xl sm:text-4xl font-bold mb-12 text-orange-ta">
+                    CONECTANDO QUEM PRECISA COM QUEM OFERECE
+                </h2>
+                <div class="grid md:grid-cols-2 gap-12 text-lg">
+                    <!-- O Problema (Barreiras) -->
+                    <div>
+                        <h3 class="font-poppins text-2xl font-semibold mb-4 text-white">Superando Obstáculos de Acesso</h3>
+                        <p class="text-gray-300 mb-4 leading-relaxed">
+                            A falta de informação e a distância geográfica são grandes obstáculos para o jovem em vulnerabilidade. Nosso Mapa é um motor de inclusão produtiva, agindo como uma ponte direta entre o potencial do jovem e as vagas abertas.
+                        </p>
+                        <p class="text-gray-300 leading-relaxed">
+                            Para a empresa, ele resolve o desafio de encontrar jovens qualificados e que residem perto de suas unidades, facilitando o cumprimento da Lei da Aprendizagem e a retenção.
+                        </p>
+                    </div>
+                    <!-- A Solução (Cruzamento de Dados) -->
+                    <div>
+                        <h3 class="font-poppins text-2xl font-semibold mb-4 text-white">Match Perfeito: Dados + Geolocalização</h3>
+                        <p class="text-gray-300 mb-4 leading-relaxed border-l-4 border-blue-ta pl-4">
+                            Nosso sistema não apenas localiza; ele **cruza o perfil de competências do jovem** (avaliado no Game APZ Seleção) com as necessidades da sua empresa e a localização das oportunidades, garantindo o *match* perfeito.
+                        </p>
+                        <p class="text-gray-300 leading-relaxed">
+                            O resultado é um processo seletivo mais eficiente, com maior taxa de sucesso na contratação e um impacto social claro e mensurável.
+                        </p>
+                    </div>
                 </div>
             </div>
+        </section>
 
-            <div id="map-container" class="relative z-0">
-                <div id="map"></div>
+        <!-- 3. SESSÃO: INDICADORES CHAVE (Para Empresas e Instituições) -->
+        <section class="py-16 md:py-24 bg-dark-ta">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="font-poppins text-3xl sm:text-4xl font-bold text-center mb-16 text-white">
+                    Indicadores Chave: Dados Inteligentes para Decisões Estratégicas
+                </h2>
+                
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    
+                    <!-- Card 1: Localização Geográfica -->
+                    <div class="bg-dark-card p-6 rounded-xl shadow-xl border-t-4 border-blue-ta">
+                        <div class="text-4xl text-blue-ta mb-4">📍</div>
+                        <h3 class="font-poppins text-xl font-bold mb-3 text-white">Localização Geográfica</h3>
+                        <p class="font-inter text-gray-300">Visualize em tempo real a concentração de jovens aptos para o programa de Aprendizagem próximos às suas unidades.</p>
+                    </div>
+                    
+                    <!-- Card 2: Perfil Socioeconômico -->
+                    <div class="bg-dark-card p-6 rounded-xl shadow-xl border-t-4 border-orange-ta">
+                        <div class="text-4xl text-orange-ta mb-4">📈</div>
+                        <h3 class="font-poppins text-xl font-bold mb-3 text-white">Perfil Socioeconômico</h3>
+                        <p class="font-inter text-gray-300">Acesse dados (anonimizados) sobre vulnerabilidade e histórico de renda, otimizando seu investimento em ESG e impacto social.</p>
+                    </div>
+
+                    <!-- Card 3: Histórico Educacional -->
+                    <div class="bg-dark-card p-6 rounded-xl shadow-xl border-t-4 border-blue-ta">
+                        <div class="text-4xl text-blue-ta mb-4">📚</div>
+                        <h3 class="font-poppins text-xl font-bold mb-3 text-white">Histórico Educacional</h3>
+                        <p class="font-inter text-gray-300">Saiba o nível de qualificação, cursos e o desempenho de competências do jovem (obtido via Game APZ).</p>
+                    </div>
+                    
+                    <!-- Card 4: Conexão com Programas -->
+                    <div class="bg-dark-card p-6 rounded-xl shadow-xl border-t-4 border-orange-ta">
+                        <div class="text-4xl text-orange-ta mb-4">🔗</div>
+                        <h3 class="font-poppins text-xl font-bold mb-3 text-white">Conexão com Programas</h3>
+                        <p class="font-inter text-gray-300">O Mapa centraliza dados do APZ Seleção e da LEIA IA, garantindo alinhamento total entre talento, vaga e requisito legal.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. SESSÃO: CTA FINAL PARA EMPRESAS E INSTITUIÇÕES -->
+        <section class="py-16 bg-dark-card">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="font-poppins text-3xl sm:text-4xl font-bold mb-6 text-white">
+                    USE A GEOLOCALIZAÇÃO A FAVOR DA SUA COTA DE APRENDIZES.
+                </h2>
+                <p class="font-inter text-xl text-white/80 mb-8">
+                    Chega de procurar no escuro. Encontre, qualifique e contrate os talentos da sua comunidade com precisão e impacto.
+                </p>
+                <a href="contato.html?assunto=Mapear-Oportunidades" class="inline-flex items-center justify-center px-10 py-4 border border-transparent text-lg font-semibold rounded-full text-white bg-blue-ta hover:bg-blue-ta/80 transition duration-300 shadow-lg">
+                    Quero Mapear Oportunidades na Minha Região
+                </a>
             </div>
         </section>
 
     </main>
 
-    <footer id="contato" class="bg-preto-claro text-white text-center py-16">
-        <div class="container mx-auto px-6">
-            <a href="index.html" class="flex items-center justify-center space-x-2 mb-4">
-                <img src="imagens/logo-trilha-do-aprendiz-AZUL.png" alt="Logo Trilha do Aprendiz" class="h-10 w-auto" 
-                     onerror="this.src='https://placehold.co/40x40/0F46B9/FFB80F?text=T'">
-                <span class="font-bold text-xl text-white">TRILHA DO APRENDIZ</span>
-            </a>
-            <p class="text-gray-400 mb-4">Conectando jovens talentos a oportunidades.</p>
-            <p class="text-sm text-gray-500">&copy; 2025 Trilha do Aprendiz. Todos os direitos reservados. Feito em Manaus, Amazonas.</p>
+    <!-- RODAPÉ (FOOTER) -->
+    <footer class="bg-black-ta py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-gray-400 font-inter text-sm">
+            <p>&copy; 2025 Trilha do Aprendiz. Todos os direitos reservados.</p>
+            <p class="mt-2">Desenvolvido por Trilha do Aprendiz | Instituto Valendo</p>
         </div>
     </footer>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // 1. Inicializa o Mapa (Centralizado em Manaus)
-            const map = L.map('map').setView([-3.1190, -60.0217], 12); 
-
-            // 2. Adiciona o fundo do mapa (tile layer) - Versão escura do Carto
-            L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
-                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
-                subdomains: 'abcd',
-                maxZoom: 20
-            }).addTo(map);
-
-            // 3. Define Ícones Personalizados
-            const vagaIcon = L.divIcon({
-                className: 'map-icon vaga-icon',
-                html: '💼',
-                iconSize: [30, 30],
-                iconAnchor: [15, 15]
-            });
-
-            const empresaIcon = L.divIcon({
-                className: 'map-icon empresa-icon',
-                html: '🏢',
-                iconSize: [30, 30],
-                iconAnchor: [15, 15]
-            });
-
-            // 4. Dados de Exemplo (Simulação)
-            const vagas = [
-                { lat: -3.1019, lng: -60.0150, nome: "Vaga: Aux. Administrativo", empresa: "Empresa ABC" },
-                { lat: -3.1150, lng: -60.0250, nome: "Vaga: TI Nível 1", empresa: "Tech Solutions" },
-                { lat: -3.0900, lng: -60.0100, nome: "Vaga: Atendimento", empresa: "Loja XYZ" }
-            ];
-
-            const empresas = [
-                { lat: -3.1300, lng: -60.0200, nome: "Empresa Parceira: Inovare" },
-                { lat: -3.1050, lng: -59.9950, nome: "Instituto de Formação Delta" }
-            ];
-
-            // 5. Adiciona Marcadores ao Mapa
-            vagas.forEach(vaga => {
-                L.marker([vaga.lat, vaga.lng], { icon: vagaIcon })
-                    .addTo(map)
-                    .bindPopup(`<strong>${vaga.nome}</strong><br>${vaga.empresa}`);
-            });
-
-            empresas.forEach(empresa => {
-                L.marker([empresa.lat, empresa.lng], { icon: empresaIcon })
-                    .addTo(map)
-                    .bindPopup(`<strong>${empresa.nome}</strong>`);
-            });
-            
-            // Corrige o bug de "azulejos cinzentos" do Leaflet
-            setTimeout(() => {
-                map.invalidateSize();
-            }, 100);
-        });
-    </script>
-
+    <!-- Link para seu JavaScript (A lógica do Menu Mobile deve ser definida aqui) -->
+    <script src="script.js"></script>
 </body>
 </html>

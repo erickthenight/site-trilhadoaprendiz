@@ -3,132 +3,258 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GAME APZ Seleção - Trilha do Aprendiz</title>
-    
+    <title>Game APZ Seleção - RPG Educativo para Jovens Aprendizes | Trilha do Aprendiz</title>
+    <!-- Carrega Tailwind CSS via CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     
-    <link href="style.css" rel="stylesheet">
-
-    <style>
-        /* Sobrescreve o fundo para o tema do jogo */
-        body {
-            background-color: var(--amarelo-inst); /* Amarelo principal */
+    <!-- Configuração de fontes e cores customizadas -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'blue-ta': '#0056b3',      // Azul tecnológico (Destaque)
+                        'orange-ta': '#f7991e',    // Laranja energia jovem (Navbar/CTA)
+                        'gray-ta': '#f4f4f4',      // Cinza neutro
+                        'black-ta': '#222222',     // Preto institucional (Rodapé)
+                        'dark-ta': '#1a1a1a',      // Fundo Escuro Principal
+                        'dark-card': '#2f2f2f',    // Fundo de Card
+                        'green-ta': '#4CAF50',     // Botão CTA Principal (REGISTRAR AGORA)
+                    },
+                    fontFamily: {
+                        'poppins': ['Poppins', 'sans-serif'],
+                        'inter': ['Inter', 'sans-serif'],
+                    },
+                }
+            }
         }
-        /* O cabeçalho (nav) e rodapé (footer) mantêm o estilo "tech" */
-    </style>
+    </script>
+    <!-- Carrega as fontes Poppins e Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    
+    <!-- Link para seu CSS Customizado -->
+    <link rel="stylesheet" href="style.css">
 </head>
-<body class="bg-amarelo-inst text-stone-900">
+<body class="bg-dark-ta min-h-screen antialiased font-inter text-white">
 
-    <nav class="bg-preto sticky top-0 z-50 border-b border-gray-700/50">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="index.html" class="flex items-center space-x-2">
-                <img src="imagens/logo-trilha-do-aprendiz-AZUL.png" alt="Logo Trilha do Aprendiz" class="h-10 w-auto" 
-                     onerror="this.src='https://placehold.co/40x40/0F46B9/FFB80F?text=T'">
-                <span class="font-bold text-xl text-white">TRILHA DO APRENDIZ</span>
-            </a>
-            
-            <div class="hidden md:flex space-x-8">
-                <a href="index.html" class="font-medium text-gray-300 hover:text-white transition">Início</a>
-                <a href="index.html#solucoes" class="font-medium text-gray-300 hover:text-white transition">Soluções</a>
-                <a href="index.html#contato" class="font-medium text-gray-300 hover:text-white transition">Contato</a>
-            </div>
-            
-            <a href="ia-leia.html" class="hidden md:block btn-verde">
-                Fale com a LEIA <span class="arrow">→</span>
-            </a>
-        </div>
-    </nav>
-
-    <main>
-        
-        <section class="py-20" style="background-color: var(--azul-inst);">
-            <div class="container mx-auto px-6 text-center">
-                <h1 class="font-pixel text-3xl md:text-5xl text-amarelo-inst mb-6">GAME APZ SELEÇÃO</h1>
-                <p class="text-xl md:text-2xl text-white max-w-2xl mx-auto mb-8">
-                    Um RPG urbano onde o desafio é construir seu currículo e encontrar sua primeira vaga de Jovem Aprendiz.
-                </p>
-                <a href="#jogo-demo" class="pixel-button-active py-4 px-8 text-lg">
-                    JOGAR DEMO
-                </a>
-            </div>
-        </section>
-
-        <section id="como-funciona" class="py-20 bg-stone-100">
-            <div class="container mx-auto px-6">
-                <h2 class="text-3xl font-bold text-center text-stone-900 mb-12">Sua Carreira em forma de Jogo</h2>
-                <div class="grid md:grid-cols-3 gap-8">
-                    <div class="info-card">
-                        <div class="pixel-icon">👾</div>
-                        <h3 class="text-2xl font-bold text-stone-900 mb-4">1. CRIE SEU AVATAR</h3>
-                        <p class="text-stone-700 leading-relaxed">O seu personagem é o seu currículo. Escolha suas *skills* e monte um perfil único que impressiona os recrutadores.</p>
-                    </div>
-                    <div class="info-card">
-                        <div class="pixel-icon">🎯</div>
-                        <h3 class="text-2xl font-bold text-stone-900 mb-4">2. CUMPRA MISSÕES</h3>
-                        <p class="text-stone-700 leading-relaxed">Participe de simulações de trabalho reais. Cada "quest" completa prova suas habilidades e gera XP para seu perfil.</p>
-                    </div>
-                    <div class="info-card">
-                        <div class="pixel-icon">💼</div>
-                        <h3 class="text-2xl font-bold text-stone-900 mb-4">3. SEJA CONTRATADO</h3>
-                        <p class="text-stone-700 leading-relaxed">Empresas parceiras avaliam seu desempenho no jogo. Seu XP é a sua experiência. Conquiste sua primeira vaga!</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <section id="video-jogo" class="py-20" style="background-color: var(--preto-inst);">
-            <div class="container mx-auto px-6 max-w-4xl text-center">
-                <h2 class="text-3xl md:text-4xl font-pixel text-white mb-8">
-                    Veja o Jogo em Ação
-                </h2>
-                <div class="video-container shadow-2xl rounded-lg overflow-hidden border-4 border-amarelo-inst">
-                    <iframe 
-                        src="https://www.youtube.com/embed/el_cPC9cvZ4" 
-                        title="YouTube video player - Jogo APZ" 
-                        frameborder="0" 
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                        allowfullscreen>
-                    </iframe>
-                </div>
-            </div>
-        </section>
-
-        <section id="jogo-demo" class="py-20" style="background-color: var(--amarelo-inst);">
-            <div class="container mx-auto px-6 text-center">
-                <h2 class="font-pixel text-3xl text-preto mb-8">Demo Interativa</h2>
-                <p class="text-lg text-preto max-w-2xl mx-auto mb-4">
-                    Explore o mapa que simula um ambiente profissional.
-                </p>
-                <p class="font-pixel text-md text-preto max-w-2xl mx-auto mb-8">
-                    [ Use as setas do teclado para mover! ]
-                </p>
-                <div class="relative w-full max-w-5xl mx-auto" style="padding-bottom: 56.25%; height: 0;">
-                    <canvas id="gameCanvas" class="absolute top-0 left-0 w-full h-full" style="background-color: #f5f5f4;"></canvas>
+    <!-- CABEÇALHO (HEADER) - Menu Principal -->
+    <header class="bg-orange-ta shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <!-- Logo -->
+                <div class="flex-shrink-0">
+                    <img src="imagens/logo-trilha-do-aprendiz-AZUL.png" alt="Logo Trilha do Aprendiz" class="h-10">
                 </div>
                 
-                <div id="mission-popup" class="hidden fixed bottom-10 left-1/2 -translate-x-1/2 bg-preto text-white font-pixel text-center p-4 rounded-lg border-4 border-amarelo-inst shadow-lg z-50">
-                    Nova Missão: Simulação de Entrevista!
+                <!-- Links do Menu (Desktop) -->
+                <nav class="hidden md:flex space-x-4 lg:space-x-8 items-center">
+                    <a href="index.html" class="text-white hover:text-blue-ta px-3 py-2 text-sm font-medium transition duration-150 rounded-md">Início</a>
+                    <a href="sobre.html" class="text-white hover:text-blue-ta px-3 py-2 text-sm font-medium transition duration-150 rounded-md">Sobre</a>
+                    <div class="group relative">
+                        <button class="text-blue-ta border-b-2 border-blue-ta px-3 py-2 text-sm font-medium transition duration-150 rounded-md flex items-center font-poppins font-semibold">
+                            Soluções
+                            <svg class="w-4 h-4 ml-1" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 9l-7 7-7-7"></path></svg>
+                        </button>
+                        <!-- Submenu (Fundo Branco para contraste) -->
+                        <div class="hidden group-hover:block absolute left-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 z-20">
+                            <a href="game-apz-selecao.html" class="block px-4 py-2 text-sm text-blue-ta bg-gray-ta hover:bg-gray-ta rounded-t-md">Game APZ Seleção</a>
+                            <a href="ia-leia.html" class="block px-4 py-2 text-sm text-black-ta hover:bg-gray-ta">LEIA Inteligência Artificial</a>
+                            <a href="mapa-jovem.html" class="block px-4 py-2 text-sm text-black-ta hover:bg-gray-ta">Mapa do Jovem Trabalhador</a>
+                            <a href="maratona-start-end.html" class="block px-4 py-2 text-sm text-black-ta hover:bg-gray-ta">Start End Experience</a>
+                            <a href="fala-ai-aprendiz.html" class="block px-4 py-2 text-sm text-black-ta hover:bg-gray-ta rounded-b-md">PodCas Fala Ai Aprendiz</a>
+                        </div>
+                    </div>
+                    <a href="parceiros.html" class="text-white hover:text-blue-ta px-3 py-2 text-sm font-medium transition duration-150 rounded-md">Parceiros</a>
+                    <a href="blog.html" class="text-white hover:text-blue-ta px-3 py-2 text-sm font-medium transition duration-150 rounded-md">Blog / Notícias</a>
+                    <a href="contato.html" class="bg-green-ta text-white hover:bg-green-ta/80 px-4 py-2 text-sm font-medium rounded-full transition duration-300 shadow-lg font-poppins font-semibold">Fale com a LEIA →</a>
+                </nav>
+                
+                <!-- Botão Mobile (Toggle) -->
+                <button id="menu-toggle" class="md:hidden text-white focus:outline-none p-2 rounded-lg hover:bg-dark-card transition duration-150">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </div>
+        </div>
+        <!-- Menu Mobile -->
+        <div id="mobile-menu" class="hidden md:hidden bg-dark-card shadow-xl">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 flex flex-col">
+                <a href="index.html" class="text-white hover:bg-dark-ta block px-3 py-2 rounded-md text-base font-medium">Início</a>
+                <a href="sobre.html" class="text-white hover:bg-dark-ta block px-3 py-2 rounded-md text-base font-medium">Sobre</a>
+                <span class="text-blue-ta px-3 py-2 text-base font-bold">Soluções:</span>
+                <a href="game-apz-selecao.html" class="text-blue-ta bg-dark-ta block px-6 py-2 rounded-md text-sm">Game APZ Seleção</a>
+                <a href="ia-leia.html" class="text-white hover:bg-dark-ta block px-6 py-2 rounded-md text-sm">LEIA Inteligência Artificial</a>
+                <a href="mapa-jovem.html" class="text-white hover:bg-dark-ta block px-6 py-2 rounded-md text-sm">Mapa do Jovem Trabalhador</a>
+                <a href="maratona-start-end.html" class="text-white hover:bg-dark-ta block px-6 py-2 rounded-md text-sm">Start End Experience</a>
+                <a href="fala-ai-aprendiz.html" class="text-white hover:bg-dark-ta block px-6 py-2 rounded-md text-sm">PodCas Fala Ai Aprendiz</a>
+                <a href="parceiros.html" class="text-white hover:bg-dark-ta block px-3 py-2 rounded-md text-base font-medium">Parceiros</a>
+                <a href="blog.html" class="text-white hover:bg-dark-ta block px-3 py-2 rounded-md text-base font-medium">Blog / Notícias</a>
+                <a href="contato.html" class="bg-green-ta text-white text-center hover:bg-green-ta/80 mt-2 block px-3 py-2 rounded-full text-base font-medium transition duration-300">Fale Conosco</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- 1. HERO SECTION (Destaque) -->
+        <section class="bg-dark-ta pt-16 pb-20 md:pt-24 md:pb-32 border-b border-gray-700">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid lg:grid-cols-12 gap-12 items-center">
+                    
+                    <!-- Coluna de Texto -->
+                    <div class="lg:col-span-7 space-y-6">
+                        <h1 class="font-poppins text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight text-orange-ta">
+                            Game APZ Seleção: Um Jogo que Conecta Talentos e Oportunidades
+                        </h1>
+                        <p class="font-inter text-lg sm:text-xl text-white/90">
+                            O **APZ Seleção** é um game educativo de **RPG Pixel Art 80/90s** que simula o processo seletivo de jovens aprendizes de forma divertida e interativa, eliminando a impessoalidade e o tédio.
+                        </p>
+                        <!-- Botões CTA -->
+                        <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 pt-4">
+                            <a href="contato.html?assunto=Interesse-Game-APZ" class="inline-flex justify-center items-center px-8 py-4 border border-transparent text-base font-semibold rounded-full text-white bg-blue-ta hover:bg-blue-ta/80 transition duration-300 shadow-lg font-poppins">
+                                Quero Anunciar Vagas no Jogo
+                            </a>
+                            <a href="#trailer" class="inline-flex justify-center items-center px-8 py-4 border-2 border-orange-ta text-base font-semibold rounded-full text-orange-ta hover:bg-orange-ta hover:text-dark-ta transition duration-300">
+                                Assista ao Trailer do Jogo
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Coluna de Imagem (Mockup/Visual) -->
+                    <div class="lg:col-span-5 flex justify-center lg:justify-end">
+                        <!-- Placeholder de Tela de Jogo Pixel Art -->
+                        <div class="w-full max-w-sm h-72 md:h-80 bg-orange-ta rounded-xl shadow-2xl flex items-center justify-center p-4">
+                            <p class="text-black-ta font-poppins text-center font-bold">
+                                [Imagem de tela do Game APZ - Pixel Art, Mapa do Brasil]
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. SESSÃO: COMO O JOGO FUNCIONA (Diferencial) -->
+        <section class="py-16 md:py-24 bg-dark-card">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="font-poppins text-3xl sm:text-4xl font-bold mb-12 text-white">
+                    AVALIAÇÃO DE TALENTOS DA GERAÇÃO Z: O FIM DO PROCESSO TEDIOSO
+                </h2>
+                <div class="grid md:grid-cols-2 gap-12 text-lg">
+                    <!-- O Problema (Concorrentes) -->
+                    <div>
+                        <h3 class="font-poppins text-2xl font-semibold mb-4 text-orange-ta">O Desafio do RH Tradicional</h3>
+                        <p class="text-gray-300 mb-4 leading-relaxed">
+                            A Geração Z rejeita processos seletivos longos, impessoais e com pouca credibilidade (como os percebidos em ferramentas como a GUPY). Isso resulta em baixa participação e desconexão com os valores da empresa.
+                        </p>
+                        <p class="text-gray-300 leading-relaxed border-l-4 border-orange-ta pl-4">
+                            O APZ Seleção resolve isso: transformamos o processo em uma **inversão digital** onde o jovem vivencia a cultura e os desafios da sua empresa de forma engajadora.
+                        </p>
+                    </div>
+                    <!-- A Solução (Gamificação) -->
+                    <div>
+                        <h3 class="font-poppins text-2xl font-semibold mb-4 text-orange-ta">A Inovação do Game RPG</h3>
+                        <p class="text-gray-300 mb-4 leading-relaxed">
+                            O jogador percorre um **Mapa do Brasil** em seu estado, vivenciando o desafio de construir um currículo e participar de processos seletivos gamificados que avaliam competências em tempo real.
+                        </p>
+                        <p class="text-gray-300 leading-relaxed">
+                            Empresas podem criar **fases personalizadas** dos seus processos, criando uma experiência divertida e descontraída que atrai e retém os melhores talentos.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. SESSÃO: BENEFÍCIOS E PILARES -->
+        <section class="py-16 md:py-24 bg-dark-ta">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="font-poppins text-3xl sm:text-4xl font-bold text-center mb-16 text-white">
+                    Pilares do APZ Seleção: Avaliação e Inclusão
+                </h2>
+                
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    
+                    <!-- Card 1: Avaliação de Competências -->
+                    <div class="bg-dark-card p-6 rounded-xl shadow-xl border-t-4 border-blue-ta">
+                        <div class="text-4xl text-blue-ta mb-4">🧠</div>
+                        <h3 class="font-poppins text-xl font-bold mb-3 text-white">Avaliação de Competências</h3>
+                        <p class="font-inter text-gray-300">Identificação de habilidades socioemocionais (Comunicação, Criatividade, Trabalho em Equipe) e técnicas, com feedback instantâneo ao jogador.</p>
+                    </div>
+                    
+                    <!-- Card 2: Isca de Talentos -->
+                    <div class="bg-dark-card p-6 rounded-xl shadow-xl border-t-4 border-orange-ta">
+                        <div class="text-4xl text-orange-ta mb-4">🎣</div>
+                        <h3 class="font-poppins text-xl font-bold mb-3 text-white">Isca para Novos Talentos</h3>
+                        <p class="font-inter text-gray-300">Ferramenta de divulgação do programa de aprendizagem e canal de atração de jovens de 14 a 24 anos em busca de oportunidades.</p>
+                    </div>
+
+                    <!-- Card 3: Inversão Digital -->
+                    <div class="bg-dark-card p-6 rounded-xl shadow-xl border-t-4 border-blue-ta">
+                        <div class="text-4xl text-blue-ta mb-4">🕹️</div>
+                        <h3 class="font-poppins text-xl font-bold mb-3 text-white">Inversão Digital da Cultura</h3>
+                        <p class="font-inter text-gray-300">Empresas anunciam vagas e criam fases personalizadas no jogo, permitindo que o jovem experiencie os valores e desafios da função.</p>
+                    </div>
+                    
+                    <!-- Card 4: ERP Integrado -->
+                    <div class="bg-dark-card p-6 rounded-xl shadow-xl border-t-4 border-orange-ta">
+                        <div class="text-4xl text-orange-ta mb-4">📊</div>
+                        <h3 class="font-poppins text-xl font-bold mb-3 text-white">Conectado ao ERP de Gestão</h3>
+                        <p class="font-inter text-gray-300">Sinergia com o sistema de gestão de mão de obra e acompanhamento pedagógico, facilitando a administração para Empresa e Entidade Formadora.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 4. SESSÃO: TRAILER DO JOGO -->
+        <section id="trailer" class="py-16 md:py-24 bg-dark-card">
+             <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="font-poppins text-3xl sm:text-4xl font-bold text-center mb-12 text-white">
+                    Assista ao Trailer da Missão JACI
+                </h2>
+                <!-- Placeholder para o Iframe/Player do Vídeo -->
+                <div class="aspect-w-16 aspect-h-9 w-full rounded-xl overflow-hidden shadow-2xl border-4 border-blue-ta">
+                    <!-- O CSS do Tailwind 'aspect-w-16 aspect-h-9' garante que o vídeo seja responsivo -->
+                    <iframe 
+                        src="[LINK_DO_YOUTUBE_OU_VIMEO_DO_TRAILER]" 
+                        title="Trailer Oficial Game APZ Seleção - Trilha do Aprendiz" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen
+                        class="w-full h-full"
+                    ></iframe>
+                </div>
+             </div>
+        </section>
+
+        <!-- 5. SESSÃO: CTA FINAL PARA JOVENS E EMPRESAS -->
+        <section class="py-16 bg-dark-ta">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="font-poppins text-3xl sm:text-4xl font-bold mb-6 text-white">
+                    PRONTO PARA RECRUTAR A GERAÇÃO Z DE FORMA DIVERTIDA E EFICAZ?
+                </h2>
+                <p class="font-inter text-xl text-white/80 mb-8">
+                    Seja jovem buscando oportunidade ou empresa buscando o melhor talento, comece a sua jornada agora.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 justify-center">
+                    <a href="contato.html?assunto=Interesse-Vagas-Aprendiz" class="inline-flex items-center justify-center px-8 py-4 border border-transparent text-lg font-semibold rounded-full text-white bg-green-ta hover:bg-green-ta/80 transition duration-300 shadow-lg">
+                        SOU JOVEM: Quero Participar!
+                    </a>
+                    <a href="contato.html?assunto=Anuncio-Vagas-APZ" class="inline-flex items-center justify-center px-8 py-4 border-2 border-orange-ta text-lg font-semibold rounded-full text-orange-ta hover:bg-orange-ta hover:text-dark-ta transition duration-300">
+                        SOU EMPRESA: Anunciar Vagas
+                    </a>
                 </div>
             </div>
         </section>
 
     </main>
 
-    <footer id="contato" class="bg-preto text-white text-center py-16">
-    <div class="container mx-auto px-6">
-        <a href="index.html" class="flex items-center justify-center space-x-2 mb-4">
-            <img src="imagens/logo-trilha-do-aprendiz-AZUL.png" alt="Logotipo da Trilha do Aprendiz" class="h-10 w-auto" 
-                 onerror="this.src='https://placehold.co/40x40/0F46B9/FFB80F?text=T'">
-            <span class="font-bold text-xl text-white">TRILHA DO APRENDIZ</span>
-        </a>
-        <p class="text-gray-400 mb-8">Conectando jovens talentos a oportunidades.</p>
-
-        <div class="mb-8">
-            <img src="imagens/negocio-de-impacto.png" alt="Selo Negócio de Impacto - Certificadora Social" class="footer-seal-badge">
+    <!-- RODAPÉ (FOOTER) -->
+    <footer class="bg-black-ta py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-gray-400 font-inter text-sm">
+            <p>&copy; 2025 Trilha do Aprendiz. Todos os direitos reservados.</p>
+            <p class="mt-2">Desenvolvido por Trilha do Aprendiz | Instituto Valendo</p>
         </div>
-        
-        <p class="text-sm text-gray-500">&copy; 2025 Trilha do Aprendiz. Todos os direitos reservados. Feito em Manaus, Amazonas.</p>
-    </div>
-</footer>
+    </footer>
+
+    <!-- Link para seu JavaScript (A lógica do Menu Mobile deve ser definida aqui) -->
+    <script src="script.js"></script>
+</body>
+</html>
