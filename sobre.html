@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre a Trilha do Aprendiz - Impacto Social e Tecnologia</title>
+    <!-- Carrega Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Configuração de fontes e cores customizadas -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'blue-ta': '#0056b3',      // Azul tecnológico (Destaque)
+                        'orange-ta': '#f7991e',    // Laranja energia jovem (Navbar/CTA)
+                        'gray-ta': '#f4f4f4',      // Cinza neutro
+                        'black-ta': '#222222',     // Preto institucional (Rodapé)
+                        'dark-ta': '#1a1a1a',      // Fundo Escuro Principal
+                        'dark-card': '#2f2f2f',    // Fundo de Card
+                        'green-ta': '#4CAF50',     // Botão CTA Principal
+                    },
+                    fontFamily: {
+                        'poppins': ['Poppins', 'sans-serif'],
+                        'inter': ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <!-- Carrega as fontes Poppins e Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    
+    <!-- Link para seu CSS Customizado -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-dark-ta min-h-screen antialiased font-inter text-white">
+
+    <!-- CABEÇALHO (HEADER) - Menu Principal -->
+    <header class="bg-orange-ta shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <!-- Logo -->
+                <div class="flex-shrink-0">
+                    <img src="imagens/logo-trilha-do-aprendiz-AZUL.png" alt="Logo Trilha do Aprendiz" class="h-10">
+                </div>
+                
+                <!-- Links do Menu (Desktop) -->
+                <nav class="hidden md:flex space-x-4 lg:space-x-8 items-center">
+                    <a href="index.html" class="text-white hover:text-blue-ta px-3 py-2 text-sm font-medium transition duration-150 rounded-md">Início</a>
+                    <a href="sobre.html" class="text-blue-ta border-b-2 border-blue-ta px-3 py-2 text-sm font-medium transition duration-150 rounded-md font-poppins font-semibold">Sobre</a>
+                    <div class="group relative">
+                        <button class="text-white hover:text-blue-ta px-3 py-2 text-sm font-medium transition duration-150 rounded-md flex items-center">
+                            Soluções
+                            <svg class="w-4 h-4 ml-1" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 9l-7 7-7-7"></path></svg>
+                        </button>
+                        <!-- Submenu (Fundo Branco para contraste) -->
+                        <div class="hidden group-hover:block absolute left-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 z-20">
+                            <a href="game-apz-selecao.html" class="block px-4 py-2 text-sm text-black-ta hover:bg-gray-ta rounded-t-md">Game APZ Seleção</a>
+                            <a href="ia-leia.html" class="block px-4 py-2 text-sm text-black-ta hover:bg-gray-ta">LEIA Inteligência Artificial</a>
+                            <a href="mapa-jovem.html" class="block px-4 py-2 text-sm text-black-ta hover:bg-gray-ta">Mapa do Jovem Trabalhador</a>
+                            <a href="maratona-start-end.html" class="block px-4 py-2 text-sm text-black-ta hover:bg-gray-ta">Start End Experience</a>
+                            <a href="fala-ai-aprendiz.html" class="block px-4 py-2 text-sm text-black-ta hover:bg-gray-ta rounded-b-md">PodCas Fala Ai Aprendiz</a>
+                        </div>
+                    </div>
+                    <a href="parceiros.html" class="text-white hover:text-blue-ta px-3 py-2 text-sm font-medium transition duration-150 rounded-md">Parceiros</a>
+                    <a href="blog.html" class="text-white hover:text-blue-ta px-3 py-2 text-sm font-medium transition duration-150 rounded-md">Blog / Notícias</a>
+                    <a href="contato.html" class="bg-green-ta text-white hover:bg-green-ta/80 px-4 py-2 text-sm font-medium rounded-full transition duration-300 shadow-lg font-poppins font-semibold">Fale com a LEIA →</a>
+                </nav>
+                
+                <!-- Botão Mobile (Toggle) -->
+                <button id="menu-toggle" class="md:hidden text-white focus:outline-none p-2 rounded-lg hover:bg-dark-card transition duration-150">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </div>
+        </div>
+        <!-- Menu Mobile -->
+        <div id="mobile-menu" class="hidden md:hidden bg-dark-card shadow-xl">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 flex flex-col">
+                <a href="index.html" class="text-white hover:bg-dark-ta block px-3 py-2 rounded-md text-base font-medium">Início</a>
+                <a href="sobre.html" class="text-blue-ta bg-dark-ta block px-3 py-2 rounded-md text-base font-medium">Sobre</a>
+                <span class="text-white px-3 py-2 text-base font-bold">Soluções:</span>
+                <a href="game-apz-selecao.html" class="text-white hover:bg-dark-ta block px-6 py-2 rounded-md text-sm">Game APZ Seleção</a>
+                <a href="ia-leia.html" class="text-white hover:bg-dark-ta block px-6 py-2 rounded-md text-sm">LEIA Inteligência Artificial</a>
+                <a href="mapa-jovem.html" class="text-white hover:bg-dark-ta block px-6 py-2 rounded-md text-sm">Mapa do Jovem Trabalhador</a>
+                <a href="maratona-start-end.html" class="text-white hover:bg-dark-ta block px-6 py-2 rounded-md text-sm">Start End Experience</a>
+                <a href="fala-ai-aprendiz.html" class="text-white hover:bg-dark-ta block px-6 py-2 rounded-md text-sm">PodCas Fala Ai Aprendiz</a>
+                <a href="parceiros.html" class="text-white hover:bg-dark-ta block px-3 py-2 rounded-md text-base font-medium">Parceiros</a>
+                <a href="blog.html" class="text-white hover:bg-dark-ta block px-3 py-2 rounded-md text-base font-medium">Blog / Notícias</a>
+                <a href="contato.html" class="bg-green-ta text-white text-center hover:bg-green-ta/80 mt-2 block px-3 py-2 rounded-full text-base font-medium transition duration-300">Fale Conosco</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- 1. HERO SECTION (Destaque) -->
+        <section class="bg-dark-ta pt-16 pb-20 md:pt-24 md:pb-32 border-b border-gray-700">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid lg:grid-cols-12 gap-12 items-center">
+                    
+                    <!-- Coluna de Texto -->
+                    <div class="lg:col-span-7 space-y-6">
+                        <h1 class="font-poppins text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight text-blue-ta">
+                            Transformamos Potencial em Oportunidade
+                        </h1>
+                        <p class="font-inter text-lg sm:text-xl text-white/90">
+                            Somos uma startup de impacto social movida pela **tecnologia**, **educação** e, acima de tudo, pela crença no potencial da juventude brasileira.
+                        </p>
+                        <!-- Botão CTA -->
+                        <div class="flex pt-4">
+                            <a href="#proposito" class="inline-flex justify-center items-center px-8 py-4 border border-transparent text-base font-semibold rounded-full text-white bg-orange-ta hover:bg-orange-ta/80 transition duration-300 shadow-lg font-poppins">
+                                Conheça Nossa História e Valores
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Coluna de Imagem (Mockup/Visual) -->
+                    <div class="lg:col-span-5 flex justify-center lg:justify-end">
+                        <div class="w-full max-w-sm h-72 md:h-80 bg-orange-ta rounded-xl shadow-2xl flex items-center justify-center p-4">
+                            <p class="text-black-ta font-poppins text-center font-bold">
+                                [Imagem da equipe fundadora ou de impacto social]
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. SESSÃO: QUEM SOMOS E NOSSO PROPÓSITO -->
+        <section id="proposito" class="py-16 md:py-24 bg-dark-card">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="font-poppins text-3xl sm:text-4xl font-bold mb-12 text-orange-ta text-center">
+                    Nascemos na Amazônia para Transformar o Brasil
+                </h2>
+                <div class="max-w-4xl mx-auto text-lg space-y-8">
+                    <p class="font-inter leading-relaxed text-gray-300">
+                        A **Trilha do Aprendiz** é uma startup de impacto social que utiliza **gamificação** e **inteligência artificial** para promover a inclusão produtiva de jovens de 14 a 24 anos sem ocupação profissional. Nossa missão vai além: apoiamos empresas no cumprimento da Lei da Aprendizagem de forma estratégica e **fortalecemos o ecossistema de inovação** da região amazônica.
+                    </p>
+                    <p class="font-inter leading-relaxed bg-dark-ta p-4 rounded-lg border-l-4 border-blue-ta text-gray-300">
+                        Fundada por **Erick Mattos** e **Helen Araújo**, a iniciativa nasceu com o propósito claro de conectar educação, tecnologia e impacto social. Criamos soluções acessíveis, mensuráveis e replicáveis para o desenvolvimento humano, garantindo que o potencial de cada jovem seja visto e valorizado pelo mercado.
+                    </p>
+                    <div class="text-center pt-8">
+                        <a href="parceiros.html" class="inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-full text-dark-ta bg-green-ta hover:bg-green-ta/80 transition duration-300 shadow-md">
+                            <span class="mr-2">🤝</span> [Veja nossos Resultados e Parceiros]
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. SESSÃO: MISSÃO, VISÃO E VALORES (M.V.V.) -->
+        <section class="py-16 md:py-24 bg-dark-ta">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="font-poppins text-3xl sm:text-4xl font-bold text-center mb-16 text-white">
+                    NOSSO GPS É CONDUZIDO POR VALORES
+                </h2>
+                
+                <div class="grid md:grid-cols-3 gap-8">
+                    <!-- Card Missão -->
+                    <div class="bg-dark-card p-6 rounded-xl shadow-lg hover:shadow-xl transition duration-300 border-t-4 border-orange-ta">
+                        <div class="text-4xl text-orange-ta mb-4">🎯</div>
+                        <h3 class="font-poppins text-xl font-bold mb-3 text-white">Missão</h3>
+                        <p class="font-inter text-gray-300">
+                            Capacitar indivíduos e organizações por meio da tecnologia e da educação, facilitando a transição do jovem para o mercado de trabalho formal.
+                        </p>
+                    </div>
+                    
+                    <!-- Card Visão -->
+                    <div class="bg-dark-card p-6 rounded-xl shadow-lg hover:shadow-xl transition duration-300 border-t-4 border-blue-ta">
+                        <div class="text-4xl text-blue-ta mb-4">🗺️</div>
+                        <h3 class="font-poppins text-xl font-bold mb-3 text-white">Visão</h3>
+                        <p class="font-inter text-gray-300">
+                            Ser referência nacional em inovação para a empregabilidade jovem, expandindo nossa metodologia de sucesso para todas as regiões do país.
+                        </p>
+                    </div>
+
+                    <!-- Card Valores -->
+                    <div class="bg-dark-card p-6 rounded-xl shadow-lg hover:shadow-xl transition duration-300 border-t-4 border-orange-ta">
+                        <div class="text-4xl text-orange-ta mb-4">💡</div>
+                        <h3 class="font-poppins text-xl font-bold mb-3 text-white">Valores</h3>
+                        <p class="font-inter text-gray-300">
+                            Ética, Inclusão, Criatividade e Impacto Social.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 4. SESSÃO: CHAMADA PARA SOLUÇÕES -->
+        <section class="py-16 bg-dark-card">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="font-poppins text-3xl sm:text-4xl font-bold mb-6 text-white">
+                    CONHEÇA NOSSA TRILHA COMPLETA DE SOLUÇÕES.
+                </h2>
+                <p class="font-inter text-xl text-white/80 mb-8">
+                    Gamificação, Inteligência Artificial e Mapeamento Social: a tecnologia a serviço da inclusão.
+                </p>
+                <a href="game-apz-selecao.html" class="inline-flex items-center justify-center px-10 py-4 border border-transparent text-lg font-semibold rounded-full text-white bg-blue-ta hover:bg-blue-ta/80 transition duration-300 shadow-lg">
+                    [Explorar Soluções]
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- RODAPÉ (FOOTER) -->
+    <footer class="bg-black-ta py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-gray-400 font-inter text-sm">
+            <p>&copy; 2025 Trilha do Aprendiz. Todos os direitos reservados.</p>
+            <p class="mt-2">Desenvolvido por Trilha do Aprendiz | Instituto Valendo</p>
+        </div>
+    </footer>
+
+    <!-- Link para seu JavaScript (A lógica do Menu Mobile deve ser definida aqui) -->
+    <script src="script.js"></script>
+</body>
+</html>

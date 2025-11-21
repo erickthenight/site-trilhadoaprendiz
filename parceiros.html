@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parceiros e Apoiadores | Trilha do Aprendiz</title>
+    <!-- Carrega Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Configuração de fontes e cores customizadas -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'blue-ta': '#0056b3',      // Azul tecnológico (Destaque)
+                        'orange-ta': '#f7991e',    // Laranja energia jovem (Navbar/CTA)
+                        'gray-ta': '#f4f4f4',      // Cinza neutro
+                        'black-ta': '#222222',     // Preto institucional (Rodapé)
+                        'dark-ta': '#1a1a1a',      // Fundo Escuro Principal
+                        'dark-card': '#2f2f2f',    // Fundo de Card
+                        'green-ta': '#4CAF50',     // Botão CTA Principal
+                    },
+                    fontFamily: {
+                        'poppins': ['Poppins', 'sans-serif'],
+                        'inter': ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <!-- Carrega as fontes Poppins e Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    
+    <!-- Link para seu CSS Customizado -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-dark-ta min-h-screen antialiased font-inter text-white">
+
+    <!-- CABEÇALHO (HEADER) - Menu Principal -->
+    <header class="bg-orange-ta shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <!-- Logo -->
+                <div class="flex-shrink-0">
+                    <img src="imagens/logo-trilha-do-aprendiz-AZUL.png" alt="Logo Trilha do Aprendiz" class="h-10">
+                </div>
+                
+                <!-- Links do Menu (Desktop) -->
+                <nav class="hidden md:flex space-x-4 lg:space-x-8 items-center">
+                    <a href="index.html" class="text-white hover:text-blue-ta px-3 py-2 text-sm font-medium transition duration-150 rounded-md">Início</a>
+                    <a href="sobre.html" class="text-white hover:text-blue-ta px-3 py-2 text-sm font-medium transition duration-150 rounded-md">Sobre</a>
+                    <div class="group relative">
+                        <button class="text-white hover:text-blue-ta px-3 py-2 text-sm font-medium transition duration-150 rounded-md flex items-center">
+                            Soluções
+                            <svg class="w-4 h-4 ml-1" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 9l-7 7-7-7"></path></svg>
+                        </button>
+                        <!-- Submenu (Fundo Branco para contraste) -->
+                        <div class="hidden group-hover:block absolute left-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 z-20">
+                            <a href="game-apz-selecao.html" class="block px-4 py-2 text-sm text-black-ta hover:bg-gray-ta rounded-t-md">Game APZ Seleção</a>
+                            <a href="ia-leia.html" class="block px-4 py-2 text-sm text-black-ta hover:bg-gray-ta">LEIA Inteligência Artificial</a>
+                            <a href="mapa-jovem.html" class="block px-4 py-2 text-sm text-black-ta hover:bg-gray-ta">Mapa do Jovem Trabalhador</a>
+                            <a href="maratona-start-end.html" class="block px-4 py-2 text-sm text-black-ta hover:bg-gray-ta">Start End Experience</a>
+                            <a href="fala-ai-aprendiz.html" class="block px-4 py-2 text-sm text-black-ta hover:bg-gray-ta rounded-b-md">PodCas Fala Ai Aprendiz</a>
+                        </div>
+                    </div>
+                    <a href="parceiros.html" class="text-blue-ta border-b-2 border-blue-ta px-3 py-2 text-sm font-medium transition duration-150 rounded-md font-poppins font-semibold">Parceiros</a>
+                    <a href="blog.html" class="text-white hover:text-blue-ta px-3 py-2 text-sm font-medium transition duration-150 rounded-md">Blog / Notícias</a>
+                    <a href="contato.html" class="bg-green-ta text-white hover:bg-green-ta/80 px-4 py-2 text-sm font-medium rounded-full transition duration-300 shadow-lg font-poppins font-semibold">Fale com a LEIA →</a>
+                </nav>
+                
+                <!-- Botão Mobile (Toggle) -->
+                <button id="menu-toggle" class="md:hidden text-white focus:outline-none p-2 rounded-lg hover:bg-dark-card transition duration-150">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </div>
+        </div>
+        <!-- Menu Mobile -->
+        <div id="mobile-menu" class="hidden md:hidden bg-dark-card shadow-xl">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 flex flex-col">
+                <a href="index.html" class="text-white hover:bg-dark-ta block px-3 py-2 rounded-md text-base font-medium">Início</a>
+                <a href="sobre.html" class="text-white hover:bg-dark-ta block px-3 py-2 rounded-md text-base font-medium">Sobre</a>
+                <span class="text-white px-3 py-2 text-base font-bold">Soluções:</span>
+                <a href="game-apz-selecao.html" class="text-white hover:bg-dark-ta block px-6 py-2 rounded-md text-sm">Game APZ Seleção</a>
+                <a href="ia-leia.html" class="text-white hover:bg-dark-ta block px-6 py-2 rounded-md text-sm">LEIA Inteligência Artificial</a>
+                <a href="mapa-jovem.html" class="text-white hover:bg-dark-ta block px-6 py-2 rounded-md text-sm">Mapa do Jovem Trabalhador</a>
+                <a href="maratona-start-end.html" class="text-white hover:bg-dark-ta block px-6 py-2 rounded-md text-sm">Start End Experience</a>
+                <a href="fala-ai-aprendiz.html" class="text-white hover:bg-dark-ta block px-6 py-2 rounded-md text-sm">PodCas Fala Ai Aprendiz</a>
+                <a href="parceiros.html" class="text-blue-ta bg-dark-ta block px-3 py-2 rounded-md text-base font-medium">Parceiros</a>
+                <a href="blog.html" class="text-white hover:bg-dark-ta block px-3 py-2 rounded-md text-base font-medium">Blog / Notícias</a>
+                <a href="contato.html" class="bg-green-ta text-white text-center hover:bg-green-ta/80 mt-2 block px-3 py-2 rounded-full text-base font-medium transition duration-300">Fale Conosco</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- 1. HERO SECTION (Destaque) -->
+        <section class="bg-dark-ta pt-16 pb-20 md:pt-24 md:pb-32 border-b border-gray-700">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h1 class="font-poppins text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight text-blue-ta mb-4">
+                    Juntos, Fortalecemos o Ecossistema da Inovação
+                </h1>
+                <p class="font-inter text-lg sm:text-xl text-white/90 max-w-4xl mx-auto mb-8">
+                    A Trilha do Aprendiz acredita na força das parcerias para escalar impacto. Nossa rede é composta por líderes que moldam o futuro do trabalho.
+                </p>
+                <a href="contato.html?assunto=Proposta-Parceria" class="inline-flex justify-center items-center px-8 py-4 border border-transparent text-base font-semibold rounded-full text-white bg-orange-ta hover:bg-orange-ta/80 transition duration-300 shadow-lg font-poppins">
+                    Seja um Parceiro da Trilha →
+                </a>
+            </div>
+        </section>
+
+        <!-- 2. SESSÃO: PARCEIROS DE FOMENTO E INVESTIMENTO -->
+        <section class="py-16 md:py-24 bg-dark-card">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="font-poppins text-3xl sm:text-4xl font-bold mb-12 text-orange-ta text-center">
+                    Apoiadores e Programas de Aceleração
+                </h2>
+                <p class="text-center max-w-4xl mx-auto mb-10 text-lg text-gray-300">
+                    Somos gratos aos programas de fomento ao empreendedorismo de base tecnológica e aos investidores que fornecem o capital semente para nossa missão:
+                </p>
+                
+                <!-- Grid de Logos (Utilizando a classe da Home para consistência) -->
+                <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-6 items-center justify-center">
+                    
+                    <!-- Linha 1: Fomento e Instituições (SEBRAE, FINEP, BNDES, SOFTeX) -->
+                    <div class="p-2 bg-white rounded-lg shadow-md flex items-center justify-center h-20 hover:scale-[1.05] transition duration-300">
+                        <img src="imagens/logo-sebrae.png" alt="SEBRAE Nacional" class="h-10 grayscale hover:grayscale-0 transition duration-300">
+                    </div>
+                    <div class="p-2 bg-white rounded-lg shadow-md flex items-center justify-center h-20 hover:scale-[1.05] transition duration-300">
+                        <img src="imagens/logo-finep.png" alt="FINEP Programa Centelha" class="h-10 grayscale hover:grayscale-0 transition duration-300">
+                    </div>
+                    <div class="p-2 bg-white rounded-lg shadow-md flex items-center justify-center h-20 hover:scale-[1.05] transition duration-300">
+                        <img src="imagens/logo-bndes-garagem.png" alt="BNDES Garagem 2025" class="h-10 grayscale hover:grayscale-0 transition duration-300">
+                    </div>
+                    <div class="p-2 bg-white rounded-lg shadow-md flex items-center justify-center h-20 hover:scale-[1.05] transition duration-300">
+                        <img src="imagens/logo-softex.png" alt="SOFTEX Nacional" class="h-10 grayscale hover:grayscale-0 transition duration-300">
+                    </div>
+                    <!-- Linha 2: Programas Específicos (AMBEV, ELA EMPODERA, AMZ INOVADORA) -->
+                    <div class="p-2 bg-white rounded-lg shadow-md flex items-center justify-center h-20 hover:scale-[1.05] transition duration-300">
+                        <img src="imagens/logo-ambev-voa.png" alt="AMBEV VOA 2024" class="h-10 grayscale hover:grayscale-0 transition duration-300">
+                    </div>
+                    <div class="p-2 bg-white rounded-lg shadow-md flex items-center justify-center h-20 hover:scale-[1.05] transition duration-300">
+                        <img src="imagens/logo-programa-ela-empodera.png" alt="Programa Ela Empodera 2023" class="h-10 grayscale hover:grayscale-0 transition duration-300">
+                    </div>
+                    <div class="p-2 bg-white rounded-lg shadow-md flex items-center justify-center h-20 hover:scale-[1.05] transition duration-300">
+                        <img src="imagens/logo-amazonia-inovadora.png" alt="Programa Amazônia + Inovadora 2023" class="h-10 grayscale hover:grayscale-0 transition duration-300">
+                    </div>
+                    
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. SESSÃO: PARCEIROS INSTITUCIONAIS E DE ENTIDADE FORMADORA -->
+        <section class="py-16 md:py-24 bg-dark-ta">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="font-poppins text-3xl sm:text-4xl font-bold mb-12 text-white text-center">
+                    Nossa Rede de Apoio Educacional e Empresarial
+                </h2>
+                <p class="text-center max-w-4xl mx-auto mb-10 text-lg text-gray-300">
+                    Trabalhamos em sinergia com o setor educacional e empresarial para garantir a qualidade da formação e a inclusão produtiva dos jovens.
+                </p>
+                
+                <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6 items-center justify-center">
+                    
+                    <!-- Exemplos de Parceiros Institucionais (SEBRAE, SENAC, IFAM, NATURA) -->
+                    <div class="p-2 bg-dark-card rounded-lg shadow-md flex items-center justify-center h-24 border-t-4 border-blue-ta hover:scale-[1.05] transition duration-300">
+                        <p class="text-lg font-semibold text-white">SEBRAE</p>
+                    </div>
+                    <div class="p-2 bg-dark-card rounded-lg shadow-md flex items-center justify-center h-24 border-t-4 border-blue-ta hover:scale-[1.05] transition duration-300">
+                        <p class="text-lg font-semibold text-white">SENAC</p>
+                    </div>
+                    <div class="p-2 bg-dark-card rounded-lg shadow-md flex items-center justify-center h-24 border-t-4 border-blue-ta hover:scale-[1.05] transition duration-300">
+                        <p class="text-lg font-semibold text-white">IFAM</p>
+                    </div>
+                    <div class="p-2 bg-dark-card rounded-lg shadow-md flex items-center justify-center h-24 border-t-4 border-orange-ta hover:scale-[1.05] transition duration-300">
+                        <p class="text-lg font-semibold text-white">Natura &Co</p>
+                    </div>
+                    <div class="p-2 bg-dark-card rounded-lg shadow-md flex items-center justify-center h-24 border-t-4 border-orange-ta hover:scale-[1.05] transition duration-300">
+                        <p class="text-lg font-semibold text-white">Instituto Valendo</p>
+                    </div>
+                    <div class="p-2 bg-dark-card rounded-lg shadow-md flex items-center justify-center h-24 border-t-4 border-blue-ta hover:scale-[1.05] transition duration-300">
+                        <p class="text-lg font-semibold text-white">FAPEAM</p>
+                    </div>
+                    
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. SESSÃO: CTA FINAL DE PARCERIA -->
+        <section class="py-16 bg-dark-card">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="font-poppins text-3xl sm:text-4xl font-bold mb-6 text-white">
+                    QUER DEIXAR SUA MARCA NA TRILHA DO APRENDIZ?
+                </h2>
+                <p class="font-inter text-xl text-white/80 mb-8">
+                    Seja uma empresa que contrata, uma entidade de fomento ou um parceiro institucional. Juntos, criamos o futuro da empregabilidade.
+                </p>
+                <a href="contato.html?assunto=Proposta-Parceria" class="inline-flex items-center justify-center px-10 py-4 border border-transparent text-lg font-semibold rounded-full text-white bg-green-ta hover:bg-green-ta/80 transition duration-300 shadow-lg">
+                    Fale Conosco para Colaborar
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- RODAPÉ (FOOTER) -->
+    <footer class="bg-black-ta py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-gray-400 font-inter text-sm">
+            <p>&copy; 2025 Trilha do Aprendiz. Todos os direitos reservados.</p>
+            <p class="mt-2">Desenvolvido por Trilha do Aprendiz | Instituto Valendo</p>
+        </div>
+    </footer>
+
+    <!-- Link para seu JavaScript (A lógica do Menu Mobile deve ser definida aqui) -->
+    <script src="script.js"></script>
+</body>
+</html>

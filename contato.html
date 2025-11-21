@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contato - Fale com a Trilha do Aprendiz</title>
+    <!-- Carrega Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Configuração de fontes e cores customizadas -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'blue-ta': '#0056b3',      // Azul tecnológico (Destaque)
+                        'orange-ta': '#f7991e',    // Laranja energia jovem (Navbar/CTA)
+                        'gray-ta': '#f4f4f4',      // Cinza neutro
+                        'black-ta': '#222222',     // Preto institucional (Rodapé)
+                        'dark-ta': '#1a1a1a',      // Fundo Escuro Principal
+                        'dark-card': '#2f2f2f',    // Fundo de Card
+                        'green-ta': '#4CAF50',     // Botão CTA Principal
+                    },
+                    fontFamily: {
+                        'poppins': ['Poppins', 'sans-serif'],
+                        'inter': ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <!-- Carrega as fontes Poppins e Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    
+    <!-- Link para seu CSS Customizado -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-dark-ta min-h-screen antialiased font-inter text-white">
+
+    <!-- CABEÇALHO (HEADER) - Menu Principal -->
+    <header class="bg-orange-ta shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <!-- Logo -->
+                <div class="flex-shrink-0">
+                    <img src="imagens/logo-trilha-do-aprendiz-AZUL.png" alt="Logo Trilha do Aprendiz" class="h-10">
+                </div>
+                
+                <!-- Links do Menu (Desktop) -->
+                <nav class="hidden md:flex space-x-4 lg:space-x-8 items-center">
+                    <a href="index.html" class="text-white hover:text-blue-ta px-3 py-2 text-sm font-medium transition duration-150 rounded-md">Início</a>
+                    <a href="sobre.html" class="text-white hover:text-blue-ta px-3 py-2 text-sm font-medium transition duration-150 rounded-md">Sobre</a>
+                    <div class="group relative">
+                        <button class="text-white hover:text-blue-ta px-3 py-2 text-sm font-medium transition duration-150 rounded-md flex items-center">
+                            Soluções
+                            <svg class="w-4 h-4 ml-1" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 9l-7 7-7-7"></path></svg>
+                        </button>
+                        <!-- Submenu (Fundo Branco para contraste) -->
+                        <div class="hidden group-hover:block absolute left-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 z-20">
+                            <a href="game-apz-selecao.html" class="block px-4 py-2 text-sm text-black-ta hover:bg-gray-ta rounded-t-md">Game APZ Seleção</a>
+                            <a href="ia-leia.html" class="block px-4 py-2 text-sm text-black-ta hover:bg-gray-ta">LEIA Inteligência Artificial</a>
+                            <a href="mapa-jovem.html" class="block px-4 py-2 text-sm text-black-ta hover:bg-gray-ta">Mapa do Jovem Trabalhador</a>
+                            <a href="maratona-start-end.html" class="block px-4 py-2 text-sm text-black-ta hover:bg-gray-ta">Start End Experience</a>
+                            <a href="fala-ai-aprendiz.html" class="block px-4 py-2 text-sm text-black-ta hover:bg-gray-ta rounded-b-md">PodCas Fala Ai Aprendiz</a>
+                        </div>
+                    </div>
+                    <a href="parceiros.html" class="text-white hover:text-blue-ta px-3 py-2 text-sm font-medium transition duration-150 rounded-md">Parceiros</a>
+                    <a href="blog.html" class="text-white hover:text-blue-ta px-3 py-2 text-sm font-medium transition duration-150 rounded-md">Blog / Notícias</a>
+                    <a href="contato.html" class="bg-blue-ta text-white border-b-2 border-blue-ta px-4 py-2 text-sm font-medium rounded-full transition duration-300 shadow-lg font-poppins font-semibold">Contato</a>
+                </nav>
+                
+                <!-- Botão Mobile (Toggle) -->
+                <button id="menu-toggle" class="md:hidden text-white focus:outline-none p-2 rounded-lg hover:bg-dark-card transition duration-150">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </div>
+        </div>
+        <!-- Menu Mobile -->
+        <div id="mobile-menu" class="hidden md:hidden bg-dark-card shadow-xl">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 flex flex-col">
+                <a href="index.html" class="text-white hover:bg-dark-ta block px-3 py-2 rounded-md text-base font-medium">Início</a>
+                <a href="sobre.html" class="text-white hover:bg-dark-ta block px-3 py-2 rounded-md text-base font-medium">Sobre</a>
+                <span class="text-white px-3 py-2 text-base font-bold">Soluções:</span>
+                <a href="game-apz-selecao.html" class="text-white hover:bg-dark-ta block px-6 py-2 rounded-md text-sm">Game APZ Seleção</a>
+                <a href="ia-leia.html" class="text-white hover:bg-dark-ta block px-6 py-2 rounded-md text-sm">LEIA Inteligência Artificial</a>
+                <a href="mapa-jovem.html" class="text-white hover:bg-dark-ta block px-6 py-2 rounded-md text-sm">Mapa do Jovem Trabalhador</a>
+                <a href="maratona-start-end.html" class="text-white hover:bg-dark-ta block px-6 py-2 rounded-md text-sm">Start End Experience</a>
+                <a href="fala-ai-aprendiz.html" class="text-white hover:bg-dark-ta block px-6 py-2 rounded-md text-sm">PodCas Fala Ai Aprendiz</a>
+                <a href="parceiros.html" class="text-white hover:bg-dark-ta block px-3 py-2 rounded-md text-base font-medium">Parceiros</a>
+                <a href="blog.html" class="text-white hover:bg-dark-ta block px-3 py-2 rounded-md text-base font-medium">Blog / Notícias</a>
+                <a href="contato.html" class="bg-blue-ta text-white text-center hover:bg-blue-ta/80 mt-2 block px-3 py-2 rounded-full text-base font-medium transition duration-300">Contato</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- 1. HERO SECTION (Destaque) -->
+        <section class="bg-dark-ta pt-16 pb-12 md:pt-24 md:pb-16">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h1 class="font-poppins text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight text-orange-ta mb-4">
+                    Vamos Conversar?
+                </h1>
+                <p class="font-inter text-lg sm:text-xl text-white/90 max-w-3xl mx-auto">
+                    Queremos ouvir você! Se você é jovem, empresa, investidor ou parceiro institucional, entre em contato para conhecer nossas soluções ou propor uma colaboração.
+                </p>
+            </div>
+        </section>
+
+        <!-- 2. SESSÃO: FORMULÁRIO DE CONTATO (O foco da página) -->
+        <section class="py-16 md:py-24 bg-dark-card">
+            <div class="max-w-xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="bg-dark-ta p-8 md:p-10 rounded-xl shadow-2xl border-t-4 border-blue-ta">
+                    <h2 class="font-poppins text-2xl font-bold mb-8 text-white text-center">
+                        ENVIE SUA MENSAGEM
+                    </h2>
+                    
+                    <!-- Dica do Professor: Substitua [SEU_ENDPOINT_FORMSPREE] pelo seu endereço real -->
+                    <form action="[SEU_ENDPOINT_FORMSPREE]" method="POST" class="space-y-6">
+                        
+                        <!-- Campo Nome Completo -->
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-gray-300">Nome Completo</label>
+                            <input type="text" name="name" id="name" required class="mt-1 block w-full p-3 border border-gray-600 rounded-lg shadow-sm bg-dark-card text-white focus:border-blue-ta focus:ring-blue-ta" placeholder="Seu nome">
+                        </div>
+                        
+                        <!-- Campo E-mail -->
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-300">E-mail</label>
+                            <input type="email" name="_replyto" id="email" required class="mt-1 block w-full p-3 border border-gray-600 rounded-lg shadow-sm bg-dark-card text-white focus:border-blue-ta focus:ring-blue-ta" placeholder="seu.email@exemplo.com">
+                        </div>
+                        
+                        <!-- Campo Assunto (Dropdown) -->
+                        <div>
+                            <label for="assunto" class="block text-sm font-medium text-gray-300">Assunto</label>
+                            <select id="assunto" name="assunto" required class="mt-1 block w-full p-3 border border-gray-600 rounded-lg shadow-sm bg-dark-card text-white focus:border-blue-ta focus:ring-blue-ta">
+                                <option value="" disabled selected>Selecione o assunto mais adequado</option>
+                                <option value="Jovem - Vagas e Dúvidas">1. Sou Jovem (Vagas e Dúvidas)</option>
+                                <option value="Empresa - Solucoes B2B">2. Sou Empresa (Soluções B2B/Lei da Aprendizagem)</option>
+                                <option value="Parceria - Investidor">3. Quero Ser Parceiro/Investidor</option>
+                                <option value="Outros">4. Outros Assuntos</option>
+                            </select>
+                        </div>
+                        
+                        <!-- Campo Mensagem -->
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-gray-300">Mensagem</label>
+                            <textarea name="message" id="message" rows="4" required class="mt-1 block w-full p-3 border border-gray-600 rounded-lg shadow-sm bg-dark-card text-white focus:border-blue-ta focus:ring-blue-ta" placeholder="Digite sua mensagem aqui..."></textarea>
+                        </div>
+                        
+                        <!-- Botão de Envio -->
+                        <div>
+                            <button type="submit" class="w-full inline-flex justify-center items-center px-6 py-3 border border-transparent text-base font-semibold rounded-lg text-dark-ta bg-orange-ta hover:bg-orange-ta/80 transition duration-300 shadow-md font-poppins">
+                                Enviar Mensagem
+                            </button>
+                        </div>
+                        
+                    </form>
+                    
+                    <p class="text-xs text-gray-500 mt-4 text-center">
+                        Responderemos em até 48 horas úteis.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. SESSÃO: CANAIS DIRETOS -->
+        <section class="py-16 bg-dark-ta">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="font-poppins text-3xl sm:text-4xl font-bold mb-12 text-white text-center">
+                    Canais Diretos
+                </h2>
+                
+                <div class="grid md:grid-cols-3 gap-8 text-center">
+                    
+                    <!-- Card 1: E-mail -->
+                    <div class="bg-dark-card p-6 rounded-xl shadow-xl border-t-4 border-blue-ta">
+                        <div class="text-4xl text-blue-ta mb-4">📧</div>
+                        <h3 class="font-poppins text-xl font-bold mb-2 text-white">E-mail Institucional</h3>
+                        <p class="font-inter text-lg text-gray-300">contato@trilhadoaprendiz.com</p>
+                    </div>
+                    
+                    <!-- Card 2: Telefone/WhatsApp -->
+                    <div class="bg-dark-card p-6 rounded-xl shadow-xl border-t-4 border-orange-ta">
+                        <div class="text-4xl text-orange-ta mb-4">📞</div>
+                        <h3 class="font-poppins text-xl font-bold mb-2 text-white">Telefone / WhatsApp</h3>
+                        <p class="font-inter text-lg text-gray-300">(92) 99999-9999</p>
+                    </div>
+
+                    <!-- Card 3: Localização -->
+                    <div class="bg-dark-card p-6 rounded-xl shadow-xl border-t-4 border-blue-ta">
+                        <div class="text-4xl text-blue-ta mb-4">📍</div>
+                        <h3 class="font-poppins text-xl font-bold mb-2 text-white">Sede em Manazon'city</h3>
+                        <p class="font-inter text-lg text-gray-300">Av. Pedro Teixeira, 1234 - Sala 101, Manaus/AM</p>
+                    </div>
+                </div>
+                
+                <!-- Redes Sociais -->
+                <div class="text-center pt-16">
+                     <h3 class="font-poppins text-2xl font-bold mb-6 text-white">Siga Nossa Trilha nas Redes</h3>
+                     <!-- Placeholder para ícones de redes sociais -->
+                     <div class="flex justify-center space-x-6 text-3xl">
+                        <a href="#" class="text-orange-ta hover:text-blue-ta transition duration-300">
+                            <!-- Ícone de Instagram (exemplo) -->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                        </a>
+                        <a href="#" class="text-orange-ta hover:text-blue-ta transition duration-300">
+                            <!-- Ícone de LinkedIn (exemplo) -->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                        </a>
+                        <a href="#" class="text-orange-ta hover:text-blue-ta transition duration-300">
+                            <!-- Ícone de Facebook (exemplo) -->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+                        </a>
+                     </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- RODAPÉ (FOOTER) -->
+    <footer class="bg-black-ta py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-gray-400 font-inter text-sm">
+            <p>&copy; 2025 Trilha do Aprendiz. Todos os direitos reservados.</p>
+            <p class="mt-2">Desenvolvido por Trilha do Aprendiz | Instituto Valendo</p>
+        </div>
+    </footer>
+
+    <!-- Link para seu JavaScript (A lógica do Menu Mobile deve ser definida aqui) -->
+    <script src="script.js"></script>
+</body>
+</html>
