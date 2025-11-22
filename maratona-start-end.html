@@ -13,13 +13,13 @@
             theme: {
                 extend: {
                     colors: {
-                        'blue-ta': '#0056b3',      // Azul tecnológico (Destaque)
-                        'orange-ta': '#f7991e',    // Laranja energia jovem (Navbar/CTA)
-                        'gray-ta': '#f4f4f4',      // Cinza neutro
-                        'black-ta': '#222222',     // Preto institucional (Rodapé)
-                        'dark-ta': '#1a1a1a',      // Fundo Escuro Principal
-                        'dark-card': '#2f2f2f',    // Fundo de Card
-                        'green-ta': '#4CAF50',     // Botão CTA Principal
+                        'blue-ta': '#0056b3',
+                        'orange-ta': '#f7991e',
+                        'gray-ta': '#f4f4f4',
+                        'black-ta': '#222222',
+                        'dark-ta': '#1a1a1a',
+                        'dark-card': '#2f2f2f',
+                        'green-ta': '#4CAF50',
                     },
                     fontFamily: {
                         'poppins': ['Poppins', 'sans-serif'],
@@ -55,7 +55,7 @@
                             Soluções
                             <svg class="w-4 h-4 ml-1" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 9l-7 7-7-7"></path></svg>
                         </button>
-                        <!-- Submenu (Fundo Branco para contraste) -->
+                        <!-- Submenu -->
                         <div class="hidden group-hover:block absolute left-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 z-20">
                             <a href="game-apz-selecao.html" class="block px-4 py-2 text-sm text-black-ta hover:bg-gray-ta rounded-t-md">Game APZ Seleção</a>
                             <a href="ia-leia.html" class="block px-4 py-2 text-sm text-black-ta hover:bg-gray-ta">LEIA Inteligência Artificial</a>
@@ -66,10 +66,10 @@
                     </div>
                     <a href="parceiros.html" class="text-white hover:text-blue-ta px-3 py-2 text-sm font-medium transition duration-150 rounded-md">Parceiros</a>
                     <a href="blog.html" class="text-white hover:text-blue-ta px-3 py-2 text-sm font-medium transition duration-150 rounded-md">Blog / Notícias</a>
-                    <a href="contato.html" class="bg-green-ta text-white hover:bg-green-ta/80 px-4 py-2 text-sm font-medium rounded-full transition duration-300 shadow-lg font-poppins font-semibold">Fale com a LEIA →</a>
+                    <a href="https://stec.cx/services/trilhadoaprendiz/chat?p=baafde05-f553-45da-ad00-4eafc38c1465" class="bg-green-ta text-white hover:bg-green-ta/80 px-4 py-2 text-sm font-medium rounded-full transition duration-300 shadow-lg font-poppins font-semibold">Fale com a LEIA →</a>
                 </nav>
                 
-                <!-- Botão Mobile (Toggle) -->
+                <!-- Botão Mobile -->
                 <button id="menu-toggle" class="md:hidden text-white focus:outline-none p-2 rounded-lg hover:bg-dark-card transition duration-150">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
                 </button>
@@ -88,78 +88,98 @@
                 <a href="fala-ai-aprendiz.html" class="text-white hover:bg-dark-ta block px-6 py-2 rounded-md text-sm">PodCas Fala Ai Aprendiz</a>
                 <a href="parceiros.html" class="text-white hover:bg-dark-ta block px-3 py-2 rounded-md text-base font-medium">Parceiros</a>
                 <a href="blog.html" class="text-white hover:bg-dark-ta block px-3 py-2 rounded-md text-base font-medium">Blog / Notícias</a>
-                <a href="contato.html" class="bg-green-ta text-white text-center hover:bg-green-ta/80 mt-2 block px-3 py-2 rounded-full text-base font-medium transition duration-300">Fale Conosco</a>
+                <a href="https://stec.cx/services/trilhadoaprendiz/chat?p=baafde05-f553-45da-ad00-4eafc38c1465" class="bg-green-ta text-white text-center hover:bg-green-ta/80 mt-2 block px-3 py-2 rounded-full text-base font-medium transition duration-300">Fale com a LEIA</a>
             </div>
         </div>
     </header>
 
     <main>
-        <!-- 1. HERO SECTION (Destaque) -->
+        <!-- 1. HERO SECTION -->
         <section class="bg-dark-ta pt-16 pb-20 md:pt-24 md:pb-32 border-b border-gray-700">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="grid lg:grid-cols-12 gap-12 items-center">
                     
                     <!-- Coluna de Texto -->
                     <div class="lg:col-span-7 space-y-6">
-                        <h1 class="font-poppins text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight text-blue-ta">
+                        <h1 class="font-poppins text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight text-blue-ta fade-in">
                             Start End Experience: A Maratona de Empregabilidade Jovem
                         </h1>
-                        <p class="font-inter text-lg sm:text-xl text-white/90">
-                            A Maratona Start End Experience é um evento de imersão que simula o ciclo completo de um profissional, desde a capacitação (*Start*) até a experiência real de trabalho (*End*).
+                        <p class="font-inter text-lg sm:text-xl text-white/90 fade-in delay-100">
+                            A Maratona Start End Experience é um evento de imersão que simula o ciclo completo de um profissional, desde a capacitação (Start) até a experiência real de trabalho (End).
                         </p>
                         <!-- Botões CTA -->
-                        <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 pt-4">
-                            <a href="contato.html?assunto=Interesse-Maratona-Empresa" class="inline-flex justify-center items-center px-8 py-4 border border-transparent text-base font-semibold rounded-full text-white bg-orange-ta hover:bg-orange-ta/80 transition duration-300 shadow-lg font-poppins">
-                                Minha Empresa Quer Patrocinar/Participar
+                        <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 pt-4 fade-in delay-200">
+                            <a href="https://stec.cx/services/trilhadoaprendiz/chat?p=baafde05-f553-45da-ad00-4eafc38c1465" class="inline-flex justify-center items-center px-8 py-4 border border-transparent text-base font-semibold rounded-full text-white bg-orange-ta hover:bg-orange-ta/80 transition duration-300 shadow-lg font-poppins">
+                                Minha Empresa Quer Patrocinar
                             </a>
-                            <a href="contato.html?assunto=Inscricao-Maratona-Jovem" class="inline-flex justify-center items-center px-8 py-4 border-2 border-green-ta text-base font-semibold rounded-full text-green-ta hover:bg-green-ta hover:text-dark-ta transition duration-300">
+                            <a href="https://scriptcase99.containersol.com.br/scriptcase/app/Trilha/Login/" class="inline-flex justify-center items-center px-8 py-4 border-2 border-green-ta text-base font-semibold rounded-full text-green-ta hover:bg-green-ta hover:text-dark-ta transition duration-300">
                                 Quero Me Inscrever (Jovem)
                             </a>
                         </div>
                     </div>
                     
-                    <!-- Coluna de Imagem (Mockup/Visual) -->
-                    <div class="lg:col-span-5 flex justify-center lg:justify-end">
-                        <!-- Placeholder de Logo Start End Experience -->
-                        <div class="w-full max-w-sm h-72 md:h-80 bg-orange-ta/20 rounded-xl shadow-2xl flex items-center justify-center p-4 border-4 border-orange-ta">
-                             <img src="imagens/logo-start-end-experience.png" alt="Logotipo Start End Experience" class="w-2/3 h-auto">
+                    <!-- Coluna de Imagem -->
+                    <div class="lg:col-span-5 flex justify-center lg:justify-end fade-in delay-300">
+                        <div class="w-full max-w-sm h-72 md:h-80 bg-orange-ta/20 rounded-xl shadow-2xl flex items-center justify-center p-4 border-4 border-orange-ta overflow-hidden">
+                             <img src="imagens/logo-start-end-experience-Branco.png" alt="Logotipo Start End Experience" class="w-full h-full object-contain">
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- 2. SESSÃO: COMO FUNCIONA O EVENTO (O Ciclo Start-End) -->
+        <!-- 2. SESSÃO: RECONHECIMENTO PRÊMIO SEBRAE -->
+        <section class="py-12 bg-blue-ta">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h3 class="font-poppins text-xl font-semibold mb-8 text-white fade-in">Reconhecimento Nacional</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-center justify-center">
+                    <div class="bg-white p-4 rounded-lg shadow-md card-hover fade-in delay-100">
+                        <img src="imagens/premio sebrae 2022.jpg" alt="Prêmio SEBRAE" class="h-16 mx-auto mb-2 object-contain">
+                        <p class="text-black-ta font-semibold">Prêmio Educação Empreendedora</p>
+                    </div>
+                    <div class="bg-white p-4 rounded-lg shadow-md card-hover fade-in delay-200">
+                        <img src="imagens/logo-sebrae.png" alt="SEBRAE" class="h-16 mx-auto mb-2 object-contain">
+                        <p class="text-black-ta font-semibold">Apoio SEBRAE Nacional</p>
+                    </div>
+                    <div class="bg-white p-4 rounded-lg shadow-md card-hover fade-in delay-300">
+                        <img src="imagens/TOP 3 Jaraqui Graudo 2023.png" alt="Top 3 Jaraqui Graúdo" class="h-16 mx-auto mb-2 object-contain">
+                        <p class="text-black-ta font-semibold">Top 3 Jaraqui Graúdo 2023</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. SESSÃO: COMO FUNCIONA O EVENTO -->
         <section class="py-16 md:py-24 bg-dark-card">
             <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-                <h2 class="font-poppins text-3xl sm:text-4xl font-bold mb-12 text-orange-ta text-center">
+                <h2 class="font-poppins text-3xl sm:text-4xl font-bold mb-12 text-orange-ta text-center fade-in">
                     O CICLO START-END: DA TEORIA À VAGA GARANTIDA
                 </h2>
                 <div class="grid md:grid-cols-3 gap-8 text-lg">
                     <!-- FASE 1: START (Capacitação) -->
-                    <div class="bg-dark-ta p-6 rounded-xl shadow-xl border-t-4 border-blue-ta">
+                    <div class="bg-dark-ta p-6 rounded-xl shadow-xl border-t-4 border-blue-ta card-hover fade-in delay-100">
                         <h3 class="font-poppins text-2xl font-semibold mb-3 text-blue-ta">1. Start: Capacitação Intensiva</h3>
                         <p class="font-inter text-gray-300 leading-relaxed">
-                            Jovens participam de *workshops* rápidos, *bootcamps* e desafios de competências (muitas vezes via Game APZ). Foco em currículo, entrevista, comunicação e *soft skills*.
+                            Jovens participam de workshops rápidos, bootcamps e desafios de competências (muitas vezes via Game APZ). Foco em currículo, entrevista, comunicação e soft skills.
                         </p>
                     </div>
                     <!-- FASE 2: EXPERIENCE (Desafio) -->
-                    <div class="bg-dark-ta p-6 rounded-xl shadow-xl border-t-4 border-orange-ta">
+                    <div class="bg-dark-ta p-6 rounded-xl shadow-xl border-t-4 border-orange-ta card-hover fade-in delay-200">
                         <h3 class="font-poppins text-2xl font-semibold mb-3 text-orange-ta">2. Experience: Desafio Prático</h3>
                         <p class="font-inter text-gray-300 leading-relaxed">
-                            Simulação de um dia de trabalho real na empresa parceira ou resolução de *cases* de mercado. É aqui que o perfil comportamental e as habilidades técnicas são testadas sob pressão.
+                            Simulação de um dia de trabalho real na empresa parceira ou resolução de cases de mercado. É aqui que o perfil comportamental e as habilidades técnicas são testadas sob pressão.
                         </p>
                     </div>
                     <!-- FASE 3: END (Oportunidade) -->
-                    <div class="bg-dark-ta p-6 rounded-xl shadow-xl border-t-4 border-blue-ta">
+                    <div class="bg-dark-ta p-6 rounded-xl shadow-xl border-t-4 border-blue-ta card-hover fade-in delay-300">
                         <h3 class="font-poppins text-2xl font-semibold mb-3 text-blue-ta">3. End: Conexão e Contratação</h3>
                         <p class="font-inter text-gray-300 leading-relaxed">
-                            Os jovens com melhor desempenho recebem *feedback* direto dos RHs e são encaminhados prioritariamente para as vagas de Aprendiz da empresa patrocinadora.
+                            Os jovens com melhor desempenho recebem feedback direto dos RHs e são encaminhados prioritariamente para as vagas de Aprendiz da empresa patrocinadora.
                         </p>
                     </div>
                 </div>
                 
-                <div class="text-center pt-12">
+                <div class="text-center pt-12 fade-in delay-400">
                     <p class="text-xl text-white/90 font-semibold border-t border-gray-700 pt-6 mt-6">
                         RESULTADO: Seleção precisa para empresas, primeira oportunidade garantida para jovens.
                     </p>
@@ -167,38 +187,38 @@
             </div>
         </section>
 
-        <!-- 3. SESSÃO: BENEFÍCIOS PARA EMPRESAS -->
+        <!-- 4. SESSÃO: BENEFÍCIOS PARA EMPRESAS -->
         <section class="py-16 md:py-24 bg-dark-ta">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <h2 class="font-poppins text-3xl sm:text-4xl font-bold text-center mb-16 text-white">
+                <h2 class="font-poppins text-3xl sm:text-4xl font-bold text-center mb-16 text-white fade-in">
                     Benefícios para Empresas Parceiras e Patrocinadoras
                 </h2>
                 
                 <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
                     
                     <!-- Card 1: Seleção Imersiva -->
-                    <div class="bg-dark-card p-6 rounded-xl shadow-xl border-t-4 border-orange-ta">
+                    <div class="bg-dark-card p-6 rounded-xl shadow-xl border-t-4 border-orange-ta card-hover fade-in delay-100">
                         <div class="text-4xl text-orange-ta mb-4">⭐</div>
                         <h3 class="font-poppins text-xl font-bold mb-3 text-white">Seleção Imersiva</h3>
                         <p class="font-inter text-gray-300">Avalie os candidatos em um ambiente prático e dinâmico, simulando a realidade da sua empresa antes da contratação.</p>
                     </div>
                     
                     <!-- Card 2: Branding e ESG -->
-                    <div class="bg-dark-card p-6 rounded-xl shadow-xl border-t-4 border-blue-ta">
+                    <div class="bg-dark-card p-6 rounded-xl shadow-xl border-t-4 border-blue-ta card-hover fade-in delay-200">
                         <div class="text-4xl text-blue-ta mb-4">🌱</div>
                         <h3 class="font-poppins text-xl font-bold mb-3 text-white">Branding e ESG</h3>
                         <p class="font-inter text-gray-300">Fortaleça sua marca empregadora junto à Geração Z e gere dados concretos para o pilar Social (S) dos relatórios ESG.</p>
                     </div>
 
                     <!-- Card 3: Redução de Turnover -->
-                    <div class="bg-dark-card p-6 rounded-xl shadow-xl border-t-4 border-orange-ta">
+                    <div class="bg-dark-card p-6 rounded-xl shadow-xl border-t-4 border-orange-ta card-hover fade-in delay-300">
                         <div class="text-4xl text-orange-ta mb-4">📉</div>
                         <h3 class="font-poppins text-xl font-bold mb-3 text-white">Redução de Turnover</h3>
-                        <p class="font-inter text-gray-300">Ao alinhar expectativas no *Experience*, a Maratona garante que o jovem contratado se adapte melhor, reduzindo a rotatividade.</p>
+                        <p class="font-inter text-gray-300">Ao alinhar expectativas no Experience, a Maratona garante que o jovem contratado se adapte melhor, reduzindo a rotatividade.</p>
                     </div>
                     
                     <!-- Card 4: Alinhamento Curricular -->
-                    <div class="bg-dark-card p-6 rounded-xl shadow-xl border-t-4 border-blue-ta">
+                    <div class="bg-dark-card p-6 rounded-xl shadow-xl border-t-4 border-blue-ta card-hover fade-in delay-400">
                         <div class="text-4xl text-blue-ta mb-4">📚</div>
                         <h3 class="font-poppins text-xl font-bold mb-3 text-white">Alinhamento Curricular</h3>
                         <p class="font-inter text-gray-300">A Maratona serve de base para Entidades Formadoras, ajustando a capacitação às necessidades reais da sua indústria ou setor.</p>
@@ -207,32 +227,37 @@
             </div>
         </section>
 
-        <!-- 4. SESSÃO: CTA FINAL PARA EMPRESAS -->
+        <!-- 5. SESSÃO: CTA FINAL -->
         <section class="py-16 bg-dark-card">
             <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                <h2 class="font-poppins text-3xl sm:text-4xl font-bold mb-6 text-white">
-                    TRANSFORME SEU PROCESSO SELETIVO EM UM EVENTO DE TALENTOS.
+                <h2 class="font-poppins text-3xl sm:text-4xl font-bold mb-6 text-white fade-in">
+                    TRANSFORME SEU PROCESSO SELETIVO EM UM EVENTO DE TALENTOS
                 </h2>
-                <p class="font-inter text-xl text-white/80 mb-8">
+                <p class="font-inter text-xl text-white/80 mb-8 fade-in delay-100">
                     Patrocine ou participe da próxima Maratona Start End Experience e encontre seus próximos jovens líderes.
                 </p>
-                <a href="contato.html?assunto=Maratona-Parceria" class="inline-flex items-center justify-center px-10 py-4 border border-transparent text-lg font-semibold rounded-full text-white bg-orange-ta hover:bg-orange-ta/80 transition duration-300 shadow-lg">
-                    Fale com a Equipe Start End →
-                </a>
+                <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 justify-center fade-in delay-200">
+                    <a href="https://stec.cx/services/trilhadoaprendiz/chat?p=baafde05-f553-45da-ad00-4eafc38c1465" class="inline-flex items-center justify-center px-10 py-4 border border-transparent text-lg font-semibold rounded-full text-white bg-orange-ta hover:bg-orange-ta/80 transition duration-300 shadow-lg">
+                        Fale com a Equipe Start End
+                    </a>
+                    <a href="parceiros.html" class="inline-flex items-center justify-center px-10 py-4 border-2 border-blue-ta text-lg font-semibold rounded-full text-blue-ta hover:bg-blue-ta hover:text-white transition duration-300">
+                        Ver Empresas Parceiras
+                    </a>
+                </div>
             </div>
         </section>
 
     </main>
 
-    <!-- RODAPÉ (FOOTER) -->
+    <!-- RODAPÉ -->
     <footer class="bg-black-ta py-8">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-gray-400 font-inter text-sm">
             <p>&copy; 2025 Trilha do Aprendiz. Todos os direitos reservados.</p>
-            <p class="mt-2">Desenvolvido por Trilha do Aprendiz </p>
+            <p class="mt-2">Desenvolvido por Trilha do Aprendiz</p>
         </div>
     </footer>
 
-    <!-- Link para seu JavaScript (A lógica do Menu Mobile deve ser definida aqui) -->
+    <!-- Link para seu JavaScript -->
     <script src="script.js"></script>
 </body>
 </html>

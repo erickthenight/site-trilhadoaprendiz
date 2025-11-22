@@ -13,13 +13,13 @@
             theme: {
                 extend: {
                     colors: {
-                        'blue-ta': '#0056b3',      // Azul tecnológico (Destaque)
-                        'orange-ta': '#f7991e',    // Laranja energia jovem (Navbar/CTA)
-                        'gray-ta': '#f4f4f4',      // Cinza neutro
-                        'black-ta': '#222222',     // Preto institucional (Rodapé)
-                        'dark-ta': '#1a1a1a',      // Fundo Escuro Principal
-                        'dark-card': '#2f2f2f',    // Fundo de Card
-                        'green-ta': '#4CAF50',     // Botão CTA Principal
+                        'blue-ta': '#0056b3',
+                        'orange-ta': '#f7991e',
+                        'gray-ta': '#f4f4f4',
+                        'black-ta': '#222222',
+                        'dark-ta': '#1a1a1a',
+                        'dark-card': '#2f2f2f',
+                        'green-ta': '#4CAF50',
                     },
                     fontFamily: {
                         'poppins': ['Poppins', 'sans-serif'],
@@ -55,7 +55,7 @@
                             Soluções
                             <svg class="w-4 h-4 ml-1" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 9l-7 7-7-7"></path></svg>
                         </button>
-                        <!-- Submenu (Fundo Branco para contraste) -->
+                        <!-- Submenu -->
                         <div class="hidden group-hover:block absolute left-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 z-20">
                             <a href="game-apz-selecao.html" class="block px-4 py-2 text-sm text-black-ta hover:bg-gray-ta rounded-t-md">Game APZ Seleção</a>
                             <a href="ia-leia.html" class="block px-4 py-2 text-sm text-black-ta hover:bg-gray-ta">LEIA Inteligência Artificial</a>
@@ -66,10 +66,10 @@
                     </div>
                     <a href="parceiros.html" class="text-white hover:text-blue-ta px-3 py-2 text-sm font-medium transition duration-150 rounded-md">Parceiros</a>
                     <a href="blog.html" class="text-white hover:text-blue-ta px-3 py-2 text-sm font-medium transition duration-150 rounded-md">Blog / Notícias</a>
-                    <a href="contato.html" class="bg-green-ta text-white hover:bg-green-ta/80 px-4 py-2 text-sm font-medium rounded-full transition duration-300 shadow-lg font-poppins font-semibold">Fale com a LEIA →</a>
+                    <a href="https://stec.cx/services/trilhadoaprendiz/chat?p=baafde05-f553-45da-ad00-4eafc38c1465" class="bg-green-ta text-white hover:bg-green-ta/80 px-4 py-2 text-sm font-medium rounded-full transition duration-300 shadow-lg font-poppins font-semibold">Fale com a LEIA →</a>
                 </nav>
                 
-                <!-- Botão Mobile (Toggle) -->
+                <!-- Botão Mobile -->
                 <button id="menu-toggle" class="md:hidden text-white focus:outline-none p-2 rounded-lg hover:bg-dark-card transition duration-150">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
                 </button>
@@ -88,39 +88,37 @@
                 <a href="fala-ai-aprendiz.html" class="text-white hover:bg-dark-ta block px-6 py-2 rounded-md text-sm">PodCas Fala Ai Aprendiz</a>
                 <a href="parceiros.html" class="text-white hover:bg-dark-ta block px-3 py-2 rounded-md text-base font-medium">Parceiros</a>
                 <a href="blog.html" class="text-white hover:bg-dark-ta block px-3 py-2 rounded-md text-base font-medium">Blog / Notícias</a>
-                <a href="contato.html" class="bg-green-ta text-white text-center hover:bg-green-ta/80 mt-2 block px-3 py-2 rounded-full text-base font-medium transition duration-300">Fale Conosco</a>
+                <a href="https://stec.cx/services/trilhadoaprendiz/chat?p=baafde05-f553-45da-ad00-4eafc38c1465" class="bg-green-ta text-white text-center hover:bg-green-ta/80 mt-2 block px-3 py-2 rounded-full text-base font-medium transition duration-300">Fale com a LEIA</a>
             </div>
         </div>
     </header>
 
     <main>
-        <!-- 1. HERO SECTION (Destaque) -->
+        <!-- 1. HERO SECTION -->
         <section class="bg-dark-ta pt-16 pb-20 md:pt-24 md:pb-32 border-b border-gray-700">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="grid lg:grid-cols-12 gap-12 items-center">
                     
                     <!-- Coluna de Texto -->
                     <div class="lg:col-span-7 space-y-6">
-                        <h1 class="font-poppins text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight text-blue-ta">
+                        <h1 class="font-poppins text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight text-blue-ta fade-in">
                             Transformamos Potencial em Oportunidade
                         </h1>
-                        <p class="font-inter text-lg sm:text-xl text-white/90">
-                            Somos uma startup de impacto social movida pela **tecnologia**, **educação** e, acima de tudo, pela crença no potencial da juventude brasileira.
+                        <p class="font-inter text-lg sm:text-xl text-white/90 fade-in delay-100">
+                            Somos uma startup de impacto social movida pela tecnologia, educação e, acima de tudo, pela crença no potencial da juventude brasileira.
                         </p>
                         <!-- Botão CTA -->
-                        <div class="flex pt-4">
+                        <div class="flex pt-4 fade-in delay-200">
                             <a href="#proposito" class="inline-flex justify-center items-center px-8 py-4 border border-transparent text-base font-semibold rounded-full text-white bg-orange-ta hover:bg-orange-ta/80 transition duration-300 shadow-lg font-poppins">
                                 Conheça Nossa História e Valores
                             </a>
                         </div>
                     </div>
                     
-                    <!-- Coluna de Imagem (Mockup/Visual) -->
-                    <div class="lg:col-span-5 flex justify-center lg:justify-end">
-                        <div class="w-full max-w-sm h-72 md:h-80 bg-orange-ta rounded-xl shadow-2xl flex items-center justify-center p-4">
-                            <p class="text-black-ta font-poppins text-center font-bold">
-                                [Imagem da equipe fundadora ou de impacto social]
-                            </p>
+                    <!-- Coluna de Imagem -->
+                    <div class="lg:col-span-5 flex justify-center lg:justify-end fade-in delay-300">
+                        <div class="w-full max-w-sm h-72 md:h-80 bg-orange-ta rounded-xl shadow-2xl flex items-center justify-center p-4 overflow-hidden">
+                            <img src="imagens/TRILHA 2.png" alt="Equipe Trilha do Aprendiz" class="w-full h-full object-cover rounded-xl">
                         </div>
                     </div>
                 </div>
@@ -130,35 +128,35 @@
         <!-- 2. SESSÃO: QUEM SOMOS E NOSSO PROPÓSITO -->
         <section id="proposito" class="py-16 md:py-24 bg-dark-card">
             <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-                <h2 class="font-poppins text-3xl sm:text-4xl font-bold mb-12 text-orange-ta text-center">
+                <h2 class="font-poppins text-3xl sm:text-4xl font-bold mb-12 text-orange-ta text-center fade-in">
                     Nascemos na Amazônia para Transformar o Brasil
                 </h2>
                 <div class="max-w-4xl mx-auto text-lg space-y-8">
-                    <p class="font-inter leading-relaxed text-gray-300">
-                        A **Trilha do Aprendiz** é uma startup de impacto social que utiliza **gamificação** e **inteligência artificial** para promover a inclusão produtiva de jovens de 14 a 24 anos sem ocupação profissional. Nossa missão vai além: apoiamos empresas no cumprimento da Lei da Aprendizagem de forma estratégica e **fortalecemos o ecossistema de inovação** da região amazônica.
+                    <p class="font-inter leading-relaxed text-gray-300 fade-in delay-100">
+                        A Trilha do Aprendiz é uma startup de impacto social que utiliza gamificação e inteligência artificial para promover a inclusão produtiva de jovens de 14 a 24 anos sem ocupação profissional. Nossa missão vai além: apoiamos empresas no cumprimento da Lei da Aprendizagem de forma estratégica e fortalecemos o ecossistema de inovação da região amazônica.
                     </p>
-                    <p class="font-inter leading-relaxed bg-dark-ta p-4 rounded-lg border-l-4 border-blue-ta text-gray-300">
-                        Fundada por **Erick Mattos** e **Helen Araújo**, a iniciativa nasceu com o propósito claro de conectar educação, tecnologia e impacto social. Criamos soluções acessíveis, mensuráveis e replicáveis para o desenvolvimento humano, garantindo que o potencial de cada jovem seja visto e valorizado pelo mercado.
+                    <p class="font-inter leading-relaxed bg-dark-ta p-4 rounded-lg border-l-4 border-blue-ta text-gray-300 fade-in delay-200">
+                        Fundada por Erick Mattos e Helen Araújo, a iniciativa nasceu com o propósito claro de conectar educação, tecnologia e impacto social. Criamos soluções acessíveis, mensuráveis e replicáveis para o desenvolvimento humano, garantindo que o potencial de cada jovem seja visto e valorizado pelo mercado.
                     </p>
-                    <div class="text-center pt-8">
+                    <div class="text-center pt-8 fade-in delay-300">
                         <a href="parceiros.html" class="inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-full text-dark-ta bg-green-ta hover:bg-green-ta/80 transition duration-300 shadow-md">
-                            <span class="mr-2">🤝</span> [Veja nossos Resultados e Parceiros]
+                            <span class="mr-2">🤝</span> Veja nossos Resultados e Parceiros
                         </a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- 3. SESSÃO: MISSÃO, VISÃO E VALORES (M.V.V.) -->
+        <!-- 3. SESSÃO: MISSÃO, VISÃO E VALORES -->
         <section class="py-16 md:py-24 bg-dark-ta">
             <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-                <h2 class="font-poppins text-3xl sm:text-4xl font-bold text-center mb-16 text-white">
+                <h2 class="font-poppins text-3xl sm:text-4xl font-bold text-center mb-16 text-white fade-in">
                     NOSSO GPS É CONDUZIDO POR VALORES
                 </h2>
                 
                 <div class="grid md:grid-cols-3 gap-8">
                     <!-- Card Missão -->
-                    <div class="bg-dark-card p-6 rounded-xl shadow-lg hover:shadow-xl transition duration-300 border-t-4 border-orange-ta">
+                    <div class="bg-dark-card p-6 rounded-xl shadow-lg border-t-4 border-orange-ta card-hover fade-in delay-100">
                         <div class="text-4xl text-orange-ta mb-4">🎯</div>
                         <h3 class="font-poppins text-xl font-bold mb-3 text-white">Missão</h3>
                         <p class="font-inter text-gray-300">
@@ -167,7 +165,7 @@
                     </div>
                     
                     <!-- Card Visão -->
-                    <div class="bg-dark-card p-6 rounded-xl shadow-lg hover:shadow-xl transition duration-300 border-t-4 border-blue-ta">
+                    <div class="bg-dark-card p-6 rounded-xl shadow-lg border-t-4 border-blue-ta card-hover fade-in delay-200">
                         <div class="text-4xl text-blue-ta mb-4">🗺️</div>
                         <h3 class="font-poppins text-xl font-bold mb-3 text-white">Visão</h3>
                         <p class="font-inter text-gray-300">
@@ -176,7 +174,7 @@
                     </div>
 
                     <!-- Card Valores -->
-                    <div class="bg-dark-card p-6 rounded-xl shadow-lg hover:shadow-xl transition duration-300 border-t-4 border-orange-ta">
+                    <div class="bg-dark-card p-6 rounded-xl shadow-lg border-t-4 border-orange-ta card-hover fade-in delay-300">
                         <div class="text-4xl text-orange-ta mb-4">💡</div>
                         <h3 class="font-poppins text-xl font-bold mb-3 text-white">Valores</h3>
                         <p class="font-inter text-gray-300">
@@ -186,25 +184,53 @@
                 </div>
             </div>
         </section>
+
+        <!-- 4. SESSÃO: RECONHECIMENTOS -->
+        <section class="py-16 bg-blue-ta">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="font-poppins text-2xl sm:text-3xl font-bold mb-8 text-white fade-in">
+                    Reconhecimento e Premiações
+                </h2>
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                    <div class="bg-white p-4 rounded-lg card-hover fade-in delay-100">
+                        <img src="imagens/premio sebrae 2022.jpg" alt="Prêmio SEBRAE" class="h-16 mx-auto mb-2 object-contain">
+                        <p class="text-black-ta font-semibold">Prêmio Educação Empreendedora</p>
+                    </div>
+                    <div class="bg-white p-4 rounded-lg card-hover fade-in delay-200">
+                        <img src="imagens/negocio-de-impacto.png" alt="Selo Negócio de Impacto" class="h-16 mx-auto mb-2">
+                        <p class="text-black-ta font-semibold">Selo Negócio de Impacto</p>
+                    </div>
+                    <div class="bg-white p-4 rounded-lg card-hover fade-in delay-300">
+                        <img src="imagens/Selo Internacional Selo logo_impact_LATAM.png" alt="Selo IImpact LATAM" class="h-16 mx-auto mb-2">
+                        <p class="text-black-ta font-semibold">Selo Internacional IImpact</p>
+                    </div>
+                </div>
+            </div>
+        </section>
         
-        <!-- 4. SESSÃO: CHAMADA PARA SOLUÇÕES -->
+        <!-- 5. SESSÃO: CHAMADA PARA SOLUÇÕES -->
         <section class="py-16 bg-dark-card">
             <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                <h2 class="font-poppins text-3xl sm:text-4xl font-bold mb-6 text-white">
-                    CONHEÇA NOSSA TRILHA COMPLETA DE SOLUÇÕES.
+                <h2 class="font-poppins text-3xl sm:text-4xl font-bold mb-6 text-white fade-in">
+                    CONHEÇA NOSSA TRILHA COMPLETA DE SOLUÇÕES
                 </h2>
-                <p class="font-inter text-xl text-white/80 mb-8">
+                <p class="font-inter text-xl text-white/80 mb-8 fade-in delay-100">
                     Gamificação, Inteligência Artificial e Mapeamento Social: a tecnologia a serviço da inclusão.
                 </p>
-                <a href="game-apz-selecao.html" class="inline-flex items-center justify-center px-10 py-4 border border-transparent text-lg font-semibold rounded-full text-white bg-blue-ta hover:bg-blue-ta/80 transition duration-300 shadow-lg">
-                    [Explorar Soluções]
-                </a>
+                <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 justify-center fade-in delay-200">
+                    <a href="game-apz-selecao.html" class="inline-flex items-center justify-center px-10 py-4 border border-transparent text-lg font-semibold rounded-full text-white bg-blue-ta hover:bg-blue-ta/80 transition duration-300 shadow-lg">
+                        Explorar Nossas Soluções
+                    </a>
+                    <a href="https://stec.cx/services/trilhadoaprendiz/chat?p=baafde05-f553-45da-ad00-4eafc38c1465" class="inline-flex items-center justify-center px-10 py-4 border-2 border-orange-ta text-lg font-semibold rounded-full text-orange-ta hover:bg-orange-ta hover:text-dark-ta transition duration-300">
+                        Falar com a LEIA
+                    </a>
+                </div>
             </div>
         </section>
 
     </main>
 
-    <!-- RODAPÉ (FOOTER) -->
+    <!-- RODAPÉ -->
     <footer class="bg-black-ta py-8">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-gray-400 font-inter text-sm">
             <p>&copy; 2025 Trilha do Aprendiz. Todos os direitos reservados.</p>
@@ -212,7 +238,7 @@
         </div>
     </footer>
 
-    <!-- Link para seu JavaScript (A lógica do Menu Mobile deve ser definida aqui) -->
+    <!-- Link para seu JavaScript -->
     <script src="script.js"></script>
 </body>
 </html>

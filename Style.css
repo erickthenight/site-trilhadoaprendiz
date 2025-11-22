@@ -1,17 +1,63 @@
-/* Seu arquivo style.css.
-    
-    A maioria dos estilos deve ser implementada usando classes do Tailwind no HTML.
-    Use este arquivo para estilos globais que o Tailwind não cobre diretamente.
-*/
+/* Arquivo style.css - Para pequenos ajustes não cobertos pelo Tailwind */
 
-/* Exemplo: Remover a linha chata de foco do navegador para um estilo mais limpo */
-a:focus, button:focus {
-    outline: none;
-    box-shadow: 0 0 0 2px rgba(0, 86, 179, 0.5); /* Usa o azul TA */
+/* Animações suaves para elementos */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
-/* Garante que as imagens do menu sejam sempre claras */
-.h-10 {
-    height: 40px;
-    width: auto;
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Melhorias para o menu mobile */
+#mobile-menu {
+    transition: all 0.3s ease;
+}
+
+/* Melhorias visuais para cards */
+.card-hover {
+    transition: all 0.3s ease;
+}
+
+.card-hover:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* Melhorias para animações de entrada */
+.delay-100 {
+    animation-delay: 100ms;
+}
+.delay-200 {
+    animation-delay: 200ms;
+}
+.delay-300 {
+    animation-delay: 300ms;
+}
+.delay-400 {
+    animation-delay: 400ms;
+}
+.delay-350 {
+    animation-delay: 350ms;
+}
+.delay-250 {
+    animation-delay: 250ms;
+}
+.delay-150 {
+    animation-delay: 150ms;
+}
+
+/* Melhorias de acessibilidade */
+a:focus, button:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(0, 86, 179, 0.5);
+}
+
+/* Garante que as imagens sejam responsivas */
+img {
+    max-width: 100%;
+    height: auto;
 }
