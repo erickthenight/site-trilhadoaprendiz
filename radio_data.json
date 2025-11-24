@@ -1,0 +1,29 @@
+[
+  {
+    "nome": "Trilha Jovem - Rádio Central (Podcast)",
+    "stream_url": "https://seu-servidor-podcast.com/stream/trilha_jovem.mp3",
+    "cidade": "Nacional",
+    "lat": 0,
+    "lon": 0,
+    "distancia_km": 99999,
+    "genero": "Educativo, Carreira"
+  },
+  {
+    "nome": "Rádio Jovem Z (Stream Manaus)",
+    "stream_url": "https://stream.exemplo-manaus.com/jovem-z",
+    "cidade": "Manaus",
+    "lat": -3.1190,
+    "lon": -60.0217,
+    "distancia_km": 0,
+    "genero": "Hits, Local"
+  },
+  {
+    "nome": "Rádio do Aprendiz (Interior AM)",
+    "stream_url": "https://stream.exemplo-interior.com/am",
+    "cidade": "Presidente Figueiredo",
+    "lat": -2.0469,
+    "lon": -60.0761,
+    "distancia_km": 0,
+    "genero": "Regional, Notícias"
+  }
+]
