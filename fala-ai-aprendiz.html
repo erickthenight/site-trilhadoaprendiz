@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PodCas Fala Aí Aprendiz - O Podcast do Jovem Trabalhador | Trilha do Aprendiz</title>
+    <title>Rádio Fala Aí Aprendiz - Trilha do Aprendiz</title>
     <!-- Carrega Tailwind CSS via CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     
@@ -13,13 +13,13 @@
             theme: {
                 extend: {
                     colors: {
-                        'blue-ta': '#0056b3',      // Azul tecnológico (Destaque)
-                        'orange-ta': '#f7991e',    // Laranja energia jovem (Navbar/CTA)
-                        'gray-ta': '#f4f4f4',      // Cinza neutro
-                        'black-ta': '#222222',     // Preto institucional (Rodapé)
-                        'dark-ta': '#1a1a1a',      // Fundo Escuro Principal
-                        'dark-card': '#2f2f2f',    // Fundo de Card
-                        'green-ta': '#4CAF50',     // Botão CTA Principal
+                        'blue-ta': '#0056b3',
+                        'orange-ta': '#f7991e',
+                        'gray-ta': '#f4f4f4',
+                        'black-ta': '#222222',
+                        'dark-ta': '#1a1a1a',
+                        'dark-card': '#2f2f2f',
+                        'green-ta': '#4CAF50',
                     },
                     fontFamily: {
                         'poppins': ['Poppins', 'sans-serif'],
@@ -32,8 +32,87 @@
     <!-- Carrega as fontes Poppins e Inter -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
     
-    <!-- Link para seu CSS Customizado -->
-    <link rel="stylesheet" href="style.css">
+    <!-- Ícones do Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        .radio-card {
+            transition: all 0.3s ease;
+        }
+        .radio-card:hover {
+            transform: translateY(-5px);
+        }
+        .player-container {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2f2f2f 100%);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        .volume-slider {
+            -webkit-appearance: none;
+            width: 100%;
+            height: 5px;
+            border-radius: 5px;
+            background: #4a5568;
+            outline: none;
+        }
+        .volume-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background: #f7991e;
+            cursor: pointer;
+        }
+        .volume-slider::-moz-range-thumb {
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background: #f7991e;
+            cursor: pointer;
+        }
+        .station-playing {
+            border: 2px solid #f7991e;
+            box-shadow: 0 0 15px rgba(247, 153, 30, 0.3);
+        }
+        .equalizer-bar {
+            width: 3px;
+            background: #f7991e;
+            margin: 0 2px;
+            border-radius: 2px;
+            animation: equalizer 1.5s ease infinite;
+        }
+        .equalizer-bar:nth-child(2) { animation-delay: 0.1s; }
+        .equalizer-bar:nth-child(3) { animation-delay: 0.2s; }
+        .equalizer-bar:nth-child(4) { animation-delay: 0.3s; }
+        .equalizer-bar:nth-child(5) { animation-delay: 0.4s; }
+        
+        @keyframes equalizer {
+            0%, 100% { height: 5px; }
+            50% { height: 20px; }
+        }
+        
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Melhorias para mobile */
+        @media (max-width: 768px) {
+            .player-controls {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            .volume-controls {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
 </head>
 <body class="bg-dark-ta min-h-screen antialiased font-inter text-white">
 
@@ -99,31 +178,33 @@
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="grid lg:grid-cols-12 gap-12 items-center">
                     
-                    <!-- Coluna de Imagem (AJUSTADA: Removida a moldura laranja) -->
+                    <!-- Coluna de Imagem -->
                     <div class="lg:col-span-5 flex justify-center lg:justify-start">
-                        <!-- Imagem da Logo com Responsividade -->
-                        <img 
-                            src="imagens/logo-fala-ai-aprendiz.png" 
-                            alt="Logotipo Fala Aí Aprendiz" 
-                            class="w-full max-w-xs md:max-w-sm h-auto object-contain"
-                        >
+                        <!-- Placeholder para imagem - substitua pelo logo real -->
+                        <div class="w-full max-w-xs md:max-w-sm h-64 bg-dark-card rounded-2xl flex items-center justify-center border-2 border-orange-ta">
+                            <div class="text-center">
+                                <i class="fas fa-broadcast-tower text-6xl text-orange-ta mb-4"></i>
+                                <p class="text-orange-ta font-bold">LOGO FALA AÍ APRENDIZ</p>
+                                <p class="text-gray-400 text-sm mt-2">Substitua por imagem real</p>
+                            </div>
+                        </div>
                     </div>
                     
                     <!-- Coluna de Texto -->
                     <div class="lg:col-span-7 space-y-6">
                         <h1 class="font-poppins text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight text-orange-ta">
-                            PodCas Fala Aí Aprendiz: Conectando Você ao Mercado de Trabalho
+                            Rádio Fala Aí Aprendiz
                         </h1>
                         <p class="font-inter text-lg sm:text-xl text-white/90">
-                            Nosso podcast é o seu guia semanal para o universo da Aprendizagem, Inovação e Carreira. Ouça histórias inspiradoras, dicas de quem já está no mercado e o que a Geração Z precisa saber para ter sucesso.
+                            A primeira rádio online feita para a Geração Z! Música, notícias, entretenimento e muito conteúdo sobre carreira e mercado de trabalho. Conecte-se com a sua região e com o Brasil!
                         </p>
                         <!-- Botões CTA -->
                         <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 pt-4">
-                            <a href="#plataformas" class="inline-flex justify-center items-center px-8 py-4 border border-transparent text-base font-semibold rounded-full text-white bg-blue-ta hover:bg-blue-ta/80 transition duration-300 shadow-lg font-poppins">
-                                Onde Ouvir o Podcast
+                            <a href="#player" class="inline-flex justify-center items-center px-8 py-4 border border-transparent text-base font-semibold rounded-full text-white bg-blue-ta hover:bg-blue-ta/80 transition duration-300 shadow-lg font-poppins">
+                                <i class="fas fa-play mr-2"></i> Ouvir Agora
                             </a>
-                            <a href="#episodios" class="inline-flex justify-center items-center px-8 py-4 border-2 border-orange-ta text-base font-semibold rounded-full text-orange-ta hover:bg-orange-ta hover:text-dark-ta transition duration-300">
-                                Ver Episódios
+                            <a href="#estacoes" class="inline-flex justify-center items-center px-8 py-4 border-2 border-orange-ta text-base font-semibold rounded-full text-orange-ta hover:bg-orange-ta hover:text-dark-ta transition duration-300">
+                                <i class="fas fa-broadcast-tower mr-2"></i> Ver Todas as Rádios
                             </a>
                         </div>
                     </div>
@@ -131,134 +212,247 @@
             </div>
         </section>
 
-        <!-- 2. SESSÃO: PLAYER DE RÁDIO REGIONALIZADA -->
-        <section class="py-16 md:py-24 bg-dark-card">
-            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- 2. PLAYER PRINCIPAL DE RÁDIO -->
+        <section id="player" class="py-16 md:py-24 bg-dark-card">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
                 <h2 class="font-poppins text-3xl sm:text-4xl font-bold mb-8 text-white text-center">
-                    Rádio Jovem Z: Conectando Você à Sua Região
+                    Player de Rádio Online
                 </h2>
-                <!-- Player de Rádio Integrado com JS de Geolocalização -->
-                <div id="radio-player-container" class="max-w-xl mx-auto bg-dark-ta p-6 rounded-xl shadow-2xl border-b-4 border-orange-ta text-center">
+                
+                <!-- Player Principal -->
+                <div class="player-container p-8 rounded-2xl border-t-4 border-orange-ta">
+                    <div class="player-controls flex flex-col md:flex-row items-center justify-between mb-6">
+                        <div class="flex items-center mb-4 md:mb-0">
+                            <div id="equalizer" class="flex mr-4" style="display: none;">
+                                <div class="equalizer-bar"></div>
+                                <div class="equalizer-bar"></div>
+                                <div class="equalizer-bar"></div>
+                                <div class="equalizer-bar"></div>
+                                <div class="equalizer-bar"></div>
+                            </div>
+                            <div>
+                                <h3 id="current-station" class="font-poppins text-xl font-bold text-orange-ta">Selecione uma rádio</h3>
+                                <p id="current-song" class="text-gray-400 text-sm">Nenhuma música tocando</p>
+                            </div>
+                        </div>
+                        
+                        <div class="volume-controls flex items-center space-x-4">
+                            <button id="volume-down" class="text-gray-400 hover:text-white transition">
+                                <i class="fas fa-volume-down"></i>
+                            </button>
+                            <input type="range" id="volume-slider" class="volume-slider w-24" min="0" max="100" value="70">
+                            <button id="volume-up" class="text-gray-400 hover:text-white transition">
+                                <i class="fas fa-volume-up"></i>
+                            </button>
+                        </div>
+                    </div>
                     
-                    <p id="radio-status" class="text-white mb-4 text-sm font-semibold">Buscando sua localização...</p>
+                    <div class="flex items-center justify-center space-x-6 mb-6">
+                        <button id="prev-station" class="text-gray-400 hover:text-orange-ta transition text-xl">
+                            <i class="fas fa-step-backward"></i>
+                        </button>
+                        
+                        <button id="play-pause" class="bg-orange-ta text-white rounded-full w-16 h-16 flex items-center justify-center hover:bg-orange-ta/80 transition shadow-lg">
+                            <i class="fas fa-play text-xl"></i>
+                        </button>
+                        
+                        <button id="next-station" class="text-gray-400 hover:text-orange-ta transition text-xl">
+                            <i class="fas fa-step-forward"></i>
+                        </button>
+                    </div>
                     
-                    <h3 id="radio-title" class="font-poppins text-2xl font-bold text-orange-ta mb-4">Carregando Rádio...</h3>
-                    
-                    <!-- Elemento Audio que será populado pelo script.js -->
-                    <audio id="audio-player" controls preload="none" class="w-full bg-dark-card p-2 rounded-lg">
-                        Seu navegador não suporta o elemento de áudio.
-                    </audio>
-                    
-                    <p class="text-sm text-gray-400 mt-4">Ouça o streaming mais próximo a você com dicas de carreira e notícias locais da Geração Z.</p>
-                </div>
-            </div>
-        </section>
-
-
-        <!-- 3. SESSÃO: ÚLTIMOS EPISÓDIOS (Antiga Seção 2) -->
-        <section id="episodios" class="py-16 md:py-24 bg-dark-ta">
-            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-                <h2 class="font-poppins text-3xl sm:text-4xl font-bold mb-12 text-white text-center">
-                    Ouça os Últimos Episódios
-                </h2>
-                <div class="text-center max-w-3xl mx-auto mb-12">
-                    <p class="font-inter text-lg text-white/80">
-                        Entrevistas com CEOs, dicas práticas para o processo seletivo e muito sobre tecnologia e impacto social.
-                    </p>
+                    <div class="text-center">
+                        <p id="player-status" class="text-gray-400 text-sm">Clique em play para começar a ouvir</p>
+                    </div>
                 </div>
                 
-                <div class="grid md:grid-cols-3 gap-8">
-                    <!-- Episódio 1 -->
-                    <div class="bg-dark-card p-6 rounded-xl shadow-xl border-t-4 border-orange-ta card-hover">
-                        <h3 class="font-poppins text-xl font-bold mb-3 text-orange-ta">EP 12: Desvendando a IA LEIA</h3>
-                        <p class="font-inter text-gray-300 mb-4">Convidamos Erick Mattos para falar sobre como a Inteligência Artificial está simplificando a Lei da Aprendizagem para as empresas.</p>
-                        <a href="https://open.spotify.com/show/example" target="_blank" class="text-blue-ta font-semibold hover:text-orange-ta transition duration-300 text-sm">Ouvir no Spotify →</a>
-                    </div>
-                    <!-- Episódio 2 -->
-                    <div class="bg-dark-card p-6 rounded-xl shadow-xl border-t-4 border-blue-ta card-hover">
-                        <h3 class="font-poppins text-xl font-bold mb-3 text-blue-ta">EP 11: Como Montar um Currículo Invencível</h3>
-                        <p class="font-inter text-gray-300 mb-4">Dicas práticas para jovens que saem do Game APZ e precisam se destacar na entrevista final.</p>
-                        <a href="https://deezer.com/show/example" target="_blank" class="text-blue-ta font-semibold hover:text-orange-ta transition duration-300 text-sm">Ouvir no Deezer →</a>
-                    </div>
-                    <!-- Episódio 3 -->
-                    <div class="bg-dark-card p-6 rounded-xl shadow-xl border-t-4 border-orange-ta card-hover">
-                        <h3 class="font-poppins text-xl font-bold mb-3 text-orange-ta">EP 10: O Futuro do Trabalho na Amazônia</h3>
-                        <p class="font-inter text-gray-300 mb-4">Oportunidades, desafios e o papel da inovação na região com um convidado especial da FAPEAM.</p>
-                        <a href="https://podcasts.apple.com/example" target="_blank" class="text-blue-ta font-semibold hover:text-orange-ta transition duration-300 text-sm">Ouvir no Apple Podcasts →</a>
+                <!-- Rádio Sugerida por Localização -->
+                <div id="suggested-radio" class="mt-8 bg-dark-ta p-6 rounded-xl border-l-4 border-blue-ta hidden">
+                    <h3 class="font-poppins text-lg font-bold text-white mb-2">
+                        <i class="fas fa-map-marker-alt text-blue-ta mr-2"></i> Rádio Sugerida para sua Região
+                    </h3>
+                    <div class="flex justify-between items-center">
+                        <div>
+                            <p id="suggested-name" class="text-white font-medium"></p>
+                            <p id="suggested-location" class="text-gray-400 text-sm"></p>
+                        </div>
+                        <button id="play-suggested" class="bg-blue-ta text-white px-4 py-2 rounded-lg hover:bg-blue-ta/80 transition">
+                            <i class="fas fa-play mr-1"></i> Ouvir
+                        </button>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- 4. SESSÃO: PLATAFORMAS DE ESCUTA (Antiga Seção 3) -->
-        <section id="plataformas" class="py-16 md:py-24 bg-dark-card">
-            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                <h2 class="font-poppins text-3xl sm:text-4xl font-bold mb-12 text-white">
-                    Disponível nas Melhores Plataformas
+        <!-- 3. LISTA DE ESTAÇÕES DE RÁDIO -->
+        <section id="estacoes" class="py-16 bg-dark-ta">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="font-poppins text-3xl sm:text-4xl font-bold mb-12 text-white text-center">
+                    Nossas Rádios Parceiras
                 </h2>
-                <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-6 gap-8 items-center justify-center">
+                
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Rádio 1: Fala Aí Aprendiz -->
+                    <div class="radio-card bg-dark-card p-6 rounded-xl shadow-xl border-t-4 border-orange-ta" data-station="fala-ai">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-orange-ta rounded-lg flex items-center justify-center mr-4">
+                                <i class="fas fa-podcast text-white"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-poppins text-lg font-bold text-white">Fala Aí Aprendiz</h3>
+                                <p class="text-gray-400 text-sm">Podcast & Carreira</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-300 text-sm mb-4">Conteúdo sobre mercado de trabalho, entrevistas e dicas para jovens profissionais.</p>
+                        <button class="play-station w-full bg-orange-ta text-white py-2 rounded-lg hover:bg-orange-ta/80 transition font-medium">
+                            <i class="fas fa-play mr-1"></i> Ouvir Agora
+                        </button>
+                    </div>
                     
-                    <!-- Plataforma 1 -->
-                    <a href="https://open.spotify.com/show/example" target="_blank" class="bg-dark-ta p-4 rounded-xl shadow-md card-hover border-b-4 border-green-ta">
-                        <div class="h-16 flex items-center justify-center">
-                            <span class="text-3xl text-green-500">🎵</span>
+                    <!-- Rádio 2: Jovem Z Manaus -->
+                    <div class="radio-card bg-dark-card p-6 rounded-xl shadow-xl border-t-4 border-blue-ta" data-station="jovem-z">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-blue-ta rounded-lg flex items-center justify-center mr-4">
+                                <i class="fas fa-music text-white"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-poppins text-lg font-bold text-white">Jovem Z Manaus</h3>
+                                <p class="text-gray-400 text-sm">Hits & Entretenimento</p>
+                            </div>
                         </div>
-                        <p class="text-sm mt-2 text-white">Spotify</p>
-                    </a>
-                    <!-- Plataforma 2 -->
-                    <a href="https://deezer.com/show/example" target="_blank" class="bg-dark-ta p-4 rounded-xl shadow-md card-hover border-b-4 border-green-ta">
-                        <div class="h-16 flex items-center justify-center">
-                            <span class="text-3xl text-white">🎶</span>
+                        <p class="text-gray-300 text-sm mb-4">Os maiores sucessos da música nacional e internacional para a galera de Manaus.</p>
+                        <button class="play-station w-full bg-blue-ta text-white py-2 rounded-lg hover:bg-blue-ta/80 transition font-medium">
+                            <i class="fas fa-play mr-1"></i> Ouvir Agora
+                        </button>
+                    </div>
+                    
+                    <!-- Rádio 3: Cidade FM Manaus -->
+                    <div class="radio-card bg-dark-card p-6 rounded-xl shadow-xl border-t-4 border-green-ta" data-station="cidade-fm">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-green-ta rounded-lg flex items-center justify-center mr-4">
+                                <i class="fas fa-broadcast-tower text-white"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-poppins text-lg font-bold text-white">Cidade FM Manaus</h3>
+                                <p class="text-gray-400 text-sm">Notícias & Música</p>
+                            </div>
                         </div>
-                        <p class="text-sm mt-2 text-white">Deezer</p>
-                    </a>
-                    <!-- Plataforma 3 -->
-                    <a href="https://podcasts.apple.com/example" target="_blank" class="bg-dark-ta p-4 rounded-xl shadow-md card-hover border-b-4 border-green-ta">
-                        <div class="h-16 flex items-center justify-center">
-                            <span class="text-3xl text-gray-400">📱</span>
+                        <p class="text-gray-300 text-sm mb-4">Informação e entretenimento para a capital do Amazonas.</p>
+                        <button class="play-station w-full bg-green-ta text-white py-2 rounded-lg hover:bg-green-ta/80 transition font-medium">
+                            <i class="fas fa-play mr-1"></i> Ouvir Agora
+                        </button>
+                    </div>
+                    
+                    <!-- Rádio 4: Mix FM Manaus -->
+                    <div class="radio-card bg-dark-card p-6 rounded-xl shadow-xl border-t-4 border-orange-ta" data-station="mix-fm">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-orange-ta rounded-lg flex items-center justify-center mr-4">
+                                <i class="fas fa-headphones text-white"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-poppins text-lg font-bold text-white">Mix FM Manaus</h3>
+                                <p class="text-gray-400 text-sm">Pop & Dance</p>
+                            </div>
                         </div>
-                        <p class="text-sm mt-2 text-white">Apple Podcasts</p>
-                    </a>
-                    <!-- Plataforma 4 -->
-                    <a href="https://podcasts.google.com/example" target="_blank" class="bg-dark-ta p-4 rounded-xl shadow-md card-hover border-b-4 border-green-ta">
-                        <div class="h-16 flex items-center justify-center">
-                            <span class="text-3xl text-red-500">🔴</span>
+                        <p class="text-gray-300 text-sm mb-4">As melhores músicas para dançar e curtir com os amigos.</p>
+                        <button class="play-station w-full bg-orange-ta text-white py-2 rounded-lg hover:bg-orange-ta/80 transition font-medium">
+                            <i class="fas fa-play mr-1"></i> Ouvir Agora
+                        </button>
+                    </div>
+                    
+                    <!-- Rádio 5: Liberal FM Belém -->
+                    <div class="radio-card bg-dark-card p-6 rounded-xl shadow-xl border-t-4 border-blue-ta" data-station="liberal-fm">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-blue-ta rounded-lg flex items-center justify-center mr-4">
+                                <i class="fas fa-radio text-white"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-poppins text-lg font-bold text-white">Liberal FM Belém</h3>
+                                <p class="text-gray-400 text-sm">Regional & Popular</p>
+                            </div>
                         </div>
-                        <p class="text-sm mt-2 text-white">Google Podcasts</p>
-                    </a>
-                    <!-- Plataforma 5 -->
-                    <a href="https://music.amazon.com/example" target="_blank" class="bg-dark-ta p-4 rounded-xl shadow-md card-hover border-b-4 border-green-ta">
-                        <div class="h-16 flex items-center justify-center">
-                            <span class="text-3xl text-orange-500">📦</span>
+                        <p class="text-gray-300 text-sm mb-4">A voz do Pará com música e informação para toda a família.</p>
+                        <button class="play-station w-full bg-blue-ta text-white py-2 rounded-lg hover:bg-blue-ta/80 transition font-medium">
+                            <i class="fas fa-play mr-1"></i> Ouvir Agora
+                        </button>
+                    </div>
+                    
+                    <!-- Rádio 6: Rádio Boa Vista -->
+                    <div class="radio-card bg-dark-card p-6 rounded-xl shadow-xl border-t-4 border-green-ta" data-station="boa-vista">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-green-ta rounded-lg flex items-center justify-center mr-4">
+                                <i class="fas fa-music text-white"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-poppins text-lg font-bold text-white">Rádio Boa Vista</h3>
+                                <p class="text-gray-400 text-sm">Variedades & Notícias</p>
+                            </div>
                         </div>
-                        <p class="text-sm mt-2 text-white">Amazon Music</p>
-                    </a>
-                    <!-- Plataforma 6 -->
-                    <a href="https://youtube.com/example" target="_blank" class="bg-dark-ta p-4 rounded-xl shadow-md card-hover border-b-4 border-green-ta">
-                        <div class="h-16 flex items-center justify-center">
-                            <span class="text-3xl text-red-600">▶️</span>
-                        </div>
-                        <p class="text-sm mt-2 text-white">YouTube</p>
-                    </a>
+                        <p class="text-gray-300 text-sm mb-4">A melhor programação para Roraima, com música e informação.</p>
+                        <button class="play-station w-full bg-green-ta text-white py-2 rounded-lg hover:bg-green-ta/80 transition font-medium">
+                            <i class="fas fa-play mr-1"></i> Ouvir Agora
+                        </button>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- 5. SESSÃO: CTA FINAL (Antiga Seção 4) -->
+        <!-- 4. SESSÃO: CONTEÚDO EXCLUSIVO -->
+        <section class="py-16 bg-dark-card">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="font-poppins text-3xl sm:text-4xl font-bold mb-12 text-white text-center">
+                    Conteúdo Exclusivo para a Geração Z
+                </h2>
+                
+                <div class="grid md:grid-cols-3 gap-8">
+                    <!-- Conteúdo 1 -->
+                    <div class="bg-dark-ta p-6 rounded-xl shadow-xl border-l-4 border-orange-ta">
+                        <div class="text-orange-ta text-3xl mb-4">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h3 class="font-poppins text-xl font-bold text-white mb-3">Dicas de Carreira</h3>
+                        <p class="text-gray-300 mb-4">Programas especiais com dicas para conseguir o primeiro emprego, montar currículo e se preparar para entrevistas.</p>
+                        <a href="#" class="text-orange-ta font-medium hover:text-orange-ta/80 transition">Saber mais →</a>
+                    </div>
+                    
+                    <!-- Conteúdo 2 -->
+                    <div class="bg-dark-ta p-6 rounded-xl shadow-xl border-l-4 border-blue-ta">
+                        <div class="text-blue-ta text-3xl mb-4">
+                            <i class="fas fa-newspaper"></i>
+                        </div>
+                        <h3 class="font-poppins text-xl font-bold text-white mb-3">Notícias da Juventude</h3>
+                        <p class="text-gray-300 mb-4">As principais notícias que afetam os jovens brasileiros, com uma linguagem descomplicada e direta.</p>
+                        <a href="#" class="text-blue-ta font-medium hover:text-blue-ta/80 transition">Saber mais →</a>
+                    </div>
+                    
+                    <!-- Conteúdo 3 -->
+                    <div class="bg-dark-ta p-6 rounded-xl shadow-xl border-l-4 border-green-ta">
+                        <div class="text-green-ta text-3xl mb-4">
+                            <i class="fas fa-gamepad"></i>
+                        </div>
+                        <h3 class="font-poppins text-xl font-bold text-white mb-3">Entretenimento & Cultura</h3>
+                        <p class="text-gray-300 mb-4">Resenhas de filmes, séries, games e eventos culturais que estão bombando entre a galera Z.</p>
+                        <a href="#" class="text-green-ta font-medium hover:text-green-ta/80 transition">Saber mais →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. SESSÃO: CTA FINAL -->
         <section class="py-16 bg-dark-ta">
             <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
                 <h2 class="font-poppins text-3xl sm:text-4xl font-bold mb-6 text-white">
-                    PRONTO PARA DECOLAR SUA CARREIRA?
+                    FAÇA PARTE DA NOSSA COMUNIDADE
                 </h2>
                 <p class="font-inter text-xl text-white/80 mb-8">
-                    Não perca nenhum episódio! Comece sua jornada profissional hoje mesmo com o Game APZ Seleção.
+                    Conecte-se com outros jovens, compartilhe suas experiências e faça networking para sua carreira.
                 </p>
                 <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 justify-center">
-                    <a href="https://scriptcase99.containersol.com.br/scriptcase/app/Trilha/Login/" class="inline-flex items-center justify-center px-10 py-4 border border-transparent text-lg font-semibold rounded-full text-white bg-green-ta hover:bg-green-ta/80 transition duration-300 shadow-lg">
-                        Acesse o Game APZ Seleção
+                    <a href="https://www.youtube.com/@trilhadoaprendiz" target="_blank" class="inline-flex items-center justify-center px-10 py-4 border border-transparent text-lg font-semibold rounded-full text-white bg-red-600 hover:bg-red-700 transition duration-300 shadow-lg">
+                        <i class="fab fa-youtube mr-2"></i> Inscreva-se no YouTube
                     </a>
-                    <a href="blog.html" class="inline-flex items-center justify-center px-10 py-4 border-2 border-orange-ta text-lg font-semibold rounded-full text-orange-ta hover:bg-orange-ta hover:text-dark-ta transition duration-300">
-                        Ver Mais Conteúdo
+                    <a href="contato.html" class="inline-flex items-center justify-center px-10 py-4 border-2 border-orange-ta text-lg font-semibold rounded-full text-orange-ta hover:bg-orange-ta hover:text-dark-ta transition duration-300">
+                        <i class="fas fa-microphone mr-2"></i> Participe do Podcast
                     </a>
                 </div>
             </div>
@@ -270,11 +464,290 @@
     <footer class="bg-black-ta py-8">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-gray-400 font-inter text-sm">
             <p>&copy; 2025 Trilha do Aprendiz. Todos os direitos reservados.</p>
-            <p class="mt-2">Desenvolvido por Trilha do Aprendiz</p>
+            <p class="mt-2">Desenvolvido por Trilha do Aprendiz | Instituto Valendo</p>
+            <div class="mt-4 flex justify-center space-x-6">
+                <a href="https://www.instagram.com/trilhadoaprendiz" target="_blank" class="text-gray-400 hover:text-white transition">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://www.youtube.com/@trilhadoaprendiz" target="_blank" class="text-gray-400 hover:text-white transition">
+                    <i class="fab fa-youtube"></i>
+                </a>
+                <a href="https://wa.me/559281335565" target="_blank" class="text-gray-400 hover:text-white transition">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+                <a href="mailto:trilhadoaprendiz@gmail.com" class="text-gray-400 hover:text-white transition">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
         </div>
     </footer>
 
-    <!-- Link para seu JavaScript -->
-    <script src="script.js"></script>
+    <!-- JavaScript para funcionalidades da rádio -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log("Rádio Fala Aí Aprendiz carregada!");
+            
+            // --- 1. LÓGICA DO MENU MOBILE ---
+            const menuToggle = document.getElementById('menu-toggle');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            if (menuToggle && mobileMenu) {
+                menuToggle.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
+                    
+                    // Alternar ícone do menu
+                    const icon = menuToggle.querySelector('svg');
+                    if (mobileMenu.classList.contains('hidden')) {
+                        icon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>';
+                    } else {
+                        icon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>';
+                    }
+                });
+            }
+
+            // --- 2. SISTEMA DE RÁDIO ONLINE ---
+            
+            // Elementos do player
+            const audioPlayer = new Audio();
+            const playPauseBtn = document.getElementById('play-pause');
+            const prevStationBtn = document.getElementById('prev-station');
+            const nextStationBtn = document.getElementById('next-station');
+            const volumeSlider = document.getElementById('volume-slider');
+            const volumeDownBtn = document.getElementById('volume-down');
+            const volumeUpBtn = document.getElementById('volume-up');
+            const currentStationEl = document.getElementById('current-station');
+            const currentSongEl = document.getElementById('current-song');
+            const playerStatusEl = document.getElementById('player-status');
+            const equalizer = document.getElementById('equalizer');
+            const suggestedRadio = document.getElementById('suggested-radio');
+            const playSuggestedBtn = document.getElementById('play-suggested');
+            const suggestedName = document.getElementById('suggested-name');
+            const suggestedLocation = document.getElementById('suggested-location');
+            
+            // Lista de estações de rádio (URLs de exemplo - substitua por URLs reais)
+            const stations = [
+                {
+                    id: 'fala-ai',
+                    name: 'Fala Aí Aprendiz',
+                    stream: 'https://stream.exemplo.com/fala-ai',
+                    location: 'Nacional',
+                    genre: 'Podcast & Carreira',
+                    description: 'Conteúdo sobre mercado de trabalho para jovens'
+                },
+                {
+                    id: 'jovem-z',
+                    name: 'Jovem Z Manaus',
+                    stream: 'https://stream.exemplo.com/jovem-z',
+                    location: 'Manaus/AM',
+                    genre: 'Hits & Entretenimento',
+                    description: 'Os maiores sucessos para a galera de Manaus'
+                },
+                {
+                    id: 'cidade-fm',
+                    name: 'Cidade FM Manaus',
+                    stream: 'https://stream.exemplo.com/cidade-fm',
+                    location: 'Manaus/AM',
+                    genre: 'Notícias & Música',
+                    description: 'Informação e entretenimento para a capital do Amazonas'
+                },
+                {
+                    id: 'mix-fm',
+                    name: 'Mix FM Manaus',
+                    stream: 'https://stream.exemplo.com/mix-fm',
+                    location: 'Manaus/AM',
+                    genre: 'Pop & Dance',
+                    description: 'As melhores músicas para dançar e curtir'
+                },
+                {
+                    id: 'liberal-fm',
+                    name: 'Liberal FM Belém',
+                    stream: 'https://stream.exemplo.com/liberal-fm',
+                    location: 'Belém/PA',
+                    genre: 'Regional & Popular',
+                    description: 'A voz do Pará com música e informação'
+                },
+                {
+                    id: 'boa-vista',
+                    name: 'Rádio Boa Vista',
+                    stream: 'https://stream.exemplo.com/boa-vista',
+                    location: 'Boa Vista/RR',
+                    genre: 'Variedades & Notícias',
+                    description: 'A melhor programação para Roraima'
+                }
+            ];
+            
+            let currentStationIndex = 0;
+            let isPlaying = false;
+            let currentVolume = 70;
+            
+            // Configurações iniciais
+            audioPlayer.volume = currentVolume / 100;
+            volumeSlider.value = currentVolume;
+            equalizer.style.display = 'none';
+            
+            // Função para tocar uma estação
+            function playStation(index) {
+                if (index < 0 || index >= stations.length) return;
+                
+                currentStationIndex = index;
+                const station = stations[currentStationIndex];
+                
+                // Atualiza a interface
+                currentStationEl.textContent = station.name;
+                currentSongEl.textContent = `Carregando...`;
+                playerStatusEl.textContent = `Conectando com ${station.name}...`;
+                
+                // Para o áudio atual e carrega o novo
+                audioPlayer.pause();
+                audioPlayer.src = station.stream;
+                
+                // Toca a nova estação
+                audioPlayer.play().then(() => {
+                    isPlaying = true;
+                    updatePlayPauseButton();
+                    equalizer.style.display = 'flex';
+                    playerStatusEl.textContent = `Tocando: ${station.name}`;
+                    
+                    // Atualiza o card da estação atual
+                    document.querySelectorAll('.radio-card').forEach(card => {
+                        card.classList.remove('station-playing');
+                    });
+                    document.querySelector(`[data-station="${station.id}"]`).classList.add('station-playing');
+                    
+                }).catch(error => {
+                    console.error('Erro ao reproduzir áudio:', error);
+                    playerStatusEl.textContent = 'Erro ao conectar com a rádio. Tente novamente.';
+                    isPlaying = false;
+                    updatePlayPauseButton();
+                    equalizer.style.display = 'none';
+                });
+            }
+            
+            // Função para atualizar o botão play/pause
+            function updatePlayPauseButton() {
+                const icon = playPauseBtn.querySelector('i');
+                if (isPlaying) {
+                    icon.classList.remove('fa-play');
+                    icon.classList.add('fa-pause');
+                } else {
+                    icon.classList.remove('fa-pause');
+                    icon.classList.add('fa-play');
+                }
+            }
+            
+            // Eventos do player
+            playPauseBtn.addEventListener('click', () => {
+                if (isPlaying) {
+                    audioPlayer.pause();
+                    isPlaying = false;
+                    equalizer.style.display = 'none';
+                } else {
+                    // Se não há estação selecionada, toca a primeira
+                    if (!audioPlayer.src) {
+                        playStation(0);
+                    } else {
+                        audioPlayer.play();
+                        isPlaying = true;
+                        equalizer.style.display = 'flex';
+                    }
+                }
+                updatePlayPauseButton();
+            });
+            
+            prevStationBtn.addEventListener('click', () => {
+                let newIndex = currentStationIndex - 1;
+                if (newIndex < 0) newIndex = stations.length - 1;
+                playStation(newIndex);
+            });
+            
+            nextStationBtn.addEventListener('click', () => {
+                let newIndex = currentStationIndex + 1;
+                if (newIndex >= stations.length) newIndex = 0;
+                playStation(newIndex);
+            });
+            
+            volumeSlider.addEventListener('input', () => {
+                currentVolume = volumeSlider.value;
+                audioPlayer.volume = currentVolume / 100;
+            });
+            
+            volumeDownBtn.addEventListener('click', () => {
+                currentVolume = Math.max(0, currentVolume - 10);
+                volumeSlider.value = currentVolume;
+                audioPlayer.volume = currentVolume / 100;
+            });
+            
+            volumeUpBtn.addEventListener('click', () => {
+                currentVolume = Math.min(100, currentVolume + 10);
+                volumeSlider.value = currentVolume;
+                audioPlayer.volume = currentVolume / 100;
+            });
+            
+            // Eventos para os botões de play nas estações
+            document.querySelectorAll('.play-station').forEach(button => {
+                button.addEventListener('click', (e) => {
+                    const stationCard = e.target.closest('.radio-card');
+                    const stationId = stationCard.getAttribute('data-station');
+                    const stationIndex = stations.findIndex(station => station.id === stationId);
+                    
+                    if (stationIndex !== -1) {
+                        playStation(stationIndex);
+                    }
+                });
+            });
+            
+            // --- 3. GEOLOCALIZAÇÃO PARA SUGERIR RÁDIO REGIONAL ---
+            function suggestRegionalRadio() {
+                if (navigator.geolocation) {
+                    navigator.geolocation.getCurrentPosition(
+                        (position) => {
+                            const userLat = position.coords.latitude;
+                            const userLon = position.coords.longitude;
+                            
+                            // Simulação de sugestão baseada na localização
+                            let suggestedStation = null;
+                            
+                            // Região Norte (exemplo simplificado)
+                            if (userLat > -10 && userLat < 5 && userLon > -75 && userLon < -50) {
+                                suggestedStation = stations.find(s => s.location.includes('Manaus')) || stations[1];
+                            }
+                            
+                            if (suggestedStation) {
+                                suggestedName.textContent = suggestedStation.name;
+                                suggestedLocation.textContent = suggestedStation.location;
+                                suggestedRadio.classList.remove('hidden');
+                                
+                                playSuggestedBtn.addEventListener('click', () => {
+                                    const stationIndex = stations.findIndex(station => station.id === suggestedStation.id);
+                                    playStation(stationIndex);
+                                });
+                            }
+                        },
+                        (error) => {
+                            console.log("Geolocalização não disponível ou permitida");
+                        }
+                    );
+                }
+            }
+            
+            // Inicia a sugestão de rádio regional
+            suggestRegionalRadio();
+            
+            // Simulação de atualização de música atual
+            setInterval(() => {
+                if (isPlaying) {
+                    const songs = [
+                        "Artista - Música Atual",
+                        "Hit do Momento - Sucesso Nacional",
+                        "Podcast Fala Aí Aprendiz - Episódio Especial",
+                        "As Mais Tocadas - Top 10 Brasil",
+                        "Entrevista Exclusiva - Jovem Empreendedor"
+                    ];
+                    const randomSong = songs[Math.floor(Math.random() * songs.length)];
+                    currentSongEl.textContent = randomSong;
+                }
+            }, 10000);
+        });
+    </script>
 </body>
 </html>
