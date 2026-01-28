@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogar APZ Seleção | Trilha do Aprendiz</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'blue-ta': '#0056b3',
+                        'orange-ta': '#f7991e',
+                        'dark-ta': '#1a1a1a',
+                        'dark-card': '#2f2f2f',
+                        'green-ta': '#4CAF50',
+                    },
+                    fontFamily: {
+                        'poppins': ['Poppins', 'sans-serif'],
+                        'inter': ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+</head>
+<body class="bg-dark-ta text-white font-inter min-h-screen flex flex-col">
+
+    <div id="gamification-hud" class="bg-black/80 backdrop-blur px-4 py-3 flex items-center justify-between border-b-2 border-orange-ta sticky top-0 z-50">
+        <div class="flex items-center gap-3">
+            <div class="w-10 h-10 bg-orange-ta rounded-full flex items-center justify-center font-bold text-lg shadow-lg">
+                <span id="hud-nivel">1</span>
+            </div>
+            <div>
+                <div id="hud-nome" class="font-bold text-sm">Visitante</div>
+                <div class="text-xs text-gray-400">Jovem Aprendiz</div>
+            </div>
+        </div>
+        <div class="flex-1 max-w-xs ml-4">
+            <div class="flex justify-between text-xs mb-1 font-bold text-orange-ta">
+                <span>XP DA JORNADA</span>
+                <span id="hud-xp-texto">0/100</span>
+            </div>
+            <div class="w-full h-2 bg-gray-700 rounded-full overflow-hidden">
+                <div id="hud-barra-fill" class="h-full bg-orange-ta transition-all duration-500" style="width: 0%"></div>
+            </div>
+        </div>
+    </div>
+
+    <main class="flex-grow container mx-auto px-4 py-8 max-w-3xl flex items-center justify-center">
+        
+        <div id="quiz-container" class="w-full bg-dark-card p-6 md:p-10 rounded-2xl shadow-2xl border-t-4 border-orange-ta relative overflow-hidden animate__animated animate__fadeInUp">
+            
+            <div class="mb-6 flex justify-between items-end">
+                <span class="text-orange-ta font-bold text-xs tracking-widest uppercase">Desafio de Perfil</span>
+                <span id="contador-pergunta" class="text-2xl font-poppins font-bold">1/4</span>
+            </div>
+
+            <h2 id="pergunta-texto" class="font-poppins text-xl md:text-2xl font-bold mb-8 leading-relaxed">
+                Carregando desafio...
+            </h2>
+
+            <div id="opcoes-container" class="space-y-4">
+                </div>
+        </div>
+
+        <div id="tela-resultado" class="hidden w-full text-center animate__animated animate__zoomIn">
+            <div class="inline-block p-6 rounded-full bg-green-500/20 mb-6 border-4 border-green-500">
+                <div class="text-6xl">🏆</div>
+            </div>
+            <h2 class="text-3xl font-bold mb-2 font-poppins">DESAFIO CONCLUÍDO!</h2>
+            
+            <div class="bg-dark-card p-8 rounded-xl border border-gray-700 max-w-md mx-auto my-8 shadow-xl">
+                <h3 class="text-orange-ta font-bold mb-2 uppercase text-sm tracking-widest">Seu Perfil Dominante</h3>
+                <div id="resultado-perfil" class="text-3xl font-extrabold text-white mb-2">LÍDER NATO</div>
+                <p id="resultado-desc" class="text-sm text-gray-300">
+                    Você demonstra iniciativa e visão estratégica. Empresas valorizam muito essa postura.
+                </p>
+                <div class="mt-6 pt-6 border-t border-gray-600 flex justify-between items-center">
+                    <span class="text-gray-400 text-sm">Recompensa Total</span>
+                    <span class="text-2xl font-bold text-green-400">+250 XP</span>
+                </div>
+            </div>
+
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="index.html" class="px-8 py-3 rounded-full border border-gray-500 hover:bg-gray-800 transition">Voltar ao Início</a>
+                <a href="https://scriptcase99.containersol.com.br/scriptcase/app/Trilha/Login/" class="px-8 py-3 rounded-full bg-green-ta hover:bg-green-600 text-white font-bold shadow-lg transition transform hover:scale-105">
+                    Cadastrar Currículo Completo
+                </a>
+            </div>
+        </div>
+
+    </main>
+
+    <script src="assets/js/gamificacao.js"></script>
+    <script>
+        // Lógica do Quiz Integrada
+        const PERGUNTAS = [
+            {
+                texto: "Primeiro dia de estágio. Seu chefe te passa uma tarefa difícil e sai para uma reunião. O que você faz?",
+                opcoes: [
+                    { texto: "Tento fazer sozinho pesquisando na internet.", perfil: "Autodidata", xp: 50 },
+                    { texto: "Espero ele voltar para não errar.", perfil: "Cauteloso", xp: 20 },
+                    { texto: "Peço ajuda a um colega experiente.", perfil: "Colaborativo", xp: 40 }
+                ]
+            },
+            {
+                texto: "Você percebe um erro numa planilha que ninguém viu. Se avisar, o projeto atrasa. Sua atitude:",
+                opcoes: [
+                    { texto: "Aviso imediatamente. A qualidade vem primeiro.", perfil: "Ético", xp: 60 },
+                    { texto: "Conserto quieto se der tempo.", perfil: "Pragmático", xp: 40 },
+                    { texto: "Deixo passar, não foi erro meu.", perfil: "Omisso", xp: 0 }
+                ]
+            },
+            {
+                texto: "A empresa pede voluntários para um evento no sábado. Você:",
+                opcoes: [
+                    { texto: "Me voluntario na hora! Quero aprender.", perfil: "Engajado", xp: 70 },
+                    { texto: "Vou se pagarem hora extra.", perfil: "Negociador", xp: 30 },
+                    { texto: "Inventou uma desculpa para não ir.", perfil: "Desinteressado", xp: 10 }
+                ]
+            },
+             {
+                texto: "Um cliente está irritado no telefone. O que você faz?",
+                opcoes: [
+                    { texto: "Ouço com calma e tento resolver o problema.", perfil: "Empático", xp: 60 },
+                    { texto: "Passo a ligação para o supervisor.", perfil: "Esquivo", xp: 20 },
+                    { texto: "Peço para ele se acalmar ou desligo.", perfil: "Reativo", xp: 0 }
+                ]
+            }
+        ];
+
+        let indice = 0;
+        let pontuacao = 0;
+
+        function carregarPergunta() {
+            const dados = PERGUNTAS[indice];
+            document.getElementById('contador-pergunta').innerText = `${indice + 1}/${PERGUNTAS.length}`;
+            document.getElementById('pergunta-texto').innerText = dados.texto;
+            
+            const container = document.getElementById('opcoes-container');
+            container.innerHTML = '';
+
+            dados.opcoes.forEach(op => {
+                const btn = document.createElement('button');
+                btn.className = "w-full text-left p-4 rounded-xl bg-dark-ta border border-gray-600 hover:border-orange-ta hover:bg-gray-800 transition duration-200 flex items-center group";
+                btn.innerHTML = `
+                    <div class="w-5 h-5 rounded-full border-2 border-gray-400 group-hover:border-orange-ta mr-4"></div>
+                    <span class="font-medium group-hover:text-white">${op.texto}</span>
+                `;
+                btn.onclick = () => responder(op);
+                container.appendChild(btn);
+            });
+        }
+
+        function responder(escolha) {
+            pontuacao += escolha.xp;
+            if(typeof SistemaXP !== 'undefined') SistemaXP.ganharXP(10, 'Pergunta Respondida'); // XP parcial
+
+            indice++;
+            if (indice < PERGUNTAS.length) {
+                carregarPergunta();
+            } else {
+                finalizar();
+            }
+        }
+
+        function finalizar() {
+            document.getElementById('quiz-container').classList.add('hidden');
+            document.getElementById('tela-resultado').classList.remove('hidden');
+            
+            // Bônus Final
+            if(typeof SistemaXP !== 'undefined') SistemaXP.ganharXP(100, 'Conclusão do Quiz');
+            
+            // Lógica simples de perfil (mockup)
+            if(pontuacao > 150) {
+                document.getElementById('resultado-perfil').innerText = "TALENTO PROATIVO";
+                document.getElementById('resultado-desc').innerText = "Você tem iniciativa e ética. Perfil Ouro para contratação.";
+            } else {
+                document.getElementById('resultado-perfil').innerText = "PERFIL TÉCNICO";
+                document.getElementById('resultado-desc').innerText = "Você foca na tarefa. Desenvolva mais suas soft skills.";
+            }
+        }
+
+        // Iniciar
+        carregarPergunta();
+    </script>
+</body>
+</html>
