@@ -3,237 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trilha do Aprendiz: Inovação e Impacto Social com Gamificação e IA</title>
-    <!-- Carrega Tailwind CSS via CDN -->
+    <title data-i18n="title">Trilha do Aprendiz: Inovação e Impacto Social</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Configuração de fontes e cores personalizadas do Tailwind -->
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'blue-ta': '#0056b3',
-                        'orange-ta': '#f7991e',
-                        'gray-ta': '#f4f4f4',
-                        'black-ta': '#222222',
-                        'dark-ta': '#1a1a1a',
-                        'dark-card': '#2f2f2f',
-                        'green-ta': '#4CAF50',
-                    },
-                    fontFamily: {
-                        'poppins': ['Poppins', 'sans-serif'],
-                        'inter': ['Inter', 'sans-serif'],
-                    },
-                }
-            }
-        }
-    </script>
-    <!-- Carrega as fontes Poppins e Inter do Google Fonts -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
     
-    <!-- Link para seu CSS Customizado -->
-    <link rel="stylesheet" href="style.css">
+    <script>
+        tailwind.config = {
+            theme: { extend: { colors: { 'blue-ta': '#0056b3', 'orange-ta': '#f7991e', 'dark-ta': '#1a1a1a', 'dark-card': '#2f2f2f', 'green-ta': '#4CAF50' } } }
+        }
+    </script>
 </head>
-<body class="bg-dark-ta min-h-screen antialiased font-inter text-white">
+<body class="bg-dark-ta text-white font-inter">
 
-    <!-- CABEÇALHO (HEADER) -->
-    <header class="bg-orange-ta shadow-lg sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-20 items-center">
-                <!-- Logo -->
-                <div class="flex-shrink-0">
-                    <img src="imagens/logo-trilha-do-aprendiz-AZUL.png" alt="Logo Trilha do Aprendiz" class="h-10">
+    <header class="bg-orange-ta sticky top-0 z-50 shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 h-20 flex justify-between items-center">
+            <img src="imagens/logo-trilha-do-aprendiz-AZUL.png" class="h-10">
+            <nav class="hidden md:flex gap-6 items-center">
+                <a href="index.html" data-i18n="nav_inicio">Início</a>
+                <a href="/metaporto" class="bg-blue-ta px-4 py-2 rounded-full font-bold text-sm">MetaPorto.XR</a>
+                <div class="flex gap-2 bg-black-ta/20 p-1 rounded">
+                    <button onclick="changeLanguage('pt')" class="hover:bg-white/20 px-2 rounded">🇧🇷</button>
+                    <button onclick="changeLanguage('en')" class="hover:bg-white/20 px-2 rounded">🇺🇸</button>
+                    <button onclick="changeLanguage('zh')" class="hover:bg-white/20 px-2 rounded">🇨🇳</button>
                 </div>
-                
-                <!-- Links do Menu (Desktop) -->
-                <nav class="hidden md:flex space-x-4 lg:space-x-8 items-center">
-                    <a href="index.html" class="text-white border-b-2 border-white px-3 py-2 text-sm font-medium transition duration-150 rounded-md font-poppins font-semibold">Início</a>
-                    <a href="sobre.html" class="text-white hover:text-blue-ta px-3 py-2 text-sm font-medium transition duration-150 rounded-md">Sobre</a>
-                    <div class="group relative">
-                        <button class="text-white hover:text-blue-ta px-3 py-2 text-sm font-medium transition duration-150 rounded-md flex items-center">
-                            Soluções
-                            <svg class="w-4 h-4 ml-1" fill="white" stroke="white" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                        </button>
-                        <!-- Submenu -->
-                        <div class="hidden group-hover:block absolute left-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 z-20">
-                            <a href="game-apz-selecao.html" class="block px-4 py-2 text-sm text-black-ta hover:bg-gray-ta rounded-t-md">Game APZ Seleção</a>
-                            <a href="ia-leia.html" class="block px-4 py-2 text-sm text-black-ta hover:bg-gray-ta">LEIA Inteligência Artificial</a>
-                            <a href="mapa-jovem.html" class="block px-4 py-2 text-sm text-black-ta hover:bg-gray-ta">Mapa do Jovem Trabalhador</a>
-                            <a href="maratona-start-end.html" class="block px-4 py-2 text-sm text-black-ta hover:bg-gray-ta">Start End Experience</a>
-                            <a href="fala-ai-aprendiz.html" class="block px-4 py-2 text-sm text-black-ta hover:bg-gray-ta rounded-b-md">PodCas Fala Ai Aprendiz</a>
-                        </div>
-                    </div>
-                    <a href="parceiros.html" class="text-white hover:text-blue-ta px-3 py-2 text-sm font-medium transition duration-150 rounded-md">Parceiros</a>
-                    <a href="blog.html" class="text-white hover:text-blue-ta px-3 py-2 text-sm font-medium transition duration-150 rounded-md">Blog / Notícias</a>
-                    <a href="https://stec.cx/services/trilhadoaprendiz/chat?p=baafde05-f553-45da-ad00-4eafc38c1465" class="bg-green-ta text-white hover:bg-green-ta/80 px-4 py-2 text-sm font-medium rounded-full transition duration-300 shadow-lg font-poppins font-semibold">Fale com a LEIA →</a>
-                </nav>
-                
-                <!-- Botão Mobile -->
-                <button id="menu-toggle" class="md:hidden text-white focus:outline-none p-2 rounded-lg hover:bg-dark-card transition duration-150">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
-                </button>
-            </div>
-        </div>
-        <!-- Menu Mobile -->
-        <div id="mobile-menu" class="hidden md:hidden bg-dark-card shadow-xl">
-            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 flex flex-col">
-                <a href="index.html" class="text-orange-ta block px-3 py-2 rounded-md text-base font-medium bg-dark-ta">Início</a>
-                <a href="sobre.html" class="text-white hover:bg-dark-ta block px-3 py-2 rounded-md text-base font-medium">Sobre</a>
-                <span class="text-white px-3 py-2 text-base font-bold">Soluções:</span>
-                <a href="game-apz-selecao.html" class="text-white hover:bg-dark-ta block px-6 py-2 rounded-md text-sm">Game APZ Seleção</a>
-                <a href="ia-leia.html" class="text-white hover:bg-dark-ta block px-6 py-2 rounded-md text-sm">LEIA Inteligência Artificial</a>
-                <a href="mapa-jovem.html" class="text-white hover:bg-dark-ta block px-6 py-2 rounded-md text-sm">Mapa do Jovem Trabalhador</a>
-                <a href="maratona-start-end.html" class="text-white hover:bg-dark-ta block px-6 py-2 rounded-md text-sm">Start End Experience</a>
-                <a href="fala-ai-aprendiz.html" class="text-white hover:bg-dark-ta block px-6 py-2 rounded-md text-sm">PodCas Fala Ai Aprendiz</a>
-                <a href="parceiros.html" class="text-white hover:bg-dark-ta block px-3 py-2 rounded-md text-base font-medium">Parceiros</a>
-                <a href="blog.html" class="text-white hover:bg-dark-ta block px-3 py-2 rounded-md text-base font-medium">Blog / Notícias</a>
-                <a href="https://stec.cx/services/trilhadoaprendiz/chat?p=baafde05-f553-45da-ad00-4eafc38c1465" class="bg-green-ta text-white text-center hover:bg-green-ta/80 mt-2 block px-3 py-2 rounded-full text-base font-medium transition duration-300">Fale com a LEIA</a>
-            </div>
+            </nav>
         </div>
     </header>
 
     <main>
-        <!-- HERO SECTION -->
-        <section class="bg-dark-ta pt-16 pb-20 md:pt-24 md:pb-32">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="grid lg:grid-cols-12 gap-12 items-center">
-                    <div class="lg:col-span-6 space-y-6">
-                        <h1 class="font-poppins text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight text-white uppercase fade-in">
-                            ENCONTRE AS MELHORES OPORTUNIDADES
-                        </h1>
-                        <p class="font-inter text-lg sm:text-xl text-white/90 fade-in delay-100">
-                            Já imaginou descobrir sua vocação e seu perfil comportamental em um só lugar? É possível com a gente. Teste agora mesmo.
-                        </p>
-                        <div class="flex pt-4 fade-in delay-200">
-                            <a href="https://scriptcase99.containersol.com.br/scriptcase/app/Trilha/Login/" class="inline-flex justify-center items-center px-8 py-4 border border-transparent text-base font-semibold rounded-lg text-white bg-green-ta hover:bg-green-ta/80 transition duration-300 shadow-lg font-poppins">
-                                REGISTRAR AGORA
-                            </a>
-                        </div>
-                    </div>
-                    
-                    <div class="lg:col-span-6 flex justify-center lg:justify-end">
-                        <div class="w-full max-w-lg h-72 md:h-96 bg-orange-ta rounded-xl shadow-2xl flex items-center justify-center p-4 fade-in delay-300">
-                            <img src="imagens/Tag Aprendiz Amarelo (1).png" alt="Jovem Aprendiz Trilha do Aprendiz" class="w-full h-full object-contain rounded-xl">
-                        </div>
-                    </div>
+        <section class="py-16 bg-[#111111]">
+            <div class="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-12 items-center">
+                <img src="assets/11_capa_do_simulador_MetaPorto.png" class="rounded-xl border border-gray-800">
+                <div>
+                    <h2 data-i18n="meta_title" class="text-3xl font-bold mb-4 text-orange-ta">MetaPorto: Solução Industrial</h2>
+                    <p data-i18n="meta_desc" class="text-gray-400 mb-6">Parceria YAKAMI TECH & Trilha: Treinamento XR com validação Blockchain.</p>
+                    <a href="/metaporto" data-i18n="meta_btn" class="bg-blue-ta px-8 py-3 rounded-full font-bold">Conheça o Produto</a>
                 </div>
             </div>
         </section>
+        
+        </main>
 
-        <!-- SESSÃO: SOLUÇÕES -->
-        <section class="py-16 md:py-24 bg-dark-ta">
-            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-                <h2 class="font-poppins text-3xl sm:text-4xl font-bold text-center mb-6 text-white fade-in">
-                    CONECTANDO EMPRESAS A JOVENS TALENTOS
-                </h2>
-                <div class="text-center max-w-3xl mx-auto mb-12 fade-in delay-100">
-                    <p class="font-inter text-lg text-white/80">
-                        Enquanto outras ferramentas são vistas como impessoais e tediosas pela Geração Z, a Trilha do Aprendiz é um Hub de Soluções integradas, humanizando e simplificando todo o processo da Lei da Aprendizagem.
-                    </p>
-                </div>
-                
-                <div class="grid md:grid-cols-3 gap-8">
-                    <!-- Jogo APZ Seleção -->
-                    <div class="bg-dark-card p-6 rounded-xl shadow-lg border-t-4 border-orange-ta card-hover fade-in delay-100">
-                        <img src="imagens/logo-mapa-jovem-trabalhador-AZUL.png" alt="Logo Game APZ Seleção" class="h-10 mb-4">
-                        <h3 class="font-poppins text-xl font-bold mb-3 text-orange-ta">Game APZ Seleção</h3>
-                        <p class="font-inter text-gray-300">A ferramenta lúdica que transforma o processo seletivo em uma aventura RPG. Encontre talentos por competências, não por currículo.</p>
-                    </div>
-                    <!-- IA LEIA -->
-                    <div class="bg-dark-card p-6 rounded-xl shadow-lg border-t-4 border-blue-ta card-hover fade-in delay-200">
-                        <img src="imagens/logo-ia-leia.png" alt="Logo IA LEIA" class="h-10 mb-4">
-                        <h3 class="font-poppins text-xl font-bold mb-3 text-blue-ta">LEIA Inteligência Artificial</h3>
-                        <p class="font-inter text-gray-300">Sua advogada digital 24/7. Suporte legal, cálculo de cotas e planejamento de contratação da Lei da Aprendizagem.</p>
-                    </div>
-                    <!-- Start End Experience -->
-                    <div class="bg-dark-card p-6 rounded-xl shadow-lg border-t-4 border-orange-ta card-hover fade-in delay-300">
-                        <img src="imagens/logo-start-end-experience-Branco.png" alt="Logo Start End Experience" class="h-10 mb-4">
-                        <h3 class="font-poppins text-xl font-bold mb-3 text-orange-ta">Start End Experience</h3>
-                        <p class="font-inter text-gray-300">Maratonas e hackathons que conectam jovens talentos com empresas através de desafios reais.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- SESSÃO: PARCEIROS -->
-        <section class="py-16 bg-blue-ta">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                <h2 class="font-poppins text-3xl sm:text-4xl font-bold mb-12 text-white fade-in">
-                    QUEM ACREDITA EM NOSSA TRILHA
-                </h2>
-                
-                <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-6 items-center justify-center">
-                    <!-- Logos dos Parceiros -->
-                    <div class="p-2 bg-white rounded-lg shadow-md flex items-center justify-center h-20 fade-in delay-100">
-                        <img src="imagens/logo-sebrae.png" alt="SEBRAE Nacional" class="h-10 grayscale hover:grayscale-0 transition duration-300">
-                    </div>
-                    <div class="p-2 bg-white rounded-lg shadow-md flex items-center justify-center h-20 fade-in delay-150">
-                        <img src="imagens/logo-finep.png" alt="FINEP Programa Centelha" class="h-10 grayscale hover:grayscale-0 transition duration-300">
-                    </div>
-                    <div class="p-2 bg-white rounded-lg shadow-md flex items-center justify-center h-20 fade-in delay-200">
-                        <img src="imagens/bndes-logoAtivo.png" alt="BNDES Garagem 2025" class="h-10 grayscale hover:grayscale-0 transition duration-300">
-                    </div>
-                    <div class="p-2 bg-white rounded-lg shadow-md flex items-center justify-center h-20 fade-in delay-250">
-                        <img src="imagens/Logo Ambev VOA.png" alt="AMBEV VOA 2024" class="h-10 grayscale hover:grayscale-0 transition duration-300">
-                    </div>
-                    <div class="p-2 bg-white rounded-lg shadow-md flex items-center justify-center h-20 fade-in delay-300">
-                        <img src="imagens/Logo_EmpreendeMais.svg" alt="SOFTEX Nacional" class="h-10 grayscale hover:grayscale-0 transition duration-300">
-                    </div>
-                    <div class="p-2 bg-white rounded-lg shadow-md flex items-center justify-center h-20 fade-in delay-350">
-                        <img src="imagens/Logo Ela Empodera.png" alt="Programa Ela Empodera 2023" class="h-10 grayscale hover:grayscale-0 transition duration-300">
-                    </div>
-                    <!-- Selo de Negócio de Impacto -->
-                    <div class="p-2 bg-orange-ta rounded-lg shadow-md flex flex-col items-center justify-center h-20 fade-in delay-400">
-                        <img src="imagens/negocio-de-impacto.png" alt="Selo de Negócio de Impacto" class="h-10">
-                        <p class="text-xs font-semibold text-white mt-1">Negócio de Impacto</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- SESSÃO: MÍDIA -->
-        <section class="py-16 md:py-24 bg-dark-ta">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <h2 class="font-poppins text-3xl sm:text-4xl font-bold text-center mb-12 text-white fade-in">
-                    A Trilha do Aprendiz na Mídia
-                </h2>
-                <p class="text-center max-w-4xl mx-auto mb-10 text-lg text-white/80 fade-in delay-100">
-                    Confira as reportagens, entrevistas e notícias que destacam a importância da nossa solução para a juventude e o mercado de trabalho.
-                </p>
-                
-                <div class="grid md:grid-cols-3 gap-8" id="midia-cards-container">
-                    <a href="#" class="bg-dark-card p-6 rounded-xl shadow-lg hover:shadow-2xl transition duration-300 border-b-4 border-orange-ta block card-hover fade-in delay-100">
-                        <p class="text-sm text-gray-400 mb-2">Jornal A Crítica | 20/09/2025</p>
-                        <h4 class="font-poppins text-lg font-semibold text-white">Startup da Amazônia usa Gamificação para Recrutar Jovens Aprendizes</h4>
-                        <p class="text-orange-ta text-sm mt-3 font-semibold">Leia a Matéria Completa →</p>
-                    </a>
-                    
-                    <a href="#" class="bg-dark-card p-6 rounded-xl shadow-lg hover:shadow-2xl transition duration-300 border-b-4 border-blue-ta block card-hover fade-in delay-200">
-                        <p class="text-sm text-gray-400 mb-2">G1 - Empreendedorismo | 15/08/2025</p>
-                        <h4 class="font-poppins text-lg font-semibold text-white">IA LEIA: A Inteligência Artificial que Ajuda Empresas na Lei da Aprendizagem</h4>
-                        <p class="text-blue-ta text-sm mt-3 font-semibold">Leia a Matéria Completa →</p>
-                    </a>
-                    
-                    <a href="#" class="bg-dark-card p-6 rounded-xl shadow-lg hover:shadow-2xl transition duration-300 border-b-4 border-orange-ta block card-hover fade-in delay-300">
-                        <p class="text-sm text-gray-400 mb-2">TV Amazonas | 01/07/2025</p>
-                        <h4 class="font-poppins text-lg font-semibold text-white">Casal Empreendedor Explica Como o Mapa do Jovem Trabalhador Reduz a Evasão</h4>
-                        <p class="text-orange-ta text-sm mt-3 font-semibold">Assista a Entrevista →</p>
-                    </a>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- RODAPÉ -->
-    <footer class="bg-black-ta py-8">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-gray-400 font-inter text-sm">
-            <p>&copy; 2025 Trilha do Aprendiz. Todos os direitos reservados.</p>
-            <p class="mt-2">Desenvolvido por Trilha do Aprendiz</p>
-        </div>
-    </footer>
-
-    <!-- Link para seu JavaScript -->
-    <script src="script.js"></script>
+    <script>
+        const translations = {
+            pt: { title: "Trilha do Aprendiz", nav_inicio: "Início", meta_title: "MetaPorto: Infraestrutura Industrial", meta_desc: "Simulação VR para compliance portuário global.", meta_btn: "Conheça o Produto" },
+            en: { title: "Trilha do Aprendiz", nav_inicio: "Home", meta_title: "MetaPorto: Industrial Infrastructure", meta_desc: "VR simulation for global port compliance.", meta_btn: "Discover Product" },
+            zh: { title: "学徒之路", nav_inicio: "主页", meta_title: "MetaPorto: 工业基础设施", meta_desc: "用于全球港口合规的 VR 模拟。", meta_btn: "了解产品" }
+        };
+        function changeLanguage(lang) {
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[lang][key]) el.innerText = translations[lang][key];
+            });
+        }
+    </script>
 </body>
 </html>
