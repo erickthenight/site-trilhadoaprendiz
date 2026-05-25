@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="title">Verificação Web3 | YAKAMI TECH</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #0a0f18; color: #ffffff; }
+        .hash-text { font-family: 'JetBrains Mono', monospace; }
+        .glass-box { background: rgba(17, 24, 39, 0.8); backdrop-filter: blur(12px); border: 1px solid rgba(59, 130, 246, 0.3); }
+    </style>
+</head>
+<body class="antialiased min-h-screen flex flex-col items-center justify-center relative overflow-hidden">
+
+    <div class="absolute top-0 left-0 w-full h-full overflow-hidden z-0 pointer-events-none">
+        <div class="absolute top-[-10%] left-[-10%] w-96 h-96 bg-blue-900/20 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-[-10%] right-[-10%] w-96 h-96 bg-green-900/20 rounded-full blur-3xl"></div>
+    </div>
+
+    <nav class="fixed top-0 w-full z-50 p-4 flex justify-between items-center">
+        <div class="flex items-center gap-3">
+            <div class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center font-bold text-white shadow-lg">YKM</div>
+            <h1 class="font-bold text-xl tracking-wide hidden sm:block">MetaPorto<span class="text-blue-500">.XR</span></h1>
+        </div>
+        <div class="flex gap-2 bg-gray-900 border border-gray-700 p-1 rounded-lg z-50">
+            <button onclick="changeLanguage('pt')" class="hover:bg-gray-800 px-3 py-1 rounded text-sm transition">🇧🇷 PT</button>
+            <button onclick="changeLanguage('en')" class="hover:bg-gray-800 px-3 py-1 rounded text-sm transition">🇺🇸 EN</button>
+            <button onclick="changeLanguage('zh')" class="hover:bg-gray-800 px-3 py-1 rounded text-sm transition">🇨🇳 ZH</button>
+        </div>
+    </nav>
+
+    <main class="w-full max-w-2xl px-4 z-10 mt-16">
+        <div class="glass-box rounded-2xl shadow-2xl p-8 sm:p-12">
+            
+            <div class="text-center mb-10">
+                <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-blue-900/50 text-blue-400 mb-4 border border-blue-500/50">
+                    <i class="fa-solid fa-shield-halved text-2xl"></i>
+                </div>
+                <h2 data-i18n="verify_title" class="text-3xl font-bold mb-2">Auditoria de Certificado</h2>
+                <p data-i18n="verify_desc" class="text-gray-400">Verificação de conformidade de treinamento via Blockchain (Ethereum Sepolia).</p>
+            </div>
+
+            <div class="bg-gray-900/80 border border-green-500/50 rounded-xl p-6 relative overflow-hidden">
+                <div class="absolute top-0 left-0 w-1 h-full bg-green-500"></div>
+                
+                <div class="flex items-center gap-4 mb-6">
+                    <div class="w-12 h-12 rounded-full bg-green-500/20 text-green-400 flex items-center justify-center text-xl">
+                        <i class="fa-solid fa-check"></i>
+                    </div>
+                    <div>
+                        <h3 data-i18n="status_valid" class="font-bold text-green-400 text-lg">CERTIFICADO VÁLIDO</h3>
+                        <p data-i18n="status_desc" class="text-xs text-gray-400">Assinatura criptográfica confirmada.</p>
+                    </div>
+                </div>
+
+                <div class="space-y-4 text-sm">
+                    <div class="grid grid-cols-3 border-b border-gray-800 pb-2">
+                        <span data-i18n="lbl_student" class="text-gray-500 col-span-1">Operador</span>
+                        <span class="font-semibold col-span-2">João Silva (Demo)</span>
+                    </div>
+                    <div class="grid grid-cols-3 border-b border-gray-800 pb-2">
+                        <span data-i18n="lbl_course" class="text-gray-500 col-span-1">Treinamento</span>
+                        <span class="font-semibold col-span-2 text-blue-400">NR-6 & NORMAM 204 (MetaPorto)</span>
+                    </div>
+                    <div class="grid grid-cols-3 border-b border-gray-800 pb-2">
+                        <span data-i18n="lbl_date" class="text-gray-500 col-span-1">Data Emissão</span>
+                        <span class="font-semibold col-span-2">12/05/2026</span>
+                    </div>
+                    <div class="grid grid-cols-3 pt-2">
+                        <span data-i18n="lbl_hash" class="text-gray-500 col-span-1">TX Hash</span>
+                        <span class="col-span-2 hash-text text-xs text-green-300 break-all">0x8f2a...c9e1</span>
+                    </div>
+                </div>
+
+                <div class="mt-8 text-center">
+                    <a href="https://sepolia.etherscan.io/" target="_blank" class="inline-block w-full sm:w-auto px-6 py-3 bg-gray-800 hover:bg-gray-700 border border-gray-600 rounded-lg font-semibold text-sm transition">
+                        <i class="fa-solid fa-magnifying-glass mr-2"></i> <span data-i18n="btn_etherscan">Verificar no Etherscan</span>
+                    </a>
+                </div>
+            </div>
+
+            <p data-i18n="footer_note" class="text-center text-xs text-gray-500 mt-8">
+                A confiança na Amazônia agora é código. YAKAMI TECH © 2026
+            </p>
+        </div>
+    </main>
+
+    <script>
+        const translations = {
+            pt: { 
+                title: "Verificação Web3 | YAKAMI TECH", verify_title: "Auditoria de Certificado", verify_desc: "Verificação de conformidade de treinamento via Blockchain (Ethereum Sepolia).",
+                status_valid: "CERTIFICADO VÁLIDO", status_desc: "Assinatura criptográfica confirmada e imutável.",
+                lbl_student: "Operador", lbl_course: "Treinamento", lbl_date: "Data Emissão", lbl_hash: "TX Hash",
+                btn_etherscan: "Verificar no Etherscan", footer_note: "A confiança na Amazônia agora é código. YAKAMI TECH © 2026"
+            },
+            en: { 
+                title: "Web3 Verification | YAKAMI TECH", verify_title: "Certificate Audit", verify_desc: "Training compliance verification via Blockchain (Ethereum Sepolia).",
+                status_valid: "VALID CERTIFICATE", status_desc: "Cryptographic signature confirmed and immutable.",
+                lbl_student: "Operator", lbl_course: "Training", lbl_date: "Issue Date", lbl_hash: "TX Hash",
+                btn_etherscan: "Verify on Etherscan", footer_note: "Trust in the Amazon is now code. YAKAMI TECH © 2026"
+            },
+            zh: { 
+                title: "Web3 验证 | YAKAMI TECH", verify_title: "证书审计", verify_desc: "通过区块链（以太坊 Sepolia）进行培训合规性验证。",
+                status_valid: "有效证书", status_desc: "加密签名已确认且不可篡改。",
+                lbl_student: "操作员", lbl_course: "培训项目", lbl_date: "签发日期", lbl_hash: "交易哈希 (TX Hash)",
+                btn_etherscan: "在 Etherscan 上验证", footer_note: "亚马逊的信任现在是代码。YAKAMI TECH © 2026"
+            }
+        };
+
+        function changeLanguage(lang) {
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[lang] && translations[lang][key]) {
+                    el.innerText = translations[lang][key];
+                }
+            });
+        }
+    </script>
+</body>
+</html>
